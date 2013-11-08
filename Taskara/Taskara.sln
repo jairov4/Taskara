@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taskara", "Taskara\Taskara.csproj", "{F4F25D6A-1AFD-45A8-8A37-E8A4C218F2DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taskara.Model", "Taskara.Model\Taskara.Model.csproj", "{4BA8DEC4-919E-463B-89F3-141F6FE01CDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4F25D6A-1AFD-45A8-8A37-E8A4C218F2DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4F25D6A-1AFD-45A8-8A37-E8A4C218F2DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4F25D6A-1AFD-45A8-8A37-E8A4C218F2DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4F25D6A-1AFD-45A8-8A37-E8A4C218F2DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BA8DEC4-919E-463B-89F3-141F6FE01CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA8DEC4-919E-463B-89F3-141F6FE01CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA8DEC4-919E-463B-89F3-141F6FE01CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA8DEC4-919E-463B-89F3-141F6FE01CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
