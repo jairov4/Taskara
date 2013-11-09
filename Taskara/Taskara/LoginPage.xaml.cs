@@ -31,7 +31,7 @@ namespace Taskara
 			if (!App.Instance.Service.ValidateUser(txtUser.Text, txtPassword.Password))
 			{
 				txtPassword.Password = string.Empty;
-				Thread.Sleep(1000);
+				Thread.Sleep(500);
 				MessageBox.Show("Usuario o contraseña incorrecta, por favor intenta nuevamente");
 				return;
 			}

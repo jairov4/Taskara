@@ -82,6 +82,7 @@ namespace Taskara
 				if (contains != null) throw new InvalidOperationException("Ya existe un paciente con la misma identificacion");
 			}
 			ObjectContainer.Store(patient);
+			ObjectContainer.Commit();
 		}
 	}
 }

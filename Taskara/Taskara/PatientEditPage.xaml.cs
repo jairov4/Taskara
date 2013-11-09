@@ -19,6 +19,11 @@ namespace Taskara
 	public class PatientViewModel
 	{
 		public Patient Patient { get; set; }
+
+		public PatientViewModel()
+		{
+			Patient = new Patient();
+		}
 	}
 
 	/// <summary>
@@ -33,16 +38,13 @@ namespace Taskara
 		}
 
 		public PatientViewModel ViewModel { get; set; }
-		
+
 		void PatientEditPage_Loaded(object sender, RoutedEventArgs e)
 		{
 			var parameters = Util.ExtractParameters(NavigationService.CurrentSource.ToString());
-			ViewModel = new PatientViewModel();
-			if (parameters.ContainsKey("New"))
-			{		
-				DataContext = ViewModel;
-			}
-			else
+			ViewModel = new PatientViewModel();			
+			DataContext = ViewModel;
+			if (!parameters.ContainsKey("New"))
 			{
 				var id = long.Parse(parameters["Id"]);
 				var p = App.Instance.Service.GetPatientById(id);
