@@ -32,7 +32,7 @@ namespace Taskara
 
 		private void btnNewPatient_Click(object sender, RoutedEventArgs e)
 		{
-			NavigationService.Navigate(new Uri("PatientEditPage.xaml", UriKind.Relative));
+			NavigationService.Navigate(new Uri("PatientEditPage.xaml?New", UriKind.Relative), "New");
 		}
 	}
 }

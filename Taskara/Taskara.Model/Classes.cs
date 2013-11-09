@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Taskara.Model
 {
-    public class User
+    public class AppUser
     {
 		public string Username { get; set; }
 		public string Password { get; set; }
@@ -24,8 +24,9 @@ namespace Taskara.Model
 		public string Address { get; set; }
 		public string Document { get; set; }
 		public DocumentType DocumentType { get; set; }
-		public DateTime LastProgress { get; set; }
+		public DateTime LastProgressDate { get; set; }
 		public DateTime Birthdate { get; set; }
+		public string Phone { get; set; }
 		public byte[] PhotoData { get; set; }
 		public string PhotoDataMime { get; set; }
 	}

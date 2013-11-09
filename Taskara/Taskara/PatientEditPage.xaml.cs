@@ -15,6 +15,17 @@ using System.Windows.Shapes;
 
 namespace Taskara
 {
+	public class PatientViewModel
+	{
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public string Document { get; set; }
+		public string Address { get; set; }
+		public string Phone { get; set; }
+		public string DocumentType { get; set; }
+		public DateTime LastProgressDate { get; set; }
+	}
+
 	/// <summary>
 	/// Lógica de interacción para PatientEditPage.xaml
 	/// </summary>
@@ -23,6 +34,31 @@ namespace Taskara
 		public PatientEditPage()
 		{
 			InitializeComponent();
+			Loaded += PatientEditPage_Loaded;
+		}
+
+		bool IsNew;
+
+		void PatientEditPage_Loaded(object sender, RoutedEventArgs e)
+		{
+			var parameters = Util.ExtractParameters(NavigationService.CurrentSource.ToString());
+			var vm = new PatientViewModel();
+			if (parameters.ContainsKey("New"))
+			{
+				IsNew = true;
+				DataContext = vm;
+			}
+			else
+			{
+				var id = long.Parse(parameters["Id"]);
+				var p = App.Instance.Service.GetPatientById(id);
+				vm.Address = p.Address;
+				vm.Document = p.Document;
+				vm.FirstName = p.FirstName;
+				vm.LastName = p.LastName;
+				vm.LastProgressDate = p.LastProgressDate;
+				vm.Phone = p.Phone;
+			}
 		}
 	}
 }

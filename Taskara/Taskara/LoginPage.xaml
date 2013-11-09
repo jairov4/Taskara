@@ -33,10 +33,10 @@
 			<TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="0">Usuario:</TextBlock>
 			<TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="1">Password:</TextBlock>
 
-			<TextBox TextAlignment="Center" MinWidth="170" Margin="10,0" Grid.Row="2" Grid.Column="0"></TextBox>
-			<PasswordBox HorizontalContentAlignment="Center" MinWidth="170" Margin="10,0" Grid.Row="2" Grid.Column="1"></PasswordBox>
+			<TextBox x:Name="txtUser" TextAlignment="Center" MinWidth="170" Margin="10,0" Grid.Row="2" Grid.Column="0"></TextBox>
+			<PasswordBox x:Name="txtPassword" HorizontalContentAlignment="Center" MinWidth="170" Margin="10,0" Grid.Row="2" Grid.Column="1"></PasswordBox>
 
-			<Button Padding="10" Margin="10" Grid.Row="3" Grid.ColumnSpan="2" Click="btnLogin_Click">
+			<Button IsDefault="True" Padding="10" Margin="10" Grid.Row="3" Grid.ColumnSpan="2" Click="btnLogin_Click">
 				Ingresar
 			</Button>
 		</Grid>
