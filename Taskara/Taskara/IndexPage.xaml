@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  xmlns:taskara="clr-namespace:Taskara.Model;assembly=Taskara.Model"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="700"
 	Title="Inicio">
@@ -27,16 +28,21 @@
 				<Button Padding="20,10" Click="btnCreateRecipe_Click">Nueva receta</Button>
 				<Button Padding="20,10" Click="btnNewPatient_Click">Nuevo paciente</Button>
 			</StackPanel>
-			<ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
+			<ListBox ItemsSource="{Binding Patients}" SelectedItem="{Binding SelectedPatient}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="lstPatients_MouseDoubleClick" Grid.Row="1">
 				<ListBox.ItemsPanel>
 					<ItemsPanelTemplate>
 						<WrapPanel Orientation="Horizontal" />
 					</ItemsPanelTemplate>
 				</ListBox.ItemsPanel>
-				<ListBoxItem MinHeight="120">
-					Pepe Luiz Adolfo
-				</ListBoxItem>
-
+				<ListBox.ItemTemplate>
+					<DataTemplate DataType="{x:Type taskara:Patient}">
+						<StackPanel>
+							<TextBlock Text="{Binding FirstName}" />
+							<TextBlock Text="{Binding LastName}" />
+							<TextBlock Text="{Binding Document}" />
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
 			</ListBox>
 		</Grid>
 	</DockPanel>

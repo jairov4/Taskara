@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace Taskara
 {
-	public class Util
+	public static class Util
 	{
+		public static void Navigate(this NavigationService svc, string uri_fmt, params object[] p)
+		{
+			var str = string.Format(uri_fmt, p);
+			svc.Navigate(new Uri(str, UriKind.Relative));
+		}
+
+		public static void Navigate(this Page page, string uri_fmt, params object[] p)
+		{
+			Navigate(page.NavigationService, uri_fmt, p);
+		}
+
 		public static IDictionary<string, string> ExtractParameters(string RawUrl)
 		{
 			int index = RawUrl.IndexOf("?");

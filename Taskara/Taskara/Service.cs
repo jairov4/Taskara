@@ -84,5 +84,15 @@ namespace Taskara
 			ObjectContainer.Store(patient);
 			ObjectContainer.Commit();
 		}
+
+		public IList<Patient> ListPatients()
+		{
+			return ObjectContainer.Query<Patient>();
+		}
+
+		public long GetId(object patient)
+		{
+			return ObjectContainer.GetID(patient);
+		}
 	}
 }

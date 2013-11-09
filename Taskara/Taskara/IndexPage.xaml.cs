@@ -12,9 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Taskara.Model;
 
 namespace Taskara
 {
+	public class IndexPageViewModel
+	{
+		public IList<Patient> Patients { get; set; }
+		public Patient SelectedPatient { get; set; }
+	}
+
 	/// <summary>
 	/// Lógica de interacción para IndexPage.xaml
 	/// </summary>
@@ -23,6 +30,16 @@ namespace Taskara
 		public IndexPage()
 		{
 			InitializeComponent();
+			Loaded += IndexPage_Loaded;
+		}
+
+		public IndexPageViewModel ViewModel { get; set; }
+
+		void IndexPage_Loaded(object sender, RoutedEventArgs e)
+		{
+			ViewModel = new IndexPageViewModel();
+			DataContext = ViewModel;
+			ViewModel.Patients = App.Instance.Service.ListPatients();
 		}
 
 		private void btnCreateRecipe_Click(object sender, RoutedEventArgs e)
@@ -32,7 +49,17 @@ namespace Taskara
 
 		private void btnNewPatient_Click(object sender, RoutedEventArgs e)
 		{
-			NavigationService.Navigate(new Uri("PatientEditPage.xaml?New", UriKind.Relative), "New");
+			NavigationService.Navigate(new Uri("PatientEditPage.xaml?New", UriKind.Relative));
+		}
+
+		private void lstPatients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+		{
+			e.Handled = true;
+			if (ViewModel.SelectedPatient != null)
+			{
+				var id = App.Instance.Service.GetId(ViewModel.SelectedPatient);
+				this.Navigate("PatientEditPage.xaml?Id={0}", id);
+			}
 		}
 	}
 }
