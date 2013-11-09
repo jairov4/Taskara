@@ -44,12 +44,12 @@ namespace Taskara
 
 		private void btnCreateRecipe_Click(object sender, RoutedEventArgs e)
 		{
-			NavigationService.Navigate(new Uri("PrescriptionEditPage.xaml", UriKind.Relative));
+			Navigate(typeof(PrescriptionEditPage));
 		}
 
 		private void btnNewPatient_Click(object sender, RoutedEventArgs e)
 		{
-			NavigationService.Navigate(new Uri("PatientEditPage.xaml?New", UriKind.Relative));
+			Navigate(typeof(PatientEditPage));
 		}
 
 		private void lstPatients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -58,7 +58,7 @@ namespace Taskara
 			if (ViewModel.SelectedPatient != null)
 			{
 				var id = App.Instance.Service.GetId(ViewModel.SelectedPatient);
-				this.Navigate("PatientEditPage.xaml?Id={0}", id);
+				this.Navigate(typeof(PatientEditPage), id);
 			}
 		}
 	}

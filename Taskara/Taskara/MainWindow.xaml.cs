@@ -18,12 +18,12 @@ namespace Taskara
 	/// <summary>
 	/// Lógica de interacción para MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : NavigationWindow
+	public partial class MainWindow : Window
 	{
 		public MainWindow()
 		{
 			InitializeComponent();
-			Navigate(new LoginPage());
+			navigationSurface.Navigate(typeof(LoginPage), null, true);
 		}
 	}
 }

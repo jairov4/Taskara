@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,13 +17,23 @@ using Taskara.Model;
 
 namespace Taskara
 {
-	public class PatientViewModel
+	public class PatientViewModel : INotifyPropertyChanged
 	{
 		public Patient Patient { get; set; }
 
 		public PatientViewModel()
 		{
 			Patient = new Patient();
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		public void NotifyPropertyChanged(string property)
+		{
+			if (PropertyChanged != null)
+			{
+				PropertyChanged(this, new PropertyChangedEventArgs(property));
+			}
 		}
 	}
 
@@ -34,28 +45,30 @@ namespace Taskara
 		public PatientEditPage()
 		{
 			InitializeComponent();
-			Loaded += PatientEditPage_Loaded;
+			NavigatedIn += PatientEditPage_NavigatedIn;
+		}
+
+		void PatientEditPage_NavigatedIn(object sender, PageNavigationEventArgs e)
+		{
+			ViewModel = new PatientViewModel();
+			DataContext = ViewModel;
+			if(e.Parameter != null)
+			{
+				var id = (long)e.Parameter;
+				var p = App.Instance.Service.GetPatientById(id);
+				ViewModel.Patient = p;
+				ViewModel.NotifyPropertyChanged("Patient");
+			}
 		}
 
 		public PatientViewModel ViewModel { get; set; }
 
-		void PatientEditPage_Loaded(object sender, RoutedEventArgs e)
-		{
-			var parameters = Util.ExtractParameters(NavigationService.CurrentSource.ToString());
-			ViewModel = new PatientViewModel();			
-			DataContext = ViewModel;
-			if (!parameters.ContainsKey("New"))
-			{
-				var id = long.Parse(parameters["Id"]);
-				var p = App.Instance.Service.GetPatientById(id);
-				ViewModel.Patient = p;
-			}
-		}
+		
 
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
 			App.Instance.Service.SavePatient(ViewModel.Patient);
-			NavigationService.Navigate(new Uri("IndexPage.xaml", UriKind.Relative));
+			Navigate(typeof(IndexPage));
 		}
 	}
 }

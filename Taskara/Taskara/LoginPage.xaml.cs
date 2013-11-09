@@ -35,7 +35,7 @@ namespace Taskara
 				MessageBox.Show("Usuario o contraseña incorrecta, por favor intenta nuevamente");
 				return;
 			}
-			NavigationService.Navigate(new Uri("IndexPage.xaml", UriKind.Relative));
+			Navigate(typeof(IndexPage));
 		}
 	}
 }

@@ -27,7 +27,7 @@ namespace Taskara
 
 		private void btnFinish_Click(object sender, RoutedEventArgs e)
 		{
-			NavigationService.Navigate(new Uri("IndexPage.xaml", UriKind.Relative));
+			Navigate(typeof(IndexPage));
 		}
 	}
 }
