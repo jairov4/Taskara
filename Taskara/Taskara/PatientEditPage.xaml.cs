@@ -12,18 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Taskara.Model;
 
 namespace Taskara
 {
 	public class PatientViewModel
 	{
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
-		public string Document { get; set; }
-		public string Address { get; set; }
-		public string Phone { get; set; }
-		public string DocumentType { get; set; }
-		public DateTime LastProgressDate { get; set; }
+		public Patient Patient { get; set; }
 	}
 
 	/// <summary>
@@ -37,28 +32,27 @@ namespace Taskara
 			Loaded += PatientEditPage_Loaded;
 		}
 
-		bool IsNew;
-
+		public PatientViewModel ViewModel { get; set; }
+		
 		void PatientEditPage_Loaded(object sender, RoutedEventArgs e)
 		{
 			var parameters = Util.ExtractParameters(NavigationService.CurrentSource.ToString());
-			var vm = new PatientViewModel();
+			ViewModel = new PatientViewModel();
 			if (parameters.ContainsKey("New"))
-			{
-				IsNew = true;
-				DataContext = vm;
+			{		
+				DataContext = ViewModel;
 			}
 			else
 			{
 				var id = long.Parse(parameters["Id"]);
 				var p = App.Instance.Service.GetPatientById(id);
-				vm.Address = p.Address;
-				vm.Document = p.Document;
-				vm.FirstName = p.FirstName;
-				vm.LastName = p.LastName;
-				vm.LastProgressDate = p.LastProgressDate;
-				vm.Phone = p.Phone;
+				ViewModel.Patient = p;
 			}
+		}
+
+		private void btnSave_Click(object sender, RoutedEventArgs e)
+		{
+			App.Instance.Service.SavePatient(ViewModel.Patient);
 		}
 	}
 }

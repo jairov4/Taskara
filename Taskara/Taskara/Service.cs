@@ -71,5 +71,10 @@ namespace Taskara
 			var patient = ObjectContainer.Ext().GetByID(id);
 			return patient as Patient;
 		}
+
+		public void SavePatient(Patient patient)
+		{
+			ObjectContainer.Store(patient);
+		}
 	}
 }
