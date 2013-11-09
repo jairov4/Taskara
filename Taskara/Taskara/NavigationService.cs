@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace Taskara
 {
@@ -24,42 +25,65 @@ namespace Taskara
 
 		Type currentPage;
 		object currentParameter;
+		bool currentSkipJournal;
 
 		public NavigationService(ContentControl surf)
 		{
 			navigationSurface = surf;
 			JournalBack = new List<Tuple<Type, object>>();
 			JournalForward = new List<Tuple<Type, object>>();
+
+			currentPage = null;
+			currentParameter = null;
+			currentSkipJournal = true;
 		}
 
 		public void Navigate(Type page, object parameter, bool skipJournal = false)
 		{
+			NavigateInternal(page, parameter, skipJournal, false);
+		}
+
+		protected void NavigateInternal(Type page, object parameter, bool skipJournal, bool onJournalAction)
+		{
+			// Si la pagina implementa la interfaz se le notifica su salida
+			// si se niega, cancelamos la navegacion
 			var actualPage = navigationSurface.Content as INavigationPage;
 			if (actualPage != null)
 			{
 				if (!actualPage.OnNavigatingOut(page, parameter)) return;
 			}
+
+			// Instanciamos la nueva pagina
 			var pageObject = Activator.CreateInstance(page);
 			var navPage = pageObject as INavigationPage;
 			if (navPage != null) navPage.NavigationService = this;
-			navigationSurface.Content = pageObject;
 
-			if (!skipJournal)
+			// Ajustamos el Journal y procedemos
+			if (!currentSkipJournal && !onJournalAction)
 			{
 				JournalBack.Add(new Tuple<Type, object>(currentPage, currentParameter));
+			}
+			if (!onJournalAction)
+			{
+				JournalForward.Clear();
 			}
 
 			currentPage = page;
 			currentParameter = parameter;
+			currentSkipJournal = skipJournal;
 
+			// Cargamos la nueva pagina y le notificamos
+			navigationSurface.Content = pageObject;
 			if (navPage != null)
 				navPage.OnNavigatedIn(parameter);
+
+			System.Diagnostics.Debug.WriteLine("Navigated to: {0}", currentPage);
 		}
 
 		public void GoBack()
 		{
 			var actualTuple = new Tuple<Type, object>(currentPage, currentParameter);
-			Navigate(JournalBack.Last().Item1, JournalBack.Last().Item2, true);
+			NavigateInternal(JournalBack.Last().Item1, JournalBack.Last().Item2, false, true);
 			JournalBack.RemoveAt(JournalBack.Count - 1);
 			JournalForward.Add(actualTuple);
 		}
@@ -67,7 +91,7 @@ namespace Taskara
 		public void GoForward()
 		{
 			var actualTuple = new Tuple<Type, object>(currentPage, currentParameter);
-			Navigate(JournalForward.Last().Item1, JournalForward.Last().Item2, true);
+			NavigateInternal(JournalForward.Last().Item1, JournalForward.Last().Item2, false, true);
 			JournalForward.RemoveAt(JournalForward.Count - 1);
 			JournalBack.Add(actualTuple);
 		}
@@ -92,10 +116,43 @@ namespace Taskara
 			svc = new NavigationService(this);
 		}
 
+		static NavigationSurface()
+		{
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(NavigationSurface), new FrameworkPropertyMetadata(typeof(NavigationSurface)));
+		}
+
 		public void Navigate(Type target, object parameter = null, bool skipJournal = false)
 		{
 			svc.Navigate(target, parameter, skipJournal);
 		}
+
+		public override void OnApplyTemplate()
+		{
+			base.OnApplyTemplate();
+
+			var btnBack = GetTemplateChild("btnBack") as ButtonBase;
+			var btnForward = GetTemplateChild("btnForward") as ButtonBase;
+
+			if (btnBack != null)
+				btnBack.Click += btnBack_Click;
+
+			if (btnForward != null)
+				btnForward.Click += btnForward_Click;
+		}
+
+		void btnForward_Click(object sender, RoutedEventArgs e)
+		{
+			if (svc.CanGoForward)
+				svc.GoForward();
+		}
+
+		void btnBack_Click(object sender, RoutedEventArgs e)
+		{
+			if (svc.CanGoBack)
+				svc.GoBack();
+		}
+
+
 	}
 
 	public class PageNavigationEventArgs : EventArgs
@@ -119,11 +176,7 @@ namespace Taskara
 		{
 		}
 
-		public NavigationService NavigationService
-		{
-			get;
-			set;
-		}
+		public NavigationService NavigationService { get; set; }
 
 		public event EventHandler<PageNavigationEventArgs> NavigatedIn;
 		public event EventHandler<PageNavigationEventArgs> NavigatingOut;
@@ -136,7 +189,7 @@ namespace Taskara
 
 		// Using a DependencyProperty as the backing store for Title.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty TitleProperty =
-			DependencyProperty.Register("Title", typeof(string), typeof(Page), new UIPropertyMetadata(string.Empty));
+			DependencyProperty.Register("Title", typeof(string), typeof(Page), new FrameworkPropertyMetadata(string.Empty));
 
 
 		void INavigationPage.OnNavigatedIn(object parameter)

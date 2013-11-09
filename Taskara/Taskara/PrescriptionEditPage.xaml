@@ -8,13 +8,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="800"
 	  Title="Receta">
-	<taskara:Page.Resources>
-		<ResourceDictionary>
-			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="Styles.xaml" />
-			</ResourceDictionary.MergedDictionaries>
-		</ResourceDictionary>
-	</taskara:Page.Resources>
 
 	<DockPanel>
 		<TextBlock DockPanel.Dock="Top" Style="{StaticResource TitleStyle}">Receta</TextBlock>
@@ -28,13 +21,13 @@
 				<ColumnDefinition Width="203*"/>
 			</Grid.ColumnDefinitions>
 
-			<Button Padding="20,10" HorizontalAlignment="Left">Agregar</Button>
+			<Button HorizontalAlignment="Left">Agregar</Button>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0" Grid.ColumnSpan="2">
-				<Button Margin="0" Padding="20,10" Click="btnFinish_Click">Terminar</Button>
-				<Button Margin="0" Padding="20,10">Quitar</Button>
-				<Button Margin="0" Padding="20,10">Subir</Button>
-				<Button Margin="0" Padding="20,10">Bajar</Button>
-				<Button Margin="0" Padding="20,10">Intercambiar</Button>
+				<Button Margin="0" Click="btnFinish_Click">Terminar</Button>
+				<Button Margin="0">Quitar</Button>
+				<Button Margin="0">Subir</Button>
+				<Button Margin="0">Bajar</Button>
+				<Button Margin="0">Intercambiar</Button>
 			</StackPanel>
 
 			<TreeView Grid.Row="1">

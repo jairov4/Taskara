@@ -8,13 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="700"
 	Title="Inicio">
-	<taskara:Page.Resources>
-		<ResourceDictionary>
-			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="Styles.xaml" />
-			</ResourceDictionary.MergedDictionaries>
-		</ResourceDictionary>
-	</taskara:Page.Resources>
+
 	<DockPanel>
 		<TextBlock DockPanel.Dock="Top" Style="{StaticResource TitleStyle}">
 			Inicio
@@ -26,8 +20,8 @@
 				<RowDefinition/>
 			</Grid.RowDefinitions>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-				<Button Padding="20,10" Click="btnCreateRecipe_Click">Nueva receta</Button>
-				<Button Padding="20,10" Click="btnNewPatient_Click">Nuevo paciente</Button>
+				<Button Click="btnCreateRecipe_Click">Nueva receta</Button>
+				<Button Click="btnNewPatient_Click">Nuevo paciente</Button>
 			</StackPanel>
 			<ListBox ItemsSource="{Binding Patients}" SelectedItem="{Binding SelectedPatient}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="lstPatients_MouseDoubleClick" Grid.Row="1">
 				<ListBox.ItemsPanel>

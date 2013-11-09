@@ -9,14 +9,6 @@
       d:DesignHeight="500" d:DesignWidth="600"
 	Title="PatientEditPage">
 
-	<taskara:Page.Resources>
-		<ResourceDictionary>
-			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="Styles.xaml" />
-			</ResourceDictionary.MergedDictionaries>
-		</ResourceDictionary>
-	</taskara:Page.Resources>
-
 	<DockPanel>
 		<TextBlock DockPanel.Dock="Top" Style="{StaticResource TitleStyle}">Paciente</TextBlock>
 		<Grid MaxHeight="500" MaxWidth="600">
@@ -60,7 +52,7 @@
 			<TextBox Grid.Column="2" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Patient.Phone}"/>
 			<TextBox Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" IsReadOnly="True" Text="{Binding Patient.LastProgressDate}"/>
 
-			<Button x:Name="btnSave" Click="btnSave_Click" Padding="20,10" Content="Guardar y volver" Grid.Row="6" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10" Grid.ColumnSpan="3" />
+			<Button x:Name="btnSave" Click="btnSave_Click" Content="Guardar y volver" Grid.Row="6" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10" Grid.ColumnSpan="3" />
 		</Grid>
 
 	</DockPanel>
