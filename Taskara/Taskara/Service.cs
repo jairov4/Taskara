@@ -1,4 +1,5 @@
 ﻿using Db4objects.Db4o;
+using Db4objects.Db4o.Ext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace Taskara
 {
 	public class Service
 	{
-		IObjectContainer ObjectContainer;
+		IExtObjectContainer ObjectContainer;
 
-		public Service(IObjectContainer container)
+		public Service(IExtObjectContainer container)
 		{
 			ObjectContainer = container;
 		}
@@ -42,7 +43,7 @@ namespace Taskara
 		string GetSalt()
 		{
 			var r = new Random();
-			var bytes = new byte[256];
+			var bytes = new byte[64];
 			r.NextBytes(bytes);
 			return Convert.ToBase64String(bytes);
 		}
@@ -64,6 +65,7 @@ namespace Taskara
 			user.Password = HashPassword(user.Password, salt);
 			user.Salt = salt;
 			ObjectContainer.Store(user);
+			ObjectContainer.Commit();
 		}
 
 		public Patient GetPatientById(long id)
@@ -74,6 +76,11 @@ namespace Taskara
 
 		public void SavePatient(Patient patient)
 		{
+			if (!ObjectContainer.IsStored(patient))
+			{
+				var contains = ObjectContainer.Query<Patient>(x => x.Document == patient.Document && x.DocumentType == patient.DocumentType).FirstOrDefault();
+				if (contains != null) throw new InvalidOperationException("Ya existe un paciente con la misma identificacion");
+			}
 			ObjectContainer.Store(patient);
 		}
 	}

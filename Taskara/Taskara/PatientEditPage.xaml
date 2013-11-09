@@ -45,19 +45,19 @@
 			<Label Content="Telefono" Grid.Column="1" Grid.Row="4" />
 			<Label Content="Fecha avance" Grid.Column="1" Grid.Row="5" />
 
-			<TextBox FontSize="35" Grid.Column="2" Grid.Row="0" TextWrapping="Wrap" Text="{Binding FirstName}"/>
-			<TextBox FontSize="35" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="{Binding LastName}"/>
+			<TextBox FontSize="35" Grid.Column="2" Grid.Row="0" TextWrapping="Wrap" Text="{Binding Patient.FirstName}"/>
+			<TextBox FontSize="35" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Patient.LastName}"/>
 			<DockPanel Grid.Column="2" Grid.Row="2">
-				<ComboBox DockPanel.Dock="Left" SelectedValue="{Binding DocumentType}">
+				<ComboBox DockPanel.Dock="Left" SelectedValue="{Binding Patient.DocumentType}">
 					<ComboBoxItem Content="CC"></ComboBoxItem>
 					<ComboBoxItem Content="TI"></ComboBoxItem>
 					<ComboBoxItem Content="Otra"></ComboBoxItem>
 				</ComboBox>
-				<TextBox TextWrapping="Wrap" Text="{Binding Document}"/>
-			</DockPanel>			
-			<TextBox Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Address}"/>
-			<TextBox Grid.Column="2" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Phone}"/>
-			<TextBox Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" IsReadOnly="True" Text="{Binding LastProgressDate}"/>
+				<TextBox TextWrapping="Wrap" Text="{Binding Patient.Document}"/>
+			</DockPanel>
+			<TextBox Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Patient.Address}"/>
+			<TextBox Grid.Column="2" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Patient.Phone}"/>
+			<TextBox Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" IsReadOnly="True" Text="{Binding Patient.LastProgressDate}"/>
 
 			<Button x:Name="btnSave" Click="btnSave_Click" Padding="20,10" Content="Guardar y volver" Grid.Row="6" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10" Grid.ColumnSpan="3" />
 		</Grid>

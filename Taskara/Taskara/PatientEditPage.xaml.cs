@@ -53,6 +53,7 @@ namespace Taskara
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
 			App.Instance.Service.SavePatient(ViewModel.Patient);
+			NavigationService.Navigate(new Uri("IndexPage.xaml", UriKind.Relative));
 		}
 	}
 }

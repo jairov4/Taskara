@@ -33,7 +33,7 @@ namespace Taskara
 			base.OnStartup(e);
 
 			OpenDatabaseFromAppData();
-					}
+		}
 
 
 		private void OpenDatabaseFromAppData()
@@ -47,7 +47,7 @@ namespace Taskara
 			}
 
 			ObjectContainer = Db4oEmbedded.OpenFile(fn);
-			Service = new Service(ObjectContainer);
+			Service = new Service(ObjectContainer.Ext());
 
 			Debug.WriteLine("Open database: {0}", (object)fn);
 
