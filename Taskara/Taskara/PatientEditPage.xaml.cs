@@ -52,7 +52,7 @@ namespace Taskara
 		{
 			ViewModel = new PatientViewModel();
 			DataContext = ViewModel;
-			if(e.Parameter != null)
+			if (e.Parameter != null)
 			{
 				var id = (long)e.Parameter;
 				var p = App.Instance.Service.GetPatientById(id);
@@ -62,8 +62,6 @@ namespace Taskara
 		}
 
 		public PatientViewModel ViewModel { get; set; }
-
-		
 
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
