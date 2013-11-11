@@ -16,6 +16,10 @@ namespace Taskara
 		bool OnNavigatingOut(Type page, object parameter);
 	}
 
+	/// <summary>
+	/// Servicio de navegacion propio con bajo consumo de memoria que no rompe los
+	/// enlaces de datos
+	/// </summary>
 	public class NavigationService
 	{
 		ContentControl navigationSurface;
@@ -151,8 +155,6 @@ namespace Taskara
 			if (svc.CanGoBack)
 				svc.GoBack();
 		}
-
-
 	}
 
 	public class PageNavigationEventArgs : EventArgs
@@ -171,7 +173,6 @@ namespace Taskara
 
 	public class Page : ContentControl, INavigationPage
 	{
-
 		public Page()
 		{
 		}

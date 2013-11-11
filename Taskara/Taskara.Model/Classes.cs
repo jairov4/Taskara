@@ -17,6 +17,11 @@ namespace Taskara.Model
 		TI, CC, Passport
 	}
 
+	public enum Genre
+	{
+		Male, Female
+	}
+
 	public class Patient
 	{
 		public string FirstName { get; set; }
@@ -27,15 +32,22 @@ namespace Taskara.Model
 		public DateTime LastProgressDate { get; set; }
 		public DateTime Birthdate { get; set; }
 		public string Phone { get; set; }
+		public Genre Genre { get; set; }
 		public byte[] PhotoData { get; set; }
 		public string PhotoDataMime { get; set; }
 	}
-		
+
+	public class Excercise
+	{
+		public string Name { get; set; }
+		public string[] Path { get; set; }
+	}
+
 	public class Prescription
 	{
 		public DateTime Issued { get; set; }
 		public Patient Patient { get; set; }
-		public Guid[] Excercises { get; set; }
+		public IList<Excercise> Excercises { get; set; }
 	}
 
 	public class ProgressReport

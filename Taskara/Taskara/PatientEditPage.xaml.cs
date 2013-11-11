@@ -21,9 +21,12 @@ namespace Taskara
 	{
 		public Patient Patient { get; set; }
 
+		public DocumentType[] DocumentTypes { get; set; }
+
 		public PatientViewModel()
 		{
 			Patient = new Patient();
+			DocumentTypes = (DocumentType[])Enum.GetValues(typeof(DocumentType));
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

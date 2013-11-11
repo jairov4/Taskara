@@ -9,6 +9,13 @@
       d:DesignHeight="300" d:DesignWidth="800"
 	  Title="Receta">
 
+	<taskara:Page.Resources>
+		<taskara:BoolToVisibilityConverter x:Key="boolToVisibility" />
+		<HierarchicalDataTemplate x:Key="excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}" >
+			<TextBlock Text="{Binding Name}" />
+		</HierarchicalDataTemplate>		
+	</taskara:Page.Resources>
+
 	<DockPanel>
 		<TextBlock DockPanel.Dock="Top" Style="{StaticResource TitleStyle}">Receta</TextBlock>
 		<Grid Margin="20">
@@ -17,42 +24,46 @@
 				<RowDefinition Height="172*"/>
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="197*"/>
-				<ColumnDefinition Width="203*"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 
-			<Button HorizontalAlignment="Left">Agregar</Button>
+			<Button HorizontalAlignment="Left" Click="btnAdd_Click">Agregar</Button>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0" Grid.ColumnSpan="2">
 				<Button Margin="0" Click="btnFinish_Click">Terminar</Button>
-				<Button Margin="0">Quitar</Button>
-				<Button Margin="0">Subir</Button>
-				<Button Margin="0">Bajar</Button>
-				<Button Margin="0">Intercambiar</Button>
+				<Button Margin="0" Click="btnRemove_Click">Quitar</Button>
+				<Button Margin="0" Click="btnUp_Click">Subir</Button>
+				<Button Margin="0" Click="btnDown_Click">Bajar</Button>
 			</StackPanel>
 
-			<TreeView Grid.Row="1">
-				<TreeViewItem Header="Nivel I">
-					<TreeViewItem Header="/a/">
-						<TreeViewItem Header="an"></TreeViewItem>
-						<TreeViewItem Header="ak"></TreeViewItem>
-						<TreeViewItem Header="wd"></TreeViewItem>
-					</TreeViewItem>
-					<TreeViewItem Header="/d/"></TreeViewItem>
-					<TreeViewItem Header="/s/"></TreeViewItem>
-					<TreeViewItem Header="/f/"></TreeViewItem>
-				</TreeViewItem>
-				<TreeViewItem Header="Nivel II">
-					<TreeViewItem Header="/a/"></TreeViewItem>
-					<TreeViewItem Header="/d/"></TreeViewItem>
-					<TreeViewItem Header="/s/"></TreeViewItem>
-					<TreeViewItem Header="/f/"></TreeViewItem>
-				</TreeViewItem>
+			<TreeView x:Name="tvSource" Grid.Row="1" 
+					  ItemsSource="{Binding AvailableExcercises}" 
+					  ItemTemplate="{StaticResource excerciseTreeItemDataTemplate}"
+					  SelectedItemChanged="tvSource_SelectedItemChanged">
+				<TreeView.ItemContainerStyle>
+					<Style TargetType="TreeViewItem">
+						<EventSetter Event="TreeViewItem.MouseMove" Handler="TreeViewItem_MouseMove" />
+						<EventSetter Event="TreeViewItem.PreviewMouseDown" Handler="TreeViewItem_MouseDown" />
+					</Style>
+				</TreeView.ItemContainerStyle>
+				
 			</TreeView>
 
-			<ListBox Grid.Row="1" Grid.Column="1">
-				<ListBoxItem>an</ListBoxItem>
-				<ListBoxItem>un</ListBoxItem>
-				<ListBoxItem>kun</ListBoxItem>
+			<ListBox x:Name="lbTarget" Grid.Row="1" Grid.Column="1" 
+					 ItemsSource="{Binding PrescriptionExcercises}"
+					 SelectedItem="{Binding SelectedPrescriptionExcercise}"
+					 ItemTemplate="{StaticResource excerciseTreeItemDataTemplate}"
+					 DragOver="ListBoxItem_DragEnter" 
+					 DragLeave="ListBoxItem_DragLeave" 
+					 Drop="ListBoxItem_Drop" 
+					 AllowDrop="True">
+				<ListBox.ItemContainerStyle>
+					<Style TargetType="ListBoxItem">
+						<EventSetter Event="DragEnter" Handler="ListBoxItem_DragEnter" />
+						<EventSetter Event="DragLeave" Handler="ListBoxItem_DragLeave" />
+						<EventSetter Event="Drop" Handler="ListBoxItem_Drop" />
+					</Style>
+				</ListBox.ItemContainerStyle>				
 			</ListBox>
 
 		</Grid>
