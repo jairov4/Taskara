@@ -5,9 +5,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 	  
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="400" d:DesignWidth="400"
 	Title="Login">
-
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
@@ -25,19 +24,18 @@
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>				
 			</Grid.RowDefinitions>
 
-			<TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="0">Usuario</TextBlock>
-			<TextBlock TextAlignment="Center" Grid.Row="1" Grid.Column="1">Password</TextBlock>
+			<TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="0">Usuario</TextBlock>
+			<TextBlock TextAlignment="Center" Grid.Row="0" Grid.Column="1">Password</TextBlock>
 
-			<TextBox x:Name="txtUser" TextAlignment="Center" MinWidth="170" Margin="10,0" Grid.Row="2" Grid.Column="0"></TextBox>
-			<PasswordBox x:Name="txtPassword" HorizontalContentAlignment="Center" MinWidth="170" Margin="10,0" Grid.Row="2" Grid.Column="1"></PasswordBox>
+			<TextBox x:Name="txtUser" TextAlignment="Center" MinWidth="170" Margin="10,0" Grid.Row="1" Grid.Column="0"></TextBox>
+			<PasswordBox x:Name="txtPassword" HorizontalContentAlignment="Center" MinWidth="170" Margin="10,0" Grid.Row="1" Grid.Column="1"></PasswordBox>
 
-			<Button IsDefault="True" Margin="10" Grid.Row="3" Grid.ColumnSpan="2" Click="btnLogin_Click">
+			<Button Background="#FF46A3F5" Foreground="White" IsDefault="True" Margin="10" Grid.Row="2" Grid.ColumnSpan="2" Click="btnLogin_Click">
 				Ingresar
 			</Button>
 		</Grid>

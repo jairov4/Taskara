@@ -17,6 +17,6 @@
 				VerticalAlignment="Bottom" HorizontalAlignment="Right" 
 				Background="#aa000000"
 				Foreground="White"
-				Content="Cambiar..."/>
+				Content="Cambiar"/>
 	</Grid>
 </UserControl>
