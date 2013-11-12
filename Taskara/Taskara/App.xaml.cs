@@ -1,4 +1,5 @@
 ﻿using Db4objects.Db4o;
+using Db4objects.Db4o.Ext;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,7 +22,7 @@ namespace Taskara
 	{
 		public static App Instance { get; private set; }
 
-		public IObjectContainer ObjectContainer { get; private set; }
+		public IExtObjectContainer ObjectContainer { get; private set; }
 		public Service Service { get; private set; }
 
 		const string DatabaseFilename = "database.yap";
@@ -46,8 +47,8 @@ namespace Taskara
 				Directory.CreateDirectory(folder);
 			}
 
-			ObjectContainer = Db4oEmbedded.OpenFile(fn);
-			Service = new Service(ObjectContainer.Ext());
+			ObjectContainer = Db4oEmbedded.OpenFile(fn).Ext();
+			Service = new Service(ObjectContainer);
 
 			Debug.WriteLine("Open database: {0}", (object)fn);
 

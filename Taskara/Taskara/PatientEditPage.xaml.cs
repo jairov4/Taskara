@@ -17,11 +17,28 @@ using Taskara.Model;
 
 namespace Taskara
 {
-	public class PatientViewModel : INotifyPropertyChanged
+	public class PatientViewModel : ObservableObject
 	{
-		public Patient Patient { get; set; }
+		Patient _Patient;
+		public Patient Patient
+		{
+			get { return _Patient; }
+			set { _Patient = value; NotifyPropertyChanged("Patient"); }
+		}
 
-		public DocumentType[] DocumentTypes { get; set; }
+		DocumentType[] _DocumentTypes;
+		public DocumentType[] DocumentTypes
+		{
+			get { return _DocumentTypes; }
+			set { _DocumentTypes = value; NotifyPropertyChanged("DocumentTypes"); }
+		}
+
+		bool _IsNew;
+		public bool IsNew
+		{
+			get { return _IsNew; }
+			set { _IsNew = value; NotifyPropertyChanged("IsNew"); }
+		}
 
 		public PatientViewModel()
 		{
@@ -29,13 +46,39 @@ namespace Taskara
 			DocumentTypes = (DocumentType[])Enum.GetValues(typeof(DocumentType));
 		}
 
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		public void NotifyPropertyChanged(string property)
+		public void CloseView()
 		{
-			if (PropertyChanged != null)
+			if (IsNew)
 			{
-				PropertyChanged(this, new PropertyChangedEventArgs(property));
+				if (!string.IsNullOrWhiteSpace(Patient.FirstName))
+				{
+					Save();
+				}
+			}
+			else
+			{
+				App.Instance.Service.SavePatient(Patient);
+			}
+		}
+
+		public void Save()
+		{
+			App.Instance.Service.SavePatient(Patient);
+			IsNew = false;
+		}
+
+		public void OpenNew(long? id)
+		{
+			if (id.HasValue)
+			{				
+				var p = App.Instance.Service.GetPatientById(id.Value);
+				Patient = p;
+				IsNew = false;
+			}
+			else
+			{
+				Patient = new Patient();
+				IsNew = true;
 			}
 		}
 	}
@@ -49,26 +92,27 @@ namespace Taskara
 		{
 			InitializeComponent();
 			NavigatedIn += PatientEditPage_NavigatedIn;
+			NavigatingOut += PatientEditPage_NavigatingOut;
+		}
+
+		void PatientEditPage_NavigatingOut(object sender, PageNavigationEventArgs e)
+		{
+			ViewModel.CloseView();
+			e.CurrentParameter = ViewModel.IsNew ? null : (object)App.Instance.Service.GetId(ViewModel.Patient);
 		}
 
 		void PatientEditPage_NavigatedIn(object sender, PageNavigationEventArgs e)
 		{
 			ViewModel = new PatientViewModel();
 			DataContext = ViewModel;
-			if (e.Parameter != null)
-			{
-				var id = (long)e.Parameter;
-				var p = App.Instance.Service.GetPatientById(id);
-				ViewModel.Patient = p;
-				ViewModel.NotifyPropertyChanged("Patient");
-			}
+			ViewModel.OpenNew((long?)e.Parameter);
 		}
 
 		public PatientViewModel ViewModel { get; set; }
 
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
-			App.Instance.Service.SavePatient(ViewModel.Patient);
+			ViewModel.Save();
 			Navigate(typeof(IndexPage));
 		}
 	}

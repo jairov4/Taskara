@@ -6,11 +6,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 	  
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="700"
+      d:DesignHeight="300" d:DesignWidth="700"			  
+	  MouseLeftButtonDown="Page_MouseLeftButtonDown"
 	Title="Inicio">
 
 	<DockPanel>
-		<Border DockPanel.Dock="Top" Padding="20" Background="#00B5FA">			
+		<Border DockPanel.Dock="Top" Padding="20" Background="#00B5FA">
 			<TextBlock Foreground="White" Style="{StaticResource TitleStyle}">
 			Inicio
 			</TextBlock>
@@ -23,7 +24,7 @@
 			</Grid.RowDefinitions>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
 				<Button Click="btnCreateRecipe_Click">Nueva receta</Button>
-				<Button Click="btnNewPatient_Click">Nuevo paciente</Button>
+				<Button Margin="-1,0,0,0" Click="btnNewPatient_Click">Nuevo paciente</Button>
 			</StackPanel>
 			<ListBox Margin="0,20,0,0" ItemsSource="{Binding Patients}" SelectedItem="{Binding SelectedPatient}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="lstPatients_MouseDoubleClick" Grid.Row="1">
 				<ListBox.ItemsPanel>
@@ -40,7 +41,26 @@
 						</StackPanel>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
-			</ListBox>
+			</ListBox>			
+			<Grid Visibility="Collapsed" x:Name="grdPrescriptions" MinWidth="320" HorizontalAlignment="Right" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,-70,-20,-20">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Rectangle Fill="GreenYellow" Grid.RowSpan="3">
+					<Rectangle.Effect>
+						<DropShadowEffect BlurRadius="20" Direction="-45" />
+					</Rectangle.Effect>
+				</Rectangle>
+				
+				<TextBlock Foreground="Green" Margin="20" Style="{StaticResource TitleStyle}">Recetas</TextBlock>
+				<ListBox Margin="20,0,20,0" Grid.Row="1"></ListBox>
+				<DockPanel Margin="20" Grid.Row="2">					
+					<Button>Cerrar</Button>
+					<Button Margin="-1,0,0,0" Background="#FF085D08" Foreground="White">Ver</Button>
+				</DockPanel>
+			</Grid>
 		</Grid>
 	</DockPanel>
 </taskara:Page>

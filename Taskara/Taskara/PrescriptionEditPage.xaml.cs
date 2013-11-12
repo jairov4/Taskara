@@ -189,18 +189,24 @@ namespace Taskara
 		{
 			InitializeComponent();
 			NavigatedIn += PrescriptionEditPage_NavigatedIn;
+			NavigatingOut += PrescriptionEditPage_NavigatingOut;
+		}
+
+		void PrescriptionEditPage_NavigatingOut(object sender, PageNavigationEventArgs e)
+		{
+			
 		}
 
 		PrescriptionViewModel ViewModel { get; set; }
 
 		void PrescriptionEditPage_NavigatedIn(object sender, PageNavigationEventArgs e)
 		{
-			ViewModel = new PrescriptionViewModel();
+			ViewModel = new PrescriptionViewModel();			
 			DataContext = ViewModel;
 		}
 
 		private void btnFinish_Click(object sender, RoutedEventArgs e)
-		{
+		{			
 			Navigate(typeof(IndexPage));
 		}
 

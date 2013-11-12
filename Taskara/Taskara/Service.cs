@@ -78,8 +78,11 @@ namespace Taskara
 		{
 			if (!ObjectContainer.IsStored(patient))
 			{
-				var contains = ObjectContainer.Query<Patient>(x => x.Document == patient.Document && x.DocumentType == patient.DocumentType).FirstOrDefault();
-				if (contains != null) throw new InvalidOperationException("Ya existe un paciente con la misma identificacion");
+				if (!string.IsNullOrWhiteSpace(patient.Document))
+				{
+					var contains = ObjectContainer.Query<Patient>(x => x.Document == patient.Document && x.DocumentType == patient.DocumentType).FirstOrDefault();
+					if (contains != null) throw new InvalidOperationException("Ya existe un paciente con la misma identificacion");
+				}
 			}
 			ObjectContainer.Store(patient);
 			ObjectContainer.Commit();

@@ -13,7 +13,7 @@ namespace Taskara
 	{
 		NavigationService NavigationService { get; set; }
 		void OnNavigatedIn(object parameter);
-		bool OnNavigatingOut(Type page, object parameter);
+		bool OnNavigatingOut(Type page, object parameter, ref object currentParameter);
 	}
 
 	/// <summary>
@@ -44,17 +44,22 @@ namespace Taskara
 
 		public void Navigate(Type page, object parameter, bool skipJournal = false)
 		{
-			NavigateInternal(page, parameter, skipJournal, false);
+			NavigateInternal(page, parameter, skipJournal, JournalAction.None);
 		}
 
-		protected void NavigateInternal(Type page, object parameter, bool skipJournal, bool onJournalAction)
+		protected enum JournalAction
+		{
+			Back, Forward, None
+		}
+
+		protected void NavigateInternal(Type page, object parameter, bool skipJournal, JournalAction onJournalAction)
 		{
 			// Si la pagina implementa la interfaz se le notifica su salida
 			// si se niega, cancelamos la navegacion
 			var actualPage = navigationSurface.Content as INavigationPage;
 			if (actualPage != null)
 			{
-				if (!actualPage.OnNavigatingOut(page, parameter)) return;
+				if (!actualPage.OnNavigatingOut(page, parameter, ref currentParameter)) return;
 			}
 
 			// Instanciamos la nueva pagina
@@ -63,13 +68,17 @@ namespace Taskara
 			if (navPage != null) navPage.NavigationService = this;
 
 			// Ajustamos el Journal y procedemos
-			if (!currentSkipJournal && !onJournalAction)
+			if (!currentSkipJournal && (onJournalAction == JournalAction.None || onJournalAction == JournalAction.Forward))
 			{
 				JournalBack.Add(new Tuple<Type, object>(currentPage, currentParameter));
 			}
-			if (!onJournalAction)
+			if (onJournalAction == JournalAction.None)
 			{
 				JournalForward.Clear();
+			}
+			if (!currentSkipJournal && (onJournalAction == JournalAction.Back))
+			{
+				JournalForward.Add(new Tuple<Type, object>(currentPage, currentParameter));
 			}
 
 			currentPage = page;
@@ -86,18 +95,14 @@ namespace Taskara
 
 		public void GoBack()
 		{
-			var actualTuple = new Tuple<Type, object>(currentPage, currentParameter);
-			NavigateInternal(JournalBack.Last().Item1, JournalBack.Last().Item2, false, true);
+			NavigateInternal(JournalBack.Last().Item1, JournalBack.Last().Item2, false, JournalAction.Back);
 			JournalBack.RemoveAt(JournalBack.Count - 1);
-			JournalForward.Add(actualTuple);
 		}
 
 		public void GoForward()
 		{
-			var actualTuple = new Tuple<Type, object>(currentPage, currentParameter);
-			NavigateInternal(JournalForward.Last().Item1, JournalForward.Last().Item2, false, true);
+			NavigateInternal(JournalForward.Last().Item1, JournalForward.Last().Item2, false, JournalAction.Forward);
 			JournalForward.RemoveAt(JournalForward.Count - 1);
-			JournalBack.Add(actualTuple);
 		}
 
 		public bool CanGoBack
@@ -161,12 +166,14 @@ namespace Taskara
 	{
 		public Type Target { get; private set; }
 		public object Parameter { get; private set; }
+		public object CurrentParameter { get; set; }
 		public bool StopNavigation { get; set; }
 
-		public PageNavigationEventArgs(Type target, object parameter)
+		public PageNavigationEventArgs(Type target, object parameter, object currentParameter)
 		{
 			Target = target;
 			Parameter = parameter;
+			CurrentParameter = currentParameter;
 			StopNavigation = false;
 		}
 	}
@@ -196,15 +203,16 @@ namespace Taskara
 		void INavigationPage.OnNavigatedIn(object parameter)
 		{
 			if (NavigatedIn != null)
-				NavigatedIn(this, new PageNavigationEventArgs(this.GetType(), parameter));
+				NavigatedIn(this, new PageNavigationEventArgs(this.GetType(), parameter, parameter));
 		}
 
-		bool INavigationPage.OnNavigatingOut(Type page, object parameter)
+		bool INavigationPage.OnNavigatingOut(Type page, object parameter, ref object currentParameter)
 		{
 			if (NavigatingOut != null)
 			{
-				var e = new PageNavigationEventArgs(page, parameter);
+				var e = new PageNavigationEventArgs(page, parameter, currentParameter);
 				NavigatingOut(this, e);
+				currentParameter = e.CurrentParameter;
 				return !e.StopNavigation;
 			}
 			else return true;

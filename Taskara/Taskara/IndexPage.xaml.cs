@@ -61,5 +61,13 @@ namespace Taskara
 				this.Navigate(typeof(PatientEditPage), id);
 			}
 		}
+
+		private void Page_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			if (grdPrescriptions.Visibility == System.Windows.Visibility.Visible)
+			{
+				grdPrescriptions.Visibility = System.Windows.Visibility.Collapsed;
+			}
+		}
 	}
 }
