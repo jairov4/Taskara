@@ -13,40 +13,43 @@
 		<taskara:BoolToVisibilityConverter x:Key="boolToVisibility" />
 		<HierarchicalDataTemplate x:Key="excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}" >
 			<TextBlock Text="{Binding Name}" />
-		</HierarchicalDataTemplate>		
+		</HierarchicalDataTemplate>
 	</taskara:Page.Resources>
 
 	<DockPanel>
-		<TextBlock DockPanel.Dock="Top" Style="{StaticResource TitleStyle}">Receta</TextBlock>
+		<Border DockPanel.Dock="Top" Background="#08DA9D">
+			<TextBlock Foreground="#fff" Padding="20" Style="{StaticResource TitleStyle}">Receta</TextBlock>
+		</Border>
 		<Grid Margin="20">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="172*"/>
+				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*" MinWidth="100" />
+				<ColumnDefinition Width="*" MinWidth="100" />
 			</Grid.ColumnDefinitions>
 
-			<Button HorizontalAlignment="Left" Click="btnAdd_Click">Agregar</Button>
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0" Grid.ColumnSpan="2">
-				<Button Margin="0" Click="btnFinish_Click">Terminar</Button>
-				<Button Margin="0" Click="btnRemove_Click">Quitar</Button>
-				<Button Margin="0" Click="btnUp_Click">Subir</Button>
-				<Button Margin="0" Click="btnDown_Click">Bajar</Button>
+			<Button Margin="0,0,0,20" HorizontalAlignment="Left" Click="btnAdd_Click">Agregar</Button>
+			<StackPanel Margin="0,0,0,20" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0" Grid.ColumnSpan="2">
+				<Button Click="btnFinish_Click">Terminar</Button>
+				<Button Click="btnRemove_Click">Quitar</Button>
+				<Button Click="btnUp_Click">Subir</Button>
+				<Button Click="btnDown_Click">Bajar</Button>
 			</StackPanel>
 
-			<TreeView x:Name="tvSource" Grid.Row="1" 
+			<TreeView x:Name="tvSource" Grid.Row="1" Margin="0,0,10,0"
 					  ItemsSource="{Binding AvailableExcercises}" 
 					  ItemTemplate="{StaticResource excerciseTreeItemDataTemplate}"
+					  MouseDoubleClick="tvSource_DoubleClick"
 					  SelectedItemChanged="tvSource_SelectedItemChanged">
 				<TreeView.ItemContainerStyle>
 					<Style TargetType="TreeViewItem">
 						<EventSetter Event="TreeViewItem.MouseMove" Handler="TreeViewItem_MouseMove" />
 						<EventSetter Event="TreeViewItem.PreviewMouseDown" Handler="TreeViewItem_MouseDown" />
+						<Setter Property="Visibility" Value="{Binding Visible, Converter={StaticResource boolToVisibility}}" />
 					</Style>
 				</TreeView.ItemContainerStyle>
-				
 			</TreeView>
 
 			<ListBox x:Name="lbTarget" Grid.Row="1" Grid.Column="1" 
@@ -63,8 +66,9 @@
 						<EventSetter Event="DragLeave" Handler="ListBoxItem_DragLeave" />
 						<EventSetter Event="Drop" Handler="ListBoxItem_Drop" />
 					</Style>
-				</ListBox.ItemContainerStyle>				
+				</ListBox.ItemContainerStyle>
 			</ListBox>
+			<GridSplitter Grid.Column="0" Grid.Row="1" Width="10" />
 
 		</Grid>
 

@@ -13,6 +13,10 @@
 	<Grid x:Name="grd">
 		<Rectangle Fill="White"></Rectangle>
 		<Image Source="{Binding Image}"/>
-		<Button x:Name="btnChange" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Cambiar..."/>
+		<Button x:Name="btnChange" 
+				VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+				Background="#aa000000"
+				Foreground="White"
+				Content="Cambiar..."/>
 	</Grid>
 </UserControl>

@@ -2,9 +2,9 @@
 		xmlns:taskara="clr-namespace:Taskara"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
-		x:Class="Taskara.MainWindow"
-        Title="MainWindow" Height="600" Width="725">
-	
+		x:Class="Taskara.MainWindow" 
+        Title="MainWindow" Height="600" Width="725" Background="#dedede">
+
 	<taskara:NavigationSurface x:Name="navigationSurface">
 	</taskara:NavigationSurface>
 </Window>

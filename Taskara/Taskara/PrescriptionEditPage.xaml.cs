@@ -26,8 +26,8 @@ namespace Taskara
 			set { _Name = value; NotifyPropertyChanged("Name"); }
 		}
 
-		IList<ExcerciseTreeItem> _Children;
-		public IList<ExcerciseTreeItem> Children
+		ObservableCollection<ExcerciseTreeItem> _Children = new ObservableCollection<ExcerciseTreeItem>();
+		public ObservableCollection<ExcerciseTreeItem> Children
 		{
 			get { return _Children; }
 			set { _Children = value; NotifyPropertyChanged("Children"); }
@@ -50,7 +50,6 @@ namespace Taskara
 		public ExcerciseTreeItem()
 		{
 			Visible = true;
-			Children = new List<ExcerciseTreeItem>();
 		}
 	}
 
@@ -81,7 +80,7 @@ namespace Taskara
 			AvailableExcercises.Add(new ExcerciseTreeItem()
 			{
 				Name = "Nivel I",
-				Children = new List<ExcerciseTreeItem>()
+				Children = new ObservableCollection<ExcerciseTreeItem>()
 				{
 					new ExcerciseTreeItem(){ Name="an"},
 					new ExcerciseTreeItem(){ Name="in"},
@@ -98,21 +97,34 @@ namespace Taskara
 		// recursivamente construye el arreglo de ruta
 		private void BuildPaths(ExcerciseTreeItem item, string[] path)
 		{
+			item.Path = path;
+			var pathlist = path.Concat(new[] { item.Name }).ToArray();
 			foreach (var child in item.Children)
-			{
-				child.Path = path;
-				var l = path.ToList();
-				l.Add(child.Name);
-				BuildPaths(child, l.ToArray());
+			{				
+				BuildPaths(child, pathlist);
 			}
 		}
 
 		public void AddSelected()
 		{
 			if (SelectedSourceExcercise == null || !SelectedSourceExcercise.Visible) return;
-			PrescriptionExcercises.Add(SelectedSourceExcercise);
-			SelectedSourceExcercise.Visible = false;
-			SelectedSourceExcercise = null;
+			Add(SelectedSourceExcercise);
+		}
+
+		private void Add(ExcerciseTreeItem tryItem)
+		{
+			if (tryItem.Children.Count > 0)
+			{
+				foreach (var item in tryItem.Children)
+				{
+					Add(item);
+				}
+			}
+			else if (tryItem.Visible)
+			{
+				PrescriptionExcercises.Add(tryItem);
+			}
+			tryItem.Visible = false;
 		}
 
 		public void InsertSelected(int idx)
@@ -125,10 +137,26 @@ namespace Taskara
 
 		public void RemoveSelected()
 		{
-			if (SelectedPrescriptionExcercise == null) return;
-			SelectedPrescriptionExcercise.Visible = true;
-			PrescriptionExcercises.Remove(SelectedPrescriptionExcercise);
+			var tmp = SelectedPrescriptionExcercise;
+			if (tmp == null) return;
+			PrescriptionExcercises.Remove(tmp);
+			RestoreAncestorsTree(tmp, AvailableExcercises, 0);
 			SelectedPrescriptionExcercise = null;
+		}
+
+		void RestoreAncestorsTree(ExcerciseTreeItem target, IEnumerable<ExcerciseTreeItem> actual, int depth)
+		{
+			if (depth < target.Path.Length)
+			{
+				var item = actual.FirstOrDefault(x => x.Name == target.Path[depth]);
+				if (target != item) RestoreAncestorsTree(target, item.Children, depth + 1);
+				item.Visible = true;
+			}
+			else
+			{
+				if (!actual.Contains(target)) return;
+				target.Visible = true;
+			}
 		}
 
 		public void MoveUpSelected()
@@ -268,6 +296,11 @@ namespace Taskara
 		private void tvSource_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
 			ViewModel.SelectedSourceExcercise = e.NewValue as ExcerciseTreeItem;
+		}
+
+		private void tvSource_DoubleClick(object sender, MouseButtonEventArgs e)
+		{
+			ViewModel.AddSelected();
 		}
 	}
 }

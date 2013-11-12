@@ -15,8 +15,9 @@
 							<ColumnDefinition Width="Auto" />
 							<ColumnDefinition />
 						</Grid.ColumnDefinitions>
-						<Button x:Name="btnBack" Grid.Column="0">Atras</Button>
-						<Button x:Name="btnForward" Grid.Column="1">Adelante</Button>
+						<Border Grid.ColumnSpan="3" Background="#2a2a2a"></Border>
+						<Button x:Name="btnBack" Grid.Column="0" Background="#2a2a2a" Foreground="#ddd">Atras</Button>
+						<Button x:Name="btnForward" Grid.Column="1" Background="#2a2a2a" Foreground="#ddd">Adelante</Button>						
 						<ContentPresenter Grid.Row="1" Grid.ColumnSpan="3" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" />
 					</Grid>
 				</ControlTemplate>
