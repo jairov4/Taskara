@@ -36,7 +36,7 @@ namespace Taskara.Model
 		public byte[] PhotoData { get; set; }
 		public string PhotoDataMime { get; set; }
 	}
-
+	
 	public class Excercise
 	{
 		public string Name { get; set; }

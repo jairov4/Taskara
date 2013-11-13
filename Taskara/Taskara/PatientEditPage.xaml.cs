@@ -33,6 +33,13 @@ namespace Taskara
 			set { _DocumentTypes = value; NotifyPropertyChanged("DocumentTypes"); }
 		}
 
+		Genre[] _Genres;
+		public Genre[] Genres
+		{
+			get { return _Genres; }
+			set { _Genres = value; NotifyPropertyChanged("Genres"); }
+		}
+
 		bool _IsNew;
 		public bool IsNew
 		{
@@ -44,6 +51,7 @@ namespace Taskara
 		{
 			Patient = new Patient();
 			DocumentTypes = (DocumentType[])Enum.GetValues(typeof(DocumentType));
+			Genres = (Genre[])Enum.GetValues(typeof(Genre));
 		}
 
 		public void CloseView()
@@ -70,7 +78,7 @@ namespace Taskara
 		public void OpenNew(long? id)
 		{
 			if (id.HasValue)
-			{				
+			{
 				var p = App.Instance.Service.GetPatientById(id.Value);
 				Patient = p;
 				IsNew = false;

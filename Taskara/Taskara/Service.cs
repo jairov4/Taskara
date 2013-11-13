@@ -22,12 +22,12 @@ namespace Taskara
 		string CalculateMD5Hash(string input)
 		{
 			// step 1, calculate MD5 hash from input
-			MD5 md5 = MD5.Create();
-			byte[] inputBytes = Encoding.ASCII.GetBytes(input);
-			byte[] hash = md5.ComputeHash(inputBytes);
+			var md5 = MD5.Create();
+			var inputBytes = Encoding.ASCII.GetBytes(input);
+			var hash = md5.ComputeHash(inputBytes);
 
 			// step 2, convert byte array to hex string
-			StringBuilder sb = new StringBuilder();
+			var sb = new StringBuilder();
 			for (int i = 0; i < hash.Length; i++)
 			{
 				sb.Append(hash[i].ToString("X2"));
@@ -70,7 +70,7 @@ namespace Taskara
 
 		public Patient GetPatientById(long id)
 		{
-			var patient = ObjectContainer.Ext().GetByID(id);
+			var patient = ObjectContainer.GetByID(id);
 			return patient as Patient;
 		}
 
@@ -84,7 +84,21 @@ namespace Taskara
 					if (contains != null) throw new InvalidOperationException("Ya existe un paciente con la misma identificacion");
 				}
 			}
+			patient.FirstName = patient.FirstName ?? string.Empty;
+			patient.LastName = patient.LastName ?? string.Empty;
+			patient.FirstName = patient.FirstName.Trim();
+			patient.LastName = patient.LastName.Trim();
 			ObjectContainer.Store(patient);
+			ObjectContainer.Commit();
+		}
+
+		public void SavePrescription(Prescription prescription)
+		{
+			if (prescription.Patient == null)
+			{
+				throw new InvalidOperationException("Prescripcion sin paciente");
+			}
+			ObjectContainer.Store(prescription);
 			ObjectContainer.Commit();
 		}
 
@@ -93,9 +107,20 @@ namespace Taskara
 			return ObjectContainer.Query<Patient>();
 		}
 
-		public long GetId(object patient)
+		public IList<Prescription> ListPrescriptionsByPatient(Patient p)
 		{
-			return ObjectContainer.GetID(patient);
+			return ObjectContainer.Query<Prescription>(x => x.Patient == p);
+		}
+
+		public long GetId(object obj)
+		{
+			return ObjectContainer.GetID(obj);
+		}
+
+		public Prescription GetPrescriptionById(long id)
+		{
+			var p = ObjectContainer.GetByID(id) as Prescription;
+			return p;
 		}
 	}
 }

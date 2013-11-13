@@ -40,16 +40,11 @@ namespace Taskara
 			set { _Path = value; NotifyPropertyChanged("Path"); }
 		}
 
-		bool _Visible;
+		bool _Visible = true;
 		public bool Visible
 		{
 			get { return _Visible; }
 			set { _Visible = value; NotifyPropertyChanged("Visible"); }
-		}
-
-		public ExcerciseTreeItem()
-		{
-			Visible = true;
 		}
 	}
 
@@ -74,6 +69,13 @@ namespace Taskara
 
 		ObservableCollection<ExcerciseTreeItem> _AvailableExcercises = new ObservableCollection<ExcerciseTreeItem>();
 		public ObservableCollection<ExcerciseTreeItem> AvailableExcercises { get { return _AvailableExcercises; } }
+
+		bool _IsNew;
+		public bool IsNew
+		{
+			get { return _IsNew; }
+			set { _IsNew = value; NotifyPropertyChanged("IsNew"); }
+		}
 
 		public PrescriptionViewModel()
 		{
@@ -100,7 +102,7 @@ namespace Taskara
 			item.Path = path;
 			var pathlist = path.Concat(new[] { item.Name }).ToArray();
 			foreach (var child in item.Children)
-			{				
+			{
 				BuildPaths(child, pathlist);
 			}
 		}
@@ -178,6 +180,70 @@ namespace Taskara
 			PrescriptionExcercises.Remove(tmp);
 			PrescriptionExcercises.Insert(idx + 1, tmp);
 		}
+
+		Prescription prescription;
+
+		public void OpenView(object obj)
+		{
+			if (obj is long)
+			{
+				var id = (long)obj;
+				prescription = App.Instance.Service.GetPrescriptionById(id);
+				BuildView(prescription);
+				IsNew = false;
+			}
+			else
+			{
+				IsNew = true;
+				prescription = new Prescription();
+				prescription.Issued = DateTime.Now;
+				prescription.Patient = obj as Patient;
+				prescription.Excercises = new List<Excercise>();
+			}
+		}
+
+		private void BuildView(Prescription prescription)
+		{
+			foreach (var item in prescription.Excercises)
+			{				
+				var items = AvailableExcercises;
+				for (int depth = 0; depth < item.Path.Length; depth++)
+				{
+					var nextLevel = items.FirstOrDefault(x => x.Name == item.Path[depth]);
+					items = nextLevel.Children;
+				}
+				var found = items.FirstOrDefault(x => x.Name == item.Name);
+				if (found == null)
+				{
+					throw new NotImplementedException();
+				}
+				else
+				{
+					Add(found);
+				}
+			}
+		}
+
+		public void CloseView()
+		{
+			if (!IsNew || PrescriptionExcercises.Count > 0)
+			{
+				BuildPrescription();
+				App.Instance.Service.SavePrescription(prescription);
+			}
+		}
+
+		private void BuildPrescription()
+		{
+			prescription.Excercises.Clear();
+			foreach (var item in PrescriptionExcercises)
+			{
+				var itemNew = new Excercise();
+				itemNew.Name = item.Name;
+				itemNew.Path = item.Path;
+				prescription.Excercises.Add(itemNew);
+			}
+		}
 	}
 
 	/// <summary>
@@ -192,21 +258,22 @@ namespace Taskara
 			NavigatingOut += PrescriptionEditPage_NavigatingOut;
 		}
 
+		PrescriptionViewModel ViewModel { get; set; }
+
 		void PrescriptionEditPage_NavigatingOut(object sender, PageNavigationEventArgs e)
 		{
-			
+			ViewModel.CloseView();
 		}
-
-		PrescriptionViewModel ViewModel { get; set; }
 
 		void PrescriptionEditPage_NavigatedIn(object sender, PageNavigationEventArgs e)
 		{
-			ViewModel = new PrescriptionViewModel();			
+			ViewModel = new PrescriptionViewModel();
 			DataContext = ViewModel;
+			ViewModel.OpenView(e.Parameter);
 		}
 
 		private void btnFinish_Click(object sender, RoutedEventArgs e)
-		{			
+		{
 			Navigate(typeof(IndexPage));
 		}
 
