@@ -432,5 +432,13 @@ namespace Taskara
 		{
 			ViewModel.AddSelected();
 		}
+
+		private void btnViewProgress_Click(object sender, RoutedEventArgs e)
+		{
+			if (!ViewModel.IsNew)
+			{
+				Navigate(typeof(PatientProgressPage));
+			}
+		}
 	}
 }

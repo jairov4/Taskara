@@ -1,14 +1,14 @@
 ﻿<taskara:Page
 			  xmlns:taskara="clr-namespace:Taskara"
-			  xmlns:taskaraModel="clr-namespace:Taskara.Model;assembly=Taskara.Model"	  
+			  xmlns:taskaraModel="clr-namespace:Taskara.Model;assembly=Taskara.Model"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 	  
-      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
-	  x:Class="Taskara.IndexPage" 	  
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="700"			  
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+	  x:Class="Taskara.IndexPage"
+      mc:Ignorable="d"
+      d:DesignHeight="300" d:DesignWidth="700"
 	Title="Inicio">
 
 	<DockPanel x:Name="root">
@@ -83,7 +83,7 @@
 				<ListBox Margin="20,0,20,0" Grid.Row="1" ItemsSource="{Binding Prescriptions}" SelectedItem="{Binding SelectedPrescription}">
 					<ListBox.ItemTemplate>
 						<DataTemplate DataType="taskara:Prescription">
-							<TextBlock Text="{Binding Issued}"></TextBlock>
+							<TextBlock Text="{Binding Issued, StringFormat=F}"></TextBlock>
 						</DataTemplate>
 					</ListBox.ItemTemplate>
 				</ListBox>

@@ -63,6 +63,15 @@
     <Reference Include="Mono.Reflection">
       <HintPath>..\packages\db4o-devel.8.1.184.15492\lib\net40\Mono.Reflection.dll</HintPath>
     </Reference>
+    <Reference Include="OxyPlot">
+      <HintPath>..\packages\OxyPlot.Core.2013.2.131.1\lib\portable-net4+sl4+wp71+win8\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Wpf">
+      <HintPath>..\packages\OxyPlot.Wpf.2013.2.131.1\lib\NET45\OxyPlot.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Xps">
+      <HintPath>..\packages\OxyPlot.Wpf.2013.2.131.1\lib\NET45\OxyPlot.Xps.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -89,18 +98,22 @@
       <DependentUpon>ImageSelector.xaml</DependentUpon>
     </Compile>
     <Compile Include="NavigationService.cs" />
+    <Compile Include="PatientProgressPage.xaml.cs">
+      <DependentUpon>PatientProgressPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PrescriptionEditPage.xaml.cs">
       <DependentUpon>PrescriptionEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientEditPage.xaml.cs">
       <DependentUpon>PatientEditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ResultsPage.xaml.cs">
-      <DependentUpon>ResultsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Service.cs" />
     <Compile Include="Util.cs" />
     <Page Include="ImageSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientProgressPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,10 +152,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PatientEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ResultsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

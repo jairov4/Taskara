@@ -54,5 +54,6 @@ namespace Taskara.Model
 	{
 		public DateTime Issued { get; set; }
 		public Patient Patient { get; set; }
+		
 	}
 }

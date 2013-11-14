@@ -32,7 +32,8 @@
 
 			<Button Margin="0,0,0,20" HorizontalAlignment="Left" Click="btnAdd_Click">Agregar</Button>
 			<StackPanel Margin="0,0,0,20" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0" Grid.ColumnSpan="2">
-				<Button Click="btnFinish_Click">Terminar</Button>
+				<Button Click="btnViewProgress_Click" Background="#FF0D7E4A" Foreground="White" BorderBrush="#FF065934">Ver Progreso</Button>
+				<Button Margin="-1,0,0,0" Click="btnFinish_Click">Terminar</Button>
 				<Button Margin="-1,0,0,0" Click="btnRemove_Click">Quitar</Button>
 				<Button Margin="-1,0,0,0" Click="btnUp_Click">Subir</Button>
 				<Button Margin="-1,0,0,0" Click="btnDown_Click">Bajar</Button>
