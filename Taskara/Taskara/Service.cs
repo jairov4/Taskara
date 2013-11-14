@@ -97,8 +97,8 @@ namespace Taskara
 			if (prescription.Patient == null)
 			{
 				throw new InvalidOperationException("Prescripcion sin paciente");
-			}
-			ObjectContainer.Store(prescription);
+			}			
+			ObjectContainer.Store(prescription, 2);
 			ObjectContainer.Commit();
 		}
 

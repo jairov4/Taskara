@@ -117,7 +117,8 @@ namespace Taskara
 
 		private void btnViewPrescription_Click(object sender, RoutedEventArgs e)
 		{
-			Navigate(typeof(PrescriptionEditPage), App.Instance.Service.GetId(ViewModel.SelectedPrescription));
+			if (ViewModel.SelectedPrescription != null)
+				Navigate(typeof(PrescriptionEditPage), App.Instance.Service.GetId(ViewModel.SelectedPrescription));
 		}
 	}
 }

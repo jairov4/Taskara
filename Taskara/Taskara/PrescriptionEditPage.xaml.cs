@@ -19,6 +19,56 @@ namespace Taskara
 {
 	public class ExcerciseTreeItem : ObservableObject
 	{
+		public ExcerciseTreeItem()
+		{
+			_Children = new ObservableCollection<ExcerciseTreeItem>();
+			_Children.CollectionChanged += _Children_CollectionChanged;
+		}
+
+		public ExcerciseTreeItem(string name, IEnumerable<ExcerciseTreeItem> children = null)
+		{
+			Name = name;
+			_Children = new ObservableCollection<ExcerciseTreeItem>();
+			_Children.CollectionChanged += _Children_CollectionChanged;
+			if (children != null)
+				foreach (var item in children)
+				{
+					_Children.Add(item);
+				}
+		}
+
+		void _Children_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+		{
+			if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add
+				|| e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Replace)
+			{
+				foreach (ExcerciseTreeItem item in e.NewItems)
+				{
+					if (item.Parent != this)
+					{
+						if (item.Parent != null) throw new InvalidOperationException();
+						item.Parent = this;
+					}
+					item.PropertyChanged += child_PropertyChanged;
+				}
+			}
+			if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove
+				|| e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Replace
+				|| e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Reset)
+			{
+				foreach (ExcerciseTreeItem item in e.OldItems)
+				{
+					if (item.Parent == this) item.Parent = null;
+					item.PropertyChanged -= child_PropertyChanged;
+				}
+			}
+		}
+
+		void child_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			if (e.PropertyName == "Visible") UpdateVisible();
+		}
+
 		string _Name;
 		public string Name
 		{
@@ -26,18 +76,17 @@ namespace Taskara
 			set { _Name = value; NotifyPropertyChanged("Name"); }
 		}
 
-		ObservableCollection<ExcerciseTreeItem> _Children = new ObservableCollection<ExcerciseTreeItem>();
+		ObservableCollection<ExcerciseTreeItem> _Children;
 		public ObservableCollection<ExcerciseTreeItem> Children
 		{
 			get { return _Children; }
-			set { _Children = value; NotifyPropertyChanged("Children"); }
 		}
 
-		string[] _Path;
-		public string[] Path
+		ExcerciseTreeItem _Parent;
+		public ExcerciseTreeItem Parent
 		{
-			get { return _Path; }
-			set { _Path = value; NotifyPropertyChanged("Path"); }
+			get { return _Parent; }
+			private set { _Parent = value; NotifyPropertyChanged("Parent"); }
 		}
 
 		bool _Visible = true;
@@ -45,6 +94,49 @@ namespace Taskara
 		{
 			get { return _Visible; }
 			set { _Visible = value; NotifyPropertyChanged("Visible"); }
+		}
+
+		private void UpdateVisible()
+		{
+			Visible = Children.Any(x => x.Visible);
+		}
+
+		public static ExcerciseTreeItem Find(IEnumerable<string> path, IEnumerable<ExcerciseTreeItem> range)
+		{
+			var items = GetItemsInPath(path, range);
+			return items.LastOrDefault();
+		}
+
+		public static IEnumerable<ExcerciseTreeItem> GetItemsInPath(IEnumerable<string> path, IEnumerable<ExcerciseTreeItem> items)
+		{
+			var currentName = path.FirstOrDefault();
+			var currentItem = items.FirstOrDefault(x => x.Name == currentName);
+			yield return currentItem;
+
+			var remaining = path.Skip(1);
+			if (remaining.Count() == 0) yield break;
+
+			var col = GetItemsInPath(remaining, currentItem.Children);
+			foreach (var item in col)
+			{
+				yield return item;
+			}
+		}
+
+		public IEnumerable<ExcerciseTreeItem> GetItemsInPath()
+		{
+			if (Parent != null)
+				foreach (var item in Parent.GetItemsInPath())
+					yield return item;
+			yield return this;
+		}
+
+		public IEnumerable<string> GetPath()
+		{
+			if (Parent != null)
+				foreach (var item in Parent.GetPath())
+					yield return item;
+			yield return Name;
 		}
 	}
 
@@ -79,32 +171,13 @@ namespace Taskara
 
 		public PrescriptionViewModel()
 		{
-			AvailableExcercises.Add(new ExcerciseTreeItem()
-			{
-				Name = "Nivel I",
-				Children = new ObservableCollection<ExcerciseTreeItem>()
+			AvailableExcercises.Add(new ExcerciseTreeItem("Nivel I", new[]
 				{
-					new ExcerciseTreeItem(){ Name="an"},
-					new ExcerciseTreeItem(){ Name="in"},
-					new ExcerciseTreeItem(){ Name="kan"},
-					new ExcerciseTreeItem(){ Name="kun"},
-				}
-			});
-			foreach (var item in AvailableExcercises)
-			{
-				BuildPaths(item, new string[0]);
-			}
-		}
-
-		// recursivamente construye el arreglo de ruta
-		private void BuildPaths(ExcerciseTreeItem item, string[] path)
-		{
-			item.Path = path;
-			var pathlist = path.Concat(new[] { item.Name }).ToArray();
-			foreach (var child in item.Children)
-			{
-				BuildPaths(child, pathlist);
-			}
+					new ExcerciseTreeItem("an"),
+					new ExcerciseTreeItem("in"),
+					new ExcerciseTreeItem("kan"),
+					new ExcerciseTreeItem("kun")
+				}));
 		}
 
 		public void AddSelected()
@@ -125,8 +198,8 @@ namespace Taskara
 			else if (tryItem.Visible)
 			{
 				PrescriptionExcercises.Add(tryItem);
+				tryItem.Visible = false;
 			}
-			tryItem.Visible = false;
 		}
 
 		public void InsertSelected(int idx)
@@ -142,23 +215,8 @@ namespace Taskara
 			var tmp = SelectedPrescriptionExcercise;
 			if (tmp == null) return;
 			PrescriptionExcercises.Remove(tmp);
-			RestoreAncestorsTree(tmp, AvailableExcercises, 0);
+			tmp.Visible = true;
 			SelectedPrescriptionExcercise = null;
-		}
-
-		void RestoreAncestorsTree(ExcerciseTreeItem target, IEnumerable<ExcerciseTreeItem> actual, int depth)
-		{
-			if (depth < target.Path.Length)
-			{
-				var item = actual.FirstOrDefault(x => x.Name == target.Path[depth]);
-				if (target != item) RestoreAncestorsTree(target, item.Children, depth + 1);
-				item.Visible = true;
-			}
-			else
-			{
-				if (!actual.Contains(target)) return;
-				target.Visible = true;
-			}
 		}
 
 		public void MoveUpSelected()
@@ -202,28 +260,6 @@ namespace Taskara
 			}
 		}
 
-		private void BuildView(Prescription prescription)
-		{
-			foreach (var item in prescription.Excercises)
-			{				
-				var items = AvailableExcercises;
-				for (int depth = 0; depth < item.Path.Length; depth++)
-				{
-					var nextLevel = items.FirstOrDefault(x => x.Name == item.Path[depth]);
-					items = nextLevel.Children;
-				}
-				var found = items.FirstOrDefault(x => x.Name == item.Name);
-				if (found == null)
-				{
-					throw new NotImplementedException();
-				}
-				else
-				{
-					Add(found);
-				}
-			}
-		}
-
 		public void CloseView()
 		{
 			if (!IsNew || PrescriptionExcercises.Count > 0)
@@ -233,15 +269,36 @@ namespace Taskara
 			}
 		}
 
+		private void BuildView(Prescription prescription)
+		{
+			foreach (var item in prescription.Excercises)
+			{
+				var treeItem = ExcerciseTreeItem.Find(item.Path, AvailableExcercises);
+				// TODO: Manage unknown
+				if (treeItem != null)
+					Add(treeItem);
+			}
+		}
+
 		private void BuildPrescription()
 		{
-			prescription.Excercises.Clear();
+			var list = new List<Excercise>();
 			foreach (var item in PrescriptionExcercises)
 			{
-				var itemNew = new Excercise();
-				itemNew.Name = item.Name;
-				itemNew.Path = item.Path;
-				prescription.Excercises.Add(itemNew);
+				var itemPath = item.GetPath();
+				var found = prescription.Excercises.FirstOrDefault(x => x.Path.SequenceEqual(itemPath));
+				if (found == null)
+				{
+					found = new Excercise();
+					found.Name = item.Name;
+					found.Path = itemPath.ToArray();
+					prescription.Excercises.Add(found);
+				}
+				list.Add(found);
+			}
+			foreach (var item in prescription.Excercises.ToArray())
+			{
+				if (!list.Contains(item)) prescription.Excercises.Remove(item);
 			}
 		}
 	}
