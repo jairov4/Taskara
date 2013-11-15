@@ -102,6 +102,12 @@ namespace Taskara
 			ObjectContainer.Commit();
 		}
 
+		public void SaveProgressReport(ProgressReport report)
+		{
+			ObjectContainer.Store(report, 2);
+			ObjectContainer.Commit();
+		}
+
 		public IList<Patient> ListPatients()
 		{
 			return ObjectContainer.Query<Patient>();
@@ -122,5 +128,12 @@ namespace Taskara
 			var p = ObjectContainer.GetByID(id) as Prescription;
 			return p;
 		}
+
+		public ProgressReport GetProgressReportById(long id)
+		{
+			var p = ObjectContainer.GetByID(id) as ProgressReport;
+			return p;
+		}
+				
 	}
 }

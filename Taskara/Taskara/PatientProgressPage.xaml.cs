@@ -1,4 +1,5 @@
 ﻿using OxyPlot;
+using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +29,31 @@ namespace Taskara
 			set { _PlotModel = value; NotifyPropertyChanged("PlotModel"); }
 		}
 
-		public void OpenView()
+		public PatientProgressViewModel()
 		{
+			PlotModel = new PlotModel();
 
+			var serie = new OxyPlot.Series.BarSeries();
+
+			var items = new BarItem[]{
+				new BarItem(0.0),
+				new BarItem(0.1),
+				new BarItem(0.9),
+				new BarItem(0.76),
+				new BarItem(0.99),
+				new BarItem(0.45),
+				new BarItem(0.22),
+			};
+
+			serie.ItemsSource = items;
+			serie.ValueField = "Value";
+
+			PlotModel.Series.Add(serie);
+		}
+
+		public void OpenView(long id)
+		{
+			progressReport = App.Instance.Service.GetProgressReportById(id);
 		}
 	}
 
@@ -42,6 +65,14 @@ namespace Taskara
 		public PatientProgressPage()
 		{
 			InitializeComponent();
+			NavigatedIn += PatientProgressPage_NavigatedIn;
 		}
+
+		void PatientProgressPage_NavigatedIn(object sender, PageNavigationEventArgs e)
+		{
+			DataContext = new PatientProgressViewModel();
+		}
+
+
 	}
 }
