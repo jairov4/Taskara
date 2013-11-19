@@ -1,0 +1,31 @@
+﻿<taskara:Page x:Class="Taskara.AvatarSelectorPage"
+			  xmlns:taskara="clr-namespace:Taskara"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="700">
+	<DockPanel>
+		<Border DockPanel.Dock="Top" Background="#F15000" Padding="20">
+			<TextBlock Foreground="#fff" Style="{StaticResource TitleStyle}">Selecciona una imagen</TextBlock>
+		</Border>
+		<Grid>
+			<ListBox Margin="20" 
+					 ItemsSource="{Binding AvailableImages}" 
+					 SelectedItem="{Binding SelectedImage}"
+					 ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+				<ListBox.ItemTemplate>
+					<DataTemplate DataType="ImageSource">
+						<Image Source="{Binding}" Stretch="None" />
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+				<ListBox.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel Orientation="Vertical" />
+					</ItemsPanelTemplate>
+				</ListBox.ItemsPanel>
+			</ListBox>
+		</Grid>
+	</DockPanel>
+</taskara:Page>

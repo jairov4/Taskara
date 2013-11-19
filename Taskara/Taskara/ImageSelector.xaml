@@ -10,7 +10,7 @@
              mc:Ignorable="d" 	
              d:DesignHeight="300" d:DesignWidth="300">
 
-	<Grid x:Name="grd">
+	<Grid x:Name="grd">		
 		<Rectangle Fill="White"></Rectangle>
 		<Image Source="{Binding Image}"/>
 		<Button x:Name="btnChange" 

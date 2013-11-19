@@ -12,6 +12,9 @@
 	Title="Inicio">
 
 	<DockPanel x:Name="root">
+		<DockPanel.Background>
+			<ImageBrush ImageSource="Images/bg_watercolour.jpg"/>
+		</DockPanel.Background>
 		<VisualStateManager.VisualStateGroups>
 			<VisualStateGroup x:Name="PrescriptionPaneStateGroup" ei:ExtendedVisualStateManager.UseFluidLayout="True">
 				<VisualStateGroup.Transitions>
@@ -51,7 +54,11 @@
 				<Button Click="btnCreateRecipe_Click" Content="Nueva receta"/>
 				<Button Margin="-1,0,0,0" Click="btnNewPatient_Click" Content="Nuevo paciente"/>
 			</StackPanel>
-			<ListBox Margin="0,20,0,0" ItemsSource="{Binding Patients}" SelectedItem="{Binding SelectedPatient}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="lstPatients_MouseDoubleClick" Grid.Row="1">
+			<ListBox Background="#aaffffff" Margin="0,20,0,0" 
+					 ItemsSource="{Binding Patients}" 
+					 SelectedItem="{Binding SelectedPatient}" 
+					 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+					 MouseDoubleClick="lstPatients_MouseDoubleClick" Grid.Row="1">
 				<ListBox.ItemsPanel>
 					<ItemsPanelTemplate>
 						<WrapPanel Orientation="Horizontal" ItemWidth="180" ItemHeight="120" />

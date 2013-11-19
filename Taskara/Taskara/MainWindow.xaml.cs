@@ -23,7 +23,7 @@ namespace Taskara
 		public MainWindow()
 		{
 			InitializeComponent();
-			navigationSurface.Navigate(typeof(LoginPage), null, true);
+			navigationSurface.Navigate(typeof(AvatarSelectorPage), null, true);
 		}
 	}
 }
