@@ -11,11 +11,15 @@
 			<TextBlock Foreground="#fff" Style="{StaticResource TitleStyle}">Selecciona una imagen</TextBlock>
 		</Border>
 		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
 			<ListBox Margin="20" 
 					 ItemsSource="{Binding AvailableImages}" 
 					 SelectedItem="{Binding SelectedImage}"
 					 MouseDoubleClick="lstAvailableImages_MouseDoubleClick"
-					 ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+					 ScrollViewer.VerticalScrollBarVisibility="Disabled">
 				<ListBox.ItemTemplate>
 					<DataTemplate DataType="ImageSource">
 						<Image Source="{Binding}" Stretch="None" />
@@ -27,6 +31,10 @@
 					</ItemsPanelTemplate>
 				</ListBox.ItemsPanel>
 			</ListBox>
+			<StackPanel Margin="20,0,20,20" Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal">
+				<Button x:Name="btnSelectFromFile" Click="btnSelectFromFile_Click" Margin="0,0,20,0">Desde archivo</Button>
+				<Button x:Name="btnOk" Click="btnOk_Click" Background="#F15000" Foreground="White" BorderBrush="#FF832C01">Aceptar</Button>
+			</StackPanel>
 		</Grid>
 	</DockPanel>
 </taskara:Page>

@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 	
 	  xmlns:diagnostics="clr-namespace:System.Diagnostics;assembly=WindowsBase"
       mc:Ignorable="d" 	  
-      d:DesignHeight="500" d:DesignWidth="600"
+      d:DesignHeight="500" d:DesignWidth="800"
 	Title="PatientEditPage">
 	<taskara:Page.Resources>
 		<taskara:DocumentTypeToStringConverter x:Key="docTypeConv" />
@@ -33,7 +33,7 @@
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
 
-			<Grid Grid.RowSpan="6" Width="150" Height="180" Margin="20">
+			<Grid Grid.RowSpan="6" Width="180" Height="180" Margin="20">
 				<Rectangle Stroke="#ccc" StrokeThickness="5" StrokeDashArray="5,2,5,2"></Rectangle>
 				<taskara:ImageSelector x:Name="imgSelector" Margin="5" Image="{Binding Patient.PhotoData, Converter={StaticResource binJpegConv}}" />
 			</Grid>

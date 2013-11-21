@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -100,6 +101,27 @@ namespace Taskara
 			{
 				MessageBox.Show("Por favor, seleccione una imagen");
 			}
+		}
+
+		private void btnOk_Click(object sender, RoutedEventArgs e)
+		{
+			SendResult();
+		}
+
+		private void btnSelectFromFile_Click(object sender, RoutedEventArgs e)
+		{
+			if (Parameter == null) return;
+			var dlg = new OpenFileDialog();
+			dlg.Title = "Seleccionar imagen";
+			dlg.Filter = "Archivos de imagen JPEG (*.jpg)|*.jpg|Todos los archivos (*.*)|*.*";
+			var r = dlg.ShowDialog();
+			if (r != true)
+			{
+				return;
+			}
+			var stream = dlg.OpenFile();
+			var img = BitmapFrame.Create(stream);
+			NavigateWithResult(Parameter, img);
 		}
 	}
 }
