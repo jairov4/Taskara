@@ -4,11 +4,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 	
+	  xmlns:diagnostics="clr-namespace:System.Diagnostics;assembly=WindowsBase"
       mc:Ignorable="d" 	  
       d:DesignHeight="500" d:DesignWidth="600"
 	Title="PatientEditPage">
 	<taskara:Page.Resources>
 		<taskara:DocumentTypeToStringConverter x:Key="docTypeConv" />
+		<taskara:BinaryJpegToImageConverter x:Key="binJpegConv" />
 	</taskara:Page.Resources>
 
 	<DockPanel>
@@ -33,7 +35,7 @@
 
 			<Grid Grid.RowSpan="6" Width="150" Height="180" Margin="20">
 				<Rectangle Stroke="#ccc" StrokeThickness="5" StrokeDashArray="5,2,5,2"></Rectangle>
-				<taskara:ImageSelector Margin="5"></taskara:ImageSelector>
+				<taskara:ImageSelector x:Name="imgSelector" Margin="5" Image="{Binding Patient.PhotoData, Converter={StaticResource binJpegConv}}" />
 			</Grid>
 
 			<Label Content="Nombres" Grid.Column="1" Grid.Row="0"/>
@@ -43,7 +45,7 @@
 			<Label Content="Telefono" Grid.Column="1" Grid.Row="4" />
 			<Label Content="Genero" Grid.Column="1" Grid.Row="5" />
 
-			<TextBox FontSize="35" Grid.Column="2" Grid.Row="0" TextWrapping="Wrap" Text="{Binding Patient.FirstName}"/>
+			<TextBox FontSize="35" Grid.Column="2" Grid.Row="0" TextWrapping="Wrap" Text="{Binding Patient.FirstName, diagnostics:PresentationTraceSources.TraceLevel=High}"/>
 			<TextBox FontSize="35" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Patient.LastName}"/>
 			<DockPanel Grid.Column="2" Grid.Row="2">
 				<ComboBox DockPanel.Dock="Left" SelectedValue="{Binding Patient.DocumentType}" ItemsSource="{Binding DocumentTypes}">

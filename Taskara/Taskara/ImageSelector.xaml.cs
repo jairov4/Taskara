@@ -23,10 +23,15 @@ namespace Taskara
 		public ImageSelector()
 		{
 			InitializeComponent();			
-			DataContext = this;
 			Loaded += ImageSelector_Loaded;
 			MouseEnter += ImageSelector_MouseEnter;
 			MouseLeave += ImageSelector_MouseLeave;
+			btnChange.Click += btnChange_Click;
+		}
+
+		void btnChange_Click(object sender, RoutedEventArgs e)
+		{
+			if (SelectImage != null) SelectImage(this, new EventArgs());
 		}
 
 		void ImageSelector_Loaded(object sender, RoutedEventArgs e)
@@ -45,14 +50,22 @@ namespace Taskara
 			btnChange.Visibility = System.Windows.Visibility.Visible;
 		}
 
+		public event EventHandler SelectImage;
+
 		public ImageSource Image
 		{
 			get { return (ImageSource)GetValue(ImageProperty); }
 			set { SetValue(ImageProperty, value); }
 		}
 
+		static void image_changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+		{
+			ImageSelector sel = (ImageSelector)d;
+			sel.imgDisplay.Source = e.NewValue as ImageSource;
+		}
+
 		// Using a DependencyProperty as the backing store for Image.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty ImageProperty =
-			DependencyProperty.Register("Image", typeof(ImageSource), typeof(ImageSelector), new FrameworkPropertyMetadata(null));						
+			DependencyProperty.Register("Image", typeof(ImageSource), typeof(ImageSelector), new FrameworkPropertyMetadata(image_changed));
 	}
 }

@@ -222,5 +222,10 @@ namespace Taskara
 		{
 			NavigationService.Navigate(target, parameter, skipJournal);
 		}
+
+		protected void NavigateWithResult(PageFunctionParameter p, object result)
+		{
+			Navigate(p.ReturnTarget, new PageFunctionResult() { Context = p.Context, Result = result, State = p.State });
+		}
 	}
 }

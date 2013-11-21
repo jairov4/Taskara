@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -89,6 +90,20 @@ namespace Taskara
 				IsNew = true;
 			}
 		}
+
+		public void SetImage(BitmapSource imageSource)
+		{
+			var encoder = new JpegBitmapEncoder();
+			var frame = BitmapFrame.Create(imageSource);
+			encoder.Frames.Add(frame);
+			using (var memoryStream = new MemoryStream())
+			{
+				encoder.Save(memoryStream);
+				Patient.PhotoData = memoryStream.ToArray();
+				Patient.PhotoDataMime = "image/jpeg";
+			}
+		}
+
 	}
 
 	/// <summary>
@@ -101,6 +116,14 @@ namespace Taskara
 			InitializeComponent();
 			NavigatedIn += PatientEditPage_NavigatedIn;
 			NavigatingOut += PatientEditPage_NavigatingOut;
+			imgSelector.SelectImage += imgSelector_SelectImage;
+		}
+
+		void imgSelector_SelectImage(object sender, EventArgs e)
+		{
+			ViewModel.CloseView();
+			var id = ViewModel.IsNew ? null : (object)App.Instance.Service.GetId(ViewModel.Patient);
+			Navigate(typeof(AvatarSelectorPage), new PageFunctionParameter(this.GetType(), id, null), false);
 		}
 
 		void PatientEditPage_NavigatingOut(object sender, PageNavigationEventArgs e)
@@ -113,7 +136,21 @@ namespace Taskara
 		{
 			ViewModel = new PatientViewModel();
 			DataContext = ViewModel;
-			ViewModel.OpenNew((long?)e.Parameter);
+			if (e.Parameter is long)
+			{
+				ViewModel.OpenNew((long)e.Parameter);
+			}
+			else if (e.Parameter == null)
+			{
+				ViewModel.OpenNew(null);
+			}
+			else if (e.Parameter is PageFunctionResult)
+			{
+				var param = e.Parameter as PageFunctionResult;
+				if (param.State is long) ViewModel.OpenNew((long)param.State);
+				else ViewModel.OpenNew(null);
+				ViewModel.SetImage(param.Result as BitmapSource);
+			}
 		}
 
 		public PatientViewModel ViewModel { get; set; }

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
-			 xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+			 xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 			
 			 x:Name="userControl" 
 			 x:Class="Taskara.ImageSelector" 
              mc:Ignorable="d" 	
@@ -12,7 +12,7 @@
 
 	<Grid x:Name="grd">		
 		<Rectangle Fill="White"></Rectangle>
-		<Image Source="{Binding Image}"/>
+		<Image x:Name="imgDisplay" />
 		<Button x:Name="btnChange" 
 				VerticalAlignment="Bottom" HorizontalAlignment="Right" 
 				Background="#aa000000"

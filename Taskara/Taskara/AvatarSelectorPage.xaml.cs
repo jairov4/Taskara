@@ -32,6 +32,13 @@ namespace Taskara
 			get { return _AvailableImages; }
 			set { _AvailableImages = value; NotifyPropertyChanged("AvailableImages"); }
 		}
+
+		Type _ReturnTarget;
+		public Type ReturnTarget
+		{
+			get { return _ReturnTarget; }
+			set { _ReturnTarget = value; NotifyPropertyChanged("ReturnTarget"); }
+		}
 	}
 
 	/// <summary>
@@ -48,7 +55,7 @@ namespace Taskara
 
 		void AvatarSelectorPage_NavigatingOut(object sender, PageNavigationEventArgs e)
 		{
-			
+
 		}
 
 		void AvatarSelectorPage_NavigatedIn(object sender, PageNavigationEventArgs e)
@@ -67,8 +74,32 @@ namespace Taskara
 			ViewModel = new AvatarSelectorViewModel();
 			ViewModel.AvailableImages = new ObservableCollection<ImageSource>(packs);
 			DataContext = ViewModel;
+
+			if (e.Parameter is PageFunctionParameter)
+			{
+				Parameter = e.Parameter as PageFunctionParameter;
+			}
 		}
 
+		public PageFunctionParameter Parameter { get; set; }
 		public AvatarSelectorViewModel ViewModel { get; set; }
+
+		private void lstAvailableImages_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+		{
+			SendResult();
+		}
+
+		private void SendResult()
+		{
+			if (ViewModel.SelectedImage != null)
+			{
+				if (Parameter != null)
+					NavigateWithResult(Parameter, ViewModel.SelectedImage);
+			}
+			else
+			{
+				MessageBox.Show("Por favor, seleccione una imagen");
+			}
+		}
 	}
 }

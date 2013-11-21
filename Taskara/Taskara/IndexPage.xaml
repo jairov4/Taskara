@@ -10,6 +10,10 @@
       mc:Ignorable="d"
       d:DesignHeight="300" d:DesignWidth="700"
 	Title="Inicio">
+	
+	<taskara:Page.Resources>
+		<taskara:BinaryJpegToImageConverter x:Key="binJpegConv" />
+	</taskara:Page.Resources>
 
 	<DockPanel x:Name="root">
 		<DockPanel.Background>
@@ -61,16 +65,19 @@
 					 MouseDoubleClick="lstPatients_MouseDoubleClick" Grid.Row="1">
 				<ListBox.ItemsPanel>
 					<ItemsPanelTemplate>
-						<WrapPanel Orientation="Horizontal" ItemWidth="180" ItemHeight="120" />
+						<WrapPanel Orientation="Horizontal" />
 					</ItemsPanelTemplate>
 				</ListBox.ItemsPanel>
 				<ListBox.ItemTemplate>
 					<DataTemplate DataType="{x:Type taskaraModel:Patient}">
-						<StackPanel>
-							<TextBlock FontSize="22" Text="{Binding FirstName}" />
-							<TextBlock FontSize="22" Text="{Binding LastName}" />
-							<TextBlock FontSize="17" Foreground="#aaa" Text="{Binding Document}" />
-						</StackPanel>
+						<DockPanel>
+							<Image Width="90" Height="90" DockPanel.Dock="Left" Source="{Binding PhotoData, Converter={StaticResource binJpegConv}}" />
+							<StackPanel Margin="15,0,0,0" Width="200">
+								<TextBlock FontSize="22" Text="{Binding FirstName}" />
+								<TextBlock FontSize="22" Text="{Binding LastName}" />
+								<TextBlock FontSize="17" Foreground="#aaa" Text="{Binding Document}" />
+							</StackPanel>
+						</DockPanel>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>
