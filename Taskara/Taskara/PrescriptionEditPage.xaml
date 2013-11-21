@@ -37,7 +37,14 @@
 			<ImageBrush ImageSource="Images/bg_watercolour2.jpg"/>
 		</DockPanel.Background>
 		<Border DockPanel.Dock="Top" Background="#08DA9D">
-			<TextBlock Foreground="#fff" Padding="20" Style="{StaticResource TitleStyle}">Receta</TextBlock>
+			<DockPanel>
+				<Image Width="80" Height="80" DockPanel.Dock="Right" Margin="0,20,20,20" Source="{Binding Prescription.Patient.PhotoData}"/>
+				<TextBlock DockPanel.Dock="Right" Margin="20" Foreground="Green" FontSize="30" FontFamily="Segoe Print">
+					<Run Text="{Binding Prescription.Patient.FirstName}" />					
+					<Run Text="{Binding Prescription.Patient.LastName}" />
+				</TextBlock>
+				<TextBlock Foreground="#fff" Padding="20" Style="{StaticResource TitleStyle}">Receta</TextBlock>
+			</DockPanel>
 		</Border>
 		<Grid Margin="20">
 			<Grid.RowDefinitions>

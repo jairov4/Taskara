@@ -263,6 +263,10 @@ namespace Taskara
 		}
 
 		Prescription prescription;
+		public Prescription Prescription
+		{
+			get { return prescription; }
+		}
 
 		public void OpenView(object obj)
 		{
