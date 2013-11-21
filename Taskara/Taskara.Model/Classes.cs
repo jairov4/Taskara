@@ -40,6 +40,7 @@ namespace Taskara.Model
 	public class Excercise
 	{
 		public string Name { get; set; }
+		public long Repetitions { get; set; }
 		public string[] Path { get; set; }
 	}
 

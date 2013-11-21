@@ -11,7 +11,23 @@
 
 	<taskara:Page.Resources>
 		<taskara:BoolToVisibilityConverter x:Key="boolToVisibility" />
-		<HierarchicalDataTemplate x:Key="excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}" >
+		<HierarchicalDataTemplate x:Key="editable_excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}" >
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<TextBlock Text="{Binding Name}" />
+				<TextBox Text="{Binding Repetitions}"
+						 ToolTip="Repeticiones" 
+						 TextAlignment="Right" 
+						 Background="#ddd" 
+						 Grid.Column="1" 
+						 Width="100" Margin="0">
+				</TextBox>
+			</Grid>
+		</HierarchicalDataTemplate>
+		<HierarchicalDataTemplate x:Key="simple_excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}">
 			<TextBlock Text="{Binding Name}" />
 		</HierarchicalDataTemplate>
 	</taskara:Page.Resources>
@@ -45,7 +61,7 @@
 			<TreeView x:Name="tvSource" Grid.Row="1" Margin="0,0,10,0"
 					  Background="#aaffffff"
 					  ItemsSource="{Binding AvailableExcercises}" 
-					  ItemTemplate="{StaticResource excerciseTreeItemDataTemplate}"
+					  ItemTemplate="{StaticResource simple_excerciseTreeItemDataTemplate}"
 					  MouseDoubleClick="tvSource_DoubleClick"
 					  SelectedItemChanged="tvSource_SelectedItemChanged">
 				<TreeView.ItemContainerStyle>
@@ -61,7 +77,7 @@
 					 Background="#aaffffff"
 					 ItemsSource="{Binding PrescriptionExcercises}"
 					 SelectedItem="{Binding SelectedPrescriptionExcercise}"
-					 ItemTemplate="{StaticResource excerciseTreeItemDataTemplate}"
+					 ItemTemplate="{StaticResource editable_excerciseTreeItemDataTemplate}"
 					 DragOver="ListBoxItem_DragEnter" 
 					 DragLeave="ListBoxItem_DragLeave" 
 					 Drop="ListBoxItem_Drop" 
@@ -71,6 +87,7 @@
 						<EventSetter Event="DragEnter" Handler="ListBoxItem_DragEnter" />
 						<EventSetter Event="DragLeave" Handler="ListBoxItem_DragLeave" />
 						<EventSetter Event="Drop" Handler="ListBoxItem_Drop" />
+						<Setter Property="HorizontalContentAlignment" Value="Stretch" />
 					</Style>
 				</ListBox.ItemContainerStyle>
 			</ListBox>

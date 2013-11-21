@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,6 +75,13 @@ namespace Taskara
 		{
 			get { return _Name; }
 			set { _Name = value; NotifyPropertyChanged("Name"); }
+		}
+
+		long _Repetitions;
+		public long Repetitions
+		{
+			get { return _Repetitions; }
+			set { _Repetitions = value; NotifyPropertyChanged("Repetitions"); }
 		}
 
 		ObservableCollection<ExcerciseTreeItem> _Children;
@@ -202,11 +210,26 @@ namespace Taskara
 			}
 		}
 
+		public void Insert(ExcerciseTreeItem tryItem, int idx)
+		{
+			if (tryItem.Children.Count > 0)
+			{
+				foreach (var item in tryItem.Children)
+				{
+					Insert(item, idx);
+				}
+			}
+			else if (tryItem.Visible)
+			{
+				PrescriptionExcercises.Insert(idx, tryItem);
+				tryItem.Visible = false;
+			}
+		}
+
 		public void InsertSelected(int idx)
 		{
 			if (SelectedSourceExcercise == null || !SelectedSourceExcercise.Visible) return;
-			PrescriptionExcercises.Insert(idx, SelectedSourceExcercise);
-			SelectedSourceExcercise.Visible = false;
+			Insert(SelectedSourceExcercise, idx);
 			SelectedSourceExcercise = null;
 		}
 
@@ -276,7 +299,10 @@ namespace Taskara
 				var treeItem = ExcerciseTreeItem.Find(item.Path, AvailableExcercises);
 				// TODO: Manage unknown
 				if (treeItem != null)
+				{
+					treeItem.Repetitions = item.Repetitions;
 					Add(treeItem);
+				}
 			}
 		}
 
@@ -292,6 +318,7 @@ namespace Taskara
 					found = new Excercise();
 					found.Name = item.Name;
 					found.Path = itemPath.ToArray();
+					found.Repetitions = item.Repetitions;
 					prescription.Excercises.Add(found);
 				}
 				list.Add(found);
@@ -335,7 +362,6 @@ namespace Taskara
 		}
 
 		Point mouse_down_point;
-		UIElement drop_target;
 
 		private void TreeViewItem_MouseMove(object sender, MouseEventArgs e)
 		{
@@ -343,27 +369,15 @@ namespace Taskara
 			var p = e.GetPosition(this);
 			var d = p - mouse_down_point;
 			var dd = Math.Sqrt(d.X * d.X + d.Y * d.Y);
-			if (dd < 2.0) return;
+			var dd_min = Math.Sqrt(SystemParameters.MinimumHorizontalDragDistance * SystemParameters.MinimumHorizontalDragDistance
+				+ SystemParameters.MinimumVerticalDragDistance * SystemParameters.MinimumVerticalDragDistance);
+			if (dd < dd_min) return;
 			var draggedItem = tvSource.SelectedItem;
 			if (draggedItem == null) return;
-			drop_target = null;
+
 			ViewModel.SelectedPrescriptionExcercise = null;
 			DragDropEffects finalDropEffect = DragDrop.DoDragDrop(tvSource, draggedItem, DragDropEffects.Move);
-
-			if ((finalDropEffect == DragDropEffects.Move) && (drop_target != null))
-			{
-				var lbItem = drop_target as ListBoxItem;
-				var lb = drop_target as ListBox;
-				if (lbItem != null)
-				{
-					var index = lbTarget.ItemContainerGenerator.IndexFromContainer(lbItem);
-					ViewModel.InsertSelected(index);
-				}
-				else if (lb == lbTarget)
-				{
-					ViewModel.AddSelected();
-				}
-			}
+			Debug.WriteLine("Drag & Drop sucessfully");
 		}
 
 		private void TreeViewItem_MouseDown(object sender, MouseEventArgs e)
@@ -374,7 +388,7 @@ namespace Taskara
 
 		private void ListBoxItem_DragEnter(object sender, DragEventArgs e)
 		{
-			drop_target = sender as UIElement;
+			var drop_target = sender as UIElement;
 			var lbi = drop_target as ListBoxItem;
 			if (lbi != null)
 			{
@@ -384,7 +398,7 @@ namespace Taskara
 
 		private void ListBoxItem_DragLeave(object sender, DragEventArgs e)
 		{
-			drop_target = sender as UIElement;
+			var drop_target = sender as UIElement;
 			var lbi = drop_target as ListBoxItem;
 			if (lbi != null)
 			{
@@ -394,11 +408,19 @@ namespace Taskara
 
 		private void ListBoxItem_Drop(object sender, DragEventArgs e)
 		{
-			drop_target = sender as UIElement;
-			var lbi = drop_target as ListBoxItem;
-			if (lbi != null)
+			var data = e.Data.GetData(typeof(ExcerciseTreeItem)) as ExcerciseTreeItem;
+			ViewModel.SelectedSourceExcercise = data;
+			if (sender is ListBoxItem) // drop target is listboxitem
 			{
-				lbi.Background = null;
+				var target = sender as ListBoxItem;
+				target.Background = null;
+				var idx = lbTarget.ItemContainerGenerator.IndexFromContainer(target);
+				ViewModel.InsertSelected(idx);
+			}
+			else if (sender == lbTarget) // drop target is listbox
+			{
+				var target = lbTarget;
+				ViewModel.AddSelected();
 			}
 			e.Handled = true;
 		}
