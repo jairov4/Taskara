@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using Taskara.Model;
 
 namespace Taskara
@@ -33,19 +34,44 @@ namespace Taskara
 			Instance = this;
 			base.OnStartup(e);
 
+			if (Keyboard.IsKeyDown(Key.F11))
+			{
+				var dlg = new Microsoft.Win32.OpenFileDialog();
+				dlg.Title = "Reemplazar base de datos";
+				dlg.Filter = "Base de datos (*.yap)|*.yap|Todos los archivos (*.*)|*.*";				
+				var r = dlg.ShowDialog();
+				if (r == true)
+				{
+					var fn = GetDefaultDatabaseFilenameAndSure();
+					File.Copy(dlg.FileName, fn, true);
+				}
+			}
+
 			OpenDatabaseFromAppData();
 		}
 
+		public string GetDefaultDatabaseFilenameAndSure()
+		{
+			var fn = GetDefaultDatabaseFilename();
+			var folder = Path.GetDirectoryName(fn);
+			if (!Directory.Exists(folder))
+			{
+				Directory.CreateDirectory(folder);
+			} 
+			return fn;
+		}
 
-		private void OpenDatabaseFromAppData()
+		public string GetDefaultDatabaseFilename()
 		{
 			var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 			folder = Path.Combine(folder, AppFolder);
 			var fn = Path.Combine(folder, DatabaseFilename);
-			if (!Directory.Exists(folder))
-			{
-				Directory.CreateDirectory(folder);
-			}
+			return fn;
+		}
+
+		private void OpenDatabaseFromAppData()
+		{
+			var fn = GetDefaultDatabaseFilenameAndSure();
 
 			ObjectContainer = Db4oEmbedded.OpenFile(fn).Ext();
 			Service = new Service(ObjectContainer);

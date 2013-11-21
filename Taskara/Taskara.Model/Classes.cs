@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Taskara.Model
 {
-    public class AppUser
-    {
+	public class AppUser
+	{
 		public string Username { get; set; }
 		public string Password { get; set; }
 		public string Salt { get; set; }
-    }
+	}
 
 	public enum DocumentType
 	{
@@ -36,7 +36,7 @@ namespace Taskara.Model
 		public byte[] PhotoData { get; set; }
 		public string PhotoDataMime { get; set; }
 	}
-	
+
 	public class Excercise
 	{
 		public string Name { get; set; }
@@ -49,12 +49,53 @@ namespace Taskara.Model
 		public DateTime Issued { get; set; }
 		public Patient Patient { get; set; }
 		public IList<Excercise> Excercises { get; set; }
+
+		public void SaveXml(System.IO.Stream str)
+		{
+			var ser = new System.Xml.Serialization.XmlSerializer(typeof(Prescription));
+			ser.Serialize(str, this);
+		}
+
+		static public Prescription LoadXml(System.IO.Stream str)
+		{
+			var ser = new System.Xml.Serialization.XmlSerializer(typeof(Prescription));
+			return (Prescription)ser.Deserialize(str);
+		}
 	}
 
-	public class ProgressReport
+	public class ExcerciseProgressReport
 	{
+		public Excercise Excercise { get; set; }
+		public string Name { get; set; }
+		public long Repetitions { get; set; }
+		public long RepetitionsCount { get; set; }
+		public long GoodRepetitionsCount { get; set; }
+	}
+
+	/// <summary>
+	/// Reporte de una prescripcion
+	/// </summary>
+	public class PrescriptionProgressReport
+	{
+		public long ReportId { get; set; }
 		public DateTime Issued { get; set; }
+
+		[Obsolete("La prescripcion ya contiene el paciente")]
 		public Patient Patient { get; set; }
-		
+
+		public Prescription Prescription { get; set; }
+		public IList<ExcerciseProgressReport> Progress { get; set; }
+
+		public void SaveXml(System.IO.Stream str)
+		{
+			var ser = new System.Xml.Serialization.XmlSerializer(typeof(PrescriptionProgressReport));
+			ser.Serialize(str, this);
+		}
+
+		static public PrescriptionProgressReport LoadXml(System.IO.Stream str)
+		{
+			var ser = new System.Xml.Serialization.XmlSerializer(typeof(PrescriptionProgressReport));
+			return (PrescriptionProgressReport)ser.Deserialize(str);
+		}
 	}
 }

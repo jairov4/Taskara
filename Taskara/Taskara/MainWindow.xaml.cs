@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,19 @@ namespace Taskara
 			InitializeComponent();
 			//navigationSurface.Navigate(typeof(LoginPage), null, true);
 			navigationSurface.Navigate(typeof(IndexPage));
+		}
+
+		private void keyboard_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (e.Key == Key.F12)
+			{
+				var dlg = new SaveFileDialog();
+				dlg.Title = "Exportar backup de base de datos";
+				dlg.Filter = "Base de datos (*.yap)|*.yap|Todos los archivos (*.*)|*.*";
+				var r = dlg.ShowDialog();
+				if (r != true) return;
+				App.Instance.ObjectContainer.Backup(dlg.FileName);
+			}			
 		}
 	}
 }

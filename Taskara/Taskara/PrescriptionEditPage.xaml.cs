@@ -465,6 +465,10 @@ namespace Taskara
 			{
 				Navigate(typeof(PatientProgressPage));
 			}
+			else
+			{
+				MessageBox.Show("Lo siento, no puedes ver el progreso de una prescripcion nueva");
+			}
 		}
 	}
 }

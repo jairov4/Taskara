@@ -97,12 +97,12 @@ namespace Taskara
 			if (prescription.Patient == null)
 			{
 				throw new InvalidOperationException("Prescripcion sin paciente");
-			}			
+			}
 			ObjectContainer.Store(prescription, 2);
 			ObjectContainer.Commit();
 		}
 
-		public void SaveProgressReport(ProgressReport report)
+		public void SaveProgressReport(PrescriptionProgressReport report)
 		{
 			ObjectContainer.Store(report, 2);
 			ObjectContainer.Commit();
@@ -129,11 +129,11 @@ namespace Taskara
 			return p;
 		}
 
-		public ProgressReport GetProgressReportById(long id)
+		public PrescriptionProgressReport GetProgressReportById(long id)
 		{
-			var p = ObjectContainer.GetByID(id) as ProgressReport;
+			var p = ObjectContainer.GetByID(id) as PrescriptionProgressReport;
 			return p;
 		}
-				
+
 	}
 }

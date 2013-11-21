@@ -20,7 +20,7 @@ namespace Taskara
 {
 	public class PatientProgressViewModel : ObservableObject
 	{
-		private ProgressReport progressReport;
+		private PrescriptionProgressReport progressReport;
 
 		PlotModel _PlotModel;
 		public PlotModel PlotModel
@@ -68,11 +68,17 @@ namespace Taskara
 			NavigatedIn += PatientProgressPage_NavigatedIn;
 		}
 
+		PatientProgressViewModel ViewModel { get; set; }
+
 		void PatientProgressPage_NavigatedIn(object sender, PageNavigationEventArgs e)
 		{
-			DataContext = new PatientProgressViewModel();
+			ViewModel = new PatientProgressViewModel();
+			DataContext = ViewModel;
+			if (e.Parameter is long)
+			{
+				var id = (long)e.Parameter;				
+				ViewModel.OpenView(id);
+			}
 		}
-
-
 	}
 }
