@@ -8,8 +8,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
 	<DockPanel>
-		<Border DockPanel.Dock="Top" Background="#FFF100C5" Padding="20">
-			<TextBlock Foreground="#fff" Style="{StaticResource TitleStyle}">Reporte de Progreso</TextBlock>
+		<Border DockPanel.Dock="Top" Background="#FF434C" Padding="20">
+			<TextBlock Foreground="#FFFBED" Style="{StaticResource TitleStyle}">Reporte de Progreso</TextBlock>
 		</Border>
 		<Grid>
 			<oxy:Plot Model="{Binding PlotModel}">
