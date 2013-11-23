@@ -19,7 +19,41 @@ using Taskara.Model;
 namespace Taskara
 {
 	public class ExcerciseTreeItem : ObservableObject
-	{
+	{		
+		string _Name;
+		public string Name
+		{
+			get { return _Name; }
+			set { _Name = value; NotifyPropertyChanged("Name"); }
+		}
+
+		long _Repetitions;
+		public long Repetitions
+		{
+			get { return _Repetitions; }
+			set { _Repetitions = value; NotifyPropertyChanged("Repetitions"); }
+		}
+
+		ObservableCollection<ExcerciseTreeItem> _Children;
+		public ObservableCollection<ExcerciseTreeItem> Children
+		{
+			get { return _Children; }
+		}
+
+		ExcerciseTreeItem _Parent;
+		public ExcerciseTreeItem Parent
+		{
+			get { return _Parent; }
+			private set { _Parent = value; NotifyPropertyChanged("Parent"); }
+		}
+
+		bool _Visible = true;
+		public bool Visible
+		{
+			get { return _Visible; }
+			set { _Visible = value; NotifyPropertyChanged("Visible"); }
+		}
+
 		public ExcerciseTreeItem()
 		{
 			_Children = new ObservableCollection<ExcerciseTreeItem>();
@@ -68,40 +102,6 @@ namespace Taskara
 		void child_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			if (e.PropertyName == "Visible") UpdateVisible();
-		}
-
-		string _Name;
-		public string Name
-		{
-			get { return _Name; }
-			set { _Name = value; NotifyPropertyChanged("Name"); }
-		}
-
-		long _Repetitions;
-		public long Repetitions
-		{
-			get { return _Repetitions; }
-			set { _Repetitions = value; NotifyPropertyChanged("Repetitions"); }
-		}
-
-		ObservableCollection<ExcerciseTreeItem> _Children;
-		public ObservableCollection<ExcerciseTreeItem> Children
-		{
-			get { return _Children; }
-		}
-
-		ExcerciseTreeItem _Parent;
-		public ExcerciseTreeItem Parent
-		{
-			get { return _Parent; }
-			private set { _Parent = value; NotifyPropertyChanged("Parent"); }
-		}
-
-		bool _Visible = true;
-		public bool Visible
-		{
-			get { return _Visible; }
-			set { _Visible = value; NotifyPropertyChanged("Visible"); }
 		}
 
 		private void UpdateVisible()

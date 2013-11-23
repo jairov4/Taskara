@@ -38,11 +38,36 @@
 		</DockPanel.Background>
 		<Border DockPanel.Dock="Top" Background="#08DA9D">
 			<DockPanel>
-				<Image Width="80" Height="80" DockPanel.Dock="Right" Margin="0,20,20,20" Source="{Binding Prescription.Patient.PhotoData}"/>
-				<TextBlock DockPanel.Dock="Right" Margin="20" Foreground="Green" FontSize="30" FontFamily="Segoe Print">
-					<Run Text="{Binding Prescription.Patient.FirstName}" />					
-					<Run Text="{Binding Prescription.Patient.LastName}" />
-				</TextBlock>
+				<Grid x:Name="grdInfo" DockPanel.Dock="Right" MinWidth="350">
+					<Grid.RowDefinitions>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Image Grid.Column="1" Margin="0,0,20,0" Width="120" Source="{Binding Prescription.Patient.PhotoData}" />
+					<TextBlock Grid.Column="0" Margin="20" Foreground="Green" FontSize="30" FontFamily="Segoe Print">
+						<Run Text="{Binding Prescription.Patient.FirstName}" />
+						<Run Text="{Binding Prescription.Patient.LastName}" />
+					</TextBlock>
+					<Popup Grid.ColumnSpan="2" 
+						   IsOpen="{Binding ElementName=grdInfo, Path=IsMouseOver, Mode=OneWay}"
+						   AllowsTransparency="True"
+						   VerticalOffset="-12">
+						<Border Background="#FF144705" Padding="20" TextElement.Foreground="White">
+							<TextBlock>
+								<Run>Fonoaudilogo:</Run>
+								<Run>Pepita Mendez</Run>
+								<LineBreak/>
+								<Run>Fecha de receta:</Run>
+								<Run>10/25/2013 (Ayer)</Run>
+								<LineBreak />
+								<Run>Ultima Registro de progreso:</Run>
+								<Run>10/25/2013 (Ayer)</Run>
+							</TextBlock>
+						</Border>
+					</Popup>
+				</Grid>
 				<TextBlock Foreground="#fff" Padding="20" Style="{StaticResource TitleStyle}">Receta</TextBlock>
 			</DockPanel>
 		</Border>
