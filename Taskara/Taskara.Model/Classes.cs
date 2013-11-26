@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Taskara.Model
@@ -35,13 +37,15 @@ namespace Taskara.Model
 		public Genre Genre { get; set; }
 		public byte[] PhotoData { get; set; }
 		public string PhotoDataMime { get; set; }
+		public string Diganosis { get; set; }
+		public string Amplifier { get; set; }
 	}
 
 	public class Excercise
 	{
 		public string Name { get; set; }
-		public long Repetitions { get; set; }
 		public string[] Path { get; set; }
+		public DayOfWeek[] WeeklyBasis { get; set; }
 	}
 
 	public class Prescription
@@ -50,26 +54,25 @@ namespace Taskara.Model
 		public Patient Patient { get; set; }
 		public IList<Excercise> Excercises { get; set; }
 
-		public void SaveXml(System.IO.Stream str)
+		public void SaveXml(Stream str)
 		{
-			var ser = new System.Xml.Serialization.XmlSerializer(typeof(Prescription));
-			ser.Serialize(str, this);
+			var ser = new DataContractSerializer(typeof(Prescription));
+			ser.WriteObject(str, this);
 		}
 
-		static public Prescription LoadXml(System.IO.Stream str)
+		static public Prescription LoadXml(Stream str)
 		{
-			var ser = new System.Xml.Serialization.XmlSerializer(typeof(Prescription));
-			return (Prescription)ser.Deserialize(str);
+			var ser = new DataContractSerializer(typeof(Prescription));
+			return (Prescription)ser.ReadObject(str);
 		}
 	}
-
+	
 	public class ExcerciseProgressReport
 	{
 		public Excercise Excercise { get; set; }
 		public string Name { get; set; }
-		public long Repetitions { get; set; }
-		public long RepetitionsCount { get; set; }
-		public long GoodRepetitionsCount { get; set; }
+		public long TotalRepetitions { get; set; }
+		public long GoodRepetitions { get; set; }
 	}
 
 	/// <summary>
@@ -80,22 +83,19 @@ namespace Taskara.Model
 		public long ReportId { get; set; }
 		public DateTime Issued { get; set; }
 
-		[Obsolete("La prescripcion ya contiene el paciente")]
-		public Patient Patient { get; set; }
-
 		public Prescription Prescription { get; set; }
 		public IList<ExcerciseProgressReport> Progress { get; set; }
 
-		public void SaveXml(System.IO.Stream str)
+		public void SaveXml(Stream str)
 		{
-			var ser = new System.Xml.Serialization.XmlSerializer(typeof(PrescriptionProgressReport));
-			ser.Serialize(str, this);
+			var ser = new DataContractSerializer(typeof(PrescriptionProgressReport));
+			ser.WriteObject(str, this);
 		}
 
-		static public PrescriptionProgressReport LoadXml(System.IO.Stream str)
+		static public PrescriptionProgressReport LoadXml(Stream str)
 		{
-			var ser = new System.Xml.Serialization.XmlSerializer(typeof(PrescriptionProgressReport));
-			return (PrescriptionProgressReport)ser.Deserialize(str);
+			var ser = new DataContractSerializer(typeof(PrescriptionProgressReport));
+			return (PrescriptionProgressReport)ser.ReadObject(str);
 		}
 	}
 }

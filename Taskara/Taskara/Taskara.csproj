@@ -110,6 +110,9 @@
     <Compile Include="PatientEditPage.xaml.cs">
       <DependentUpon>PatientEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProgressCell.xaml.cs">
+      <DependentUpon>ProgressCell.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service.cs" />
     <Compile Include="Util.cs" />
     <Page Include="AvatarSelectorPage.xaml">
@@ -123,6 +126,14 @@
     <Page Include="PatientProgressPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProgressCell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>

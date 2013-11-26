@@ -3,30 +3,16 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-	  
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 	  
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="800"
+      d:DesignHeight="540" d:DesignWidth="1024"
 	  Title="Receta">
 
 	<taskara:Page.Resources>
-		<taskara:BoolToVisibilityConverter x:Key="boolToVisibility" />
-		<HierarchicalDataTemplate x:Key="editable_excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}" >
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition Width="Auto" />
-				</Grid.ColumnDefinitions>
-				<TextBlock Text="{Binding Name}" />
-				<TextBox Text="{Binding Repetitions}"
-						 ToolTip="Repeticiones" 
-						 TextAlignment="Right" 
-						 Background="#ddd" 
-						 Grid.Column="1" 
-						 Width="100" Margin="0">
-				</TextBox>
-			</Grid>
-		</HierarchicalDataTemplate>
+		<taskara:BoolToVisibilityConverter x:Key="boolToVisibility" />		
+		<DataTemplate x:Key="progressCell_template">
+			<taskara:ProgressCell Margin="-6,-2" Padding="1" />
+		</DataTemplate>
 		<HierarchicalDataTemplate x:Key="simple_excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}">
 			<TextBlock Text="{Binding Name}" />
 		</HierarchicalDataTemplate>
@@ -75,10 +61,11 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" MinWidth="100" />
-				<ColumnDefinition Width="*" MinWidth="100" />
+				<ColumnDefinition Width="0.5*" MinWidth="100" />
 			</Grid.ColumnDefinitions>
 
 			<Button Margin="0,0,0,20" HorizontalAlignment="Left" Click="btnAdd_Click">Agregar</Button>
@@ -90,7 +77,8 @@
 				<Button Margin="-1,0,0,0" Click="btnDown_Click">Bajar</Button>
 			</StackPanel>
 
-			<TreeView x:Name="tvSource" Grid.Row="1" Margin="0,0,10,0"
+			<TreeView x:Name="tvSource" Grid.Row="1" Grid.Column="1"
+					  Margin="0,0,0,0"
 					  Background="#aaffffff"
 					  ItemsSource="{Binding AvailableExcercises}" 
 					  ItemTemplate="{StaticResource simple_excerciseTreeItemDataTemplate}"
@@ -105,11 +93,12 @@
 				</TreeView.ItemContainerStyle>
 			</TreeView>
 
-			<ListBox x:Name="lbTarget" Grid.Row="1" Grid.Column="1" 
+			<ListBox x:Name="lbTarget" Grid.Row="2" Grid.Column="1" 
+					 Margin="0,10,0,0"
 					 Background="#aaffffff"
 					 ItemsSource="{Binding PrescriptionExcercises}"
 					 SelectedItem="{Binding SelectedPrescriptionExcercise}"
-					 ItemTemplate="{StaticResource editable_excerciseTreeItemDataTemplate}"
+					 ItemTemplate="{StaticResource simple_excerciseTreeItemDataTemplate}"
 					 DragOver="ListBoxItem_DragEnter" 
 					 DragLeave="ListBoxItem_DragLeave" 
 					 Drop="ListBoxItem_Drop" 
@@ -123,8 +112,47 @@
 					</Style>
 				</ListBox.ItemContainerStyle>
 			</ListBox>
-			<GridSplitter Grid.Column="0" Grid.Row="1" Width="10" />
-
+			<Grid Grid.Row="1" Grid.RowSpan="2" Margin="0,0,10,0">
+				<ListView>
+					<ListView.ItemsSource>
+						<DoubleCollection>
+							1,2,5,6
+						</DoubleCollection>
+					</ListView.ItemsSource>
+					<ListView.ItemContainerStyle>
+						<Style TargetType="ListViewItem">
+							<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+							<Setter Property="VerticalContentAlignment" Value="Stretch" />
+							<Setter Property="Margin" Value="0" />
+							<Setter Property="Padding" Value="0" />
+							<Style.Triggers>
+								<Trigger Property="IsMouseOver" Value="true">
+									<Setter Property="Background" Value="Transparent" />
+									<Setter Property="BorderBrush" Value="Transparent" />									
+								</Trigger>
+								<Trigger Property="IsSelected" Value="true">
+									<Setter Property="Background" Value="Transparent" />
+									<Setter Property="BorderBrush" Value="Transparent" />
+								</Trigger>
+							</Style.Triggers>
+						</Style>
+					</ListView.ItemContainerStyle>
+					<ListView.View>
+						<GridView AllowsColumnReorder="False">							
+							<GridView.Columns>
+								<GridViewColumn Width="115" Header="LUNES" CellTemplate="{StaticResource progressCell_template}" />
+								<GridViewColumn Width="115" Header="MARTES" CellTemplate="{StaticResource progressCell_template}" />
+								<GridViewColumn Width="115" Header="MIERCOLES" CellTemplate="{StaticResource progressCell_template}" />
+								<GridViewColumn Width="115" Header="JUEVES" CellTemplate="{StaticResource progressCell_template}" />
+								<GridViewColumn Width="115" Header="VIERNES" CellTemplate="{StaticResource progressCell_template}" />
+								<GridViewColumn Width="115" Header="SABADO" CellTemplate="{StaticResource progressCell_template}" />
+								<GridViewColumn Width="115" Header="DOMINGO" CellTemplate="{StaticResource progressCell_template}" />
+							</GridView.Columns>
+						</GridView>
+					</ListView.View>
+				</ListView>
+			</Grid>
+			<GridSplitter Grid.Column="1" Grid.Row="2" Height="10" ShowsPreview="True" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
 		</Grid>
 
 	</DockPanel>

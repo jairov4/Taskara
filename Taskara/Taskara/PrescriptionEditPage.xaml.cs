@@ -304,7 +304,7 @@ namespace Taskara
 				// TODO: Manage unknown
 				if (treeItem != null)
 				{
-					treeItem.Repetitions = item.Repetitions;
+					//treeItem.Repetitions = item.Repetitions;
 					Add(treeItem);
 				}
 			}
@@ -322,7 +322,7 @@ namespace Taskara
 					found = new Excercise();
 					found.Name = item.Name;
 					found.Path = itemPath.ToArray();
-					found.Repetitions = item.Repetitions;
+					//found.Repetitions = item.Repetitions;
 					prescription.Excercises.Add(found);
 				}
 				list.Add(found);
