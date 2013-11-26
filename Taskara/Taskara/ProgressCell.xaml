@@ -22,6 +22,7 @@
 				<DrawingBrush Stretch="Uniform" AlignmentX="Right">
 					<DrawingBrush.Drawing>
 						<DrawingGroup>
+							<GeometryDrawing Brush="#FFFF00A8" Geometry="F1 M 466.666,129.804L 273.666,344.304L 466.666,543.304L 466.666,129.804 Z "/>
 							<GeometryDrawing Brush="#FF0096FF" Geometry="F1 M 271.999,130.106L 780.332,131.66L 780.333,545.001L 280,544.5L 453,342L 271.999,130.106 Z "/>
 							<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 551.667,227.335C 567.315,227.335 580,241.512 580,259.001C 580,276.49 567.315,290.668 551.667,290.668C 536.019,290.668 523.333,276.49 523.333,259.001C 523.333,241.512 536.019,227.335 551.667,227.335 Z "/>
 							<GeometryDrawing Geometry="F1 M 496.354,410.835C 546.854,489.085 673.354,488.085 721.333,409.168">
@@ -49,8 +50,10 @@
 					   Visibility="{Binding IsFirstMonday}"
 					   Text="{Binding Month}" />
 		</Canvas>
-		<Popup x:Name="popup" IsOpen="{Binding IsMouseOver, ElementName=root, Mode=OneWay}">
-			<Grid Background="DarkGreen" TextElement.Foreground="white">
+		<Popup x:Name="popup" IsOpen="{Binding IsMouseOver, ElementName=root, Mode=OneWay}" 
+			   AllowsTransparency="True"
+			   Placement="Right">
+			<Grid TextElement.Foreground="white" Background="Navy">				
 				<TextBlock Margin="10">El dia tatatata</TextBlock>
 			</Grid>
 		</Popup>
