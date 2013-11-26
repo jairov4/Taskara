@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d"	
-			 d:DesignWidth="90"
+			 d:DesignWidth="70"
              >
 	<Grid x:Name="root" Background="#90dddddd">
 		<Grid.ColumnDefinitions>
@@ -16,40 +16,20 @@
 			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
 		<TextBlock Margin="5,0,3,0" Foreground="#1B676B" TextAlignment="Left" Text="{Binding Day}"></TextBlock>
-		
-		<Rectangle Grid.Column="1" Grid.RowSpan="2" StrokeThickness="5" Stroke="Transparent" Visibility="{Binding Total}">
+
+		<Rectangle Grid.Column="1" Grid.RowSpan="2" Visibility="{Binding Total}">
 			<Rectangle.Fill>
-				<DrawingBrush Stretch="Uniform">
+				<DrawingBrush Stretch="Uniform" AlignmentX="Right">
 					<DrawingBrush.Drawing>
 						<DrawingGroup>
-							<DrawingGroup.Children>
-								<GeometryDrawing Brush="#FFFFC500" Geometry="F1 M 162.833,300.485C 167.764,157.865 275.499,66.4852 402.833,73.1518C 504.728,78.4866 622.939,163.591 617.77,308.318C 613.103,438.985 507.52,528.61 388.166,528.485C 237.493,528.327 159.52,396.277 162.833,300.485 Z ">
-									<GeometryDrawing.Pen>
-										<Pen Thickness="14" LineJoin="Round" Brush="#FF000000"/>
-									</GeometryDrawing.Pen>
-								</GeometryDrawing>
-								<GeometryDrawing Geometry="F1 M 216.25,183.083L 333,226.583L 215.5,271.833">
-									<GeometryDrawing.Pen>
-										<Pen Thickness="12" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FF000000"/>
-									</GeometryDrawing.Pen>
-								</GeometryDrawing>
-								<GeometryDrawing Geometry="F1 M 520.75,183.333L 404,227.333L 520.5,272.083">
-									<GeometryDrawing.Pen>
-										<Pen Thickness="12" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FF000000"/>
-									</GeometryDrawing.Pen>
-								</GeometryDrawing>
-								<GeometryDrawing Brush="#FF871945" Geometry="F1 M 206.583,331.25L 522.583,331.917C 522.583,331.917 568.986,439.358 430.25,489.167C 396.257,501.371 363.093,500.467 333.568,489.635C 274.789,468.072 230.432,407.162 222.667,332"/>
-								<GeometryDrawing Brush="#FFFBC0DF" Geometry="F1 M 333.979,489.677C 340.354,455.26 359.854,424.094 398.479,417.927C 451.354,410.26 482.354,437.927 490.729,456.927C 447.354,490.26 383.187,509.927 333.979,489.677 Z ">
-									<GeometryDrawing.Pen>
-										<Pen Thickness="1" StartLineCap="Square" EndLineCap="Square" LineJoin="Round" Brush="#FF000000"/>
-									</GeometryDrawing.Pen>
-								</GeometryDrawing>
-								<GeometryDrawing Geometry="F1 M 206.083,331.25L 522.083,331.917C 522.083,331.917 568.486,439.358 429.75,489.167C 395.757,501.371 362.593,500.467 333.068,489.635C 274.289,468.072 229.932,407.162 222.167,332">
-									<GeometryDrawing.Pen>
-										<Pen Thickness="12" StartLineCap="Square" EndLineCap="Square" LineJoin="Round" Brush="#FF000000"/>
-									</GeometryDrawing.Pen>
-								</GeometryDrawing>
-							</DrawingGroup.Children>
+							<GeometryDrawing Brush="#FF0096FF" Geometry="F1 M 271.999,130.106L 780.332,131.66L 780.333,545.001L 280,544.5L 453,342L 271.999,130.106 Z "/>
+							<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 551.667,227.335C 567.315,227.335 580,241.512 580,259.001C 580,276.49 567.315,290.668 551.667,290.668C 536.019,290.668 523.333,276.49 523.333,259.001C 523.333,241.512 536.019,227.335 551.667,227.335 Z "/>
+							<GeometryDrawing Geometry="F1 M 496.354,410.835C 546.854,489.085 673.354,488.085 721.333,409.168">
+								<GeometryDrawing.Pen>
+									<Pen Thickness="21" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+								</GeometryDrawing.Pen>
+							</GeometryDrawing>
+							<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 672,227.335C 687.648,227.335 700.333,241.512 700.333,259.001C 700.333,276.49 687.648,290.668 672,290.668C 656.352,290.668 643.667,276.49 643.667,259.001C 643.667,241.512 656.352,227.335 672,227.335 Z "/>
 						</DrawingGroup>
 					</DrawingBrush.Drawing>
 				</DrawingBrush>

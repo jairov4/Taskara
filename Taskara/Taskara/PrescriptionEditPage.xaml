@@ -9,7 +9,7 @@
 	  Title="Receta">
 
 	<taskara:Page.Resources>
-		<taskara:BoolToVisibilityConverter x:Key="boolToVisibility" />		
+		<taskara:BoolToVisibilityConverter x:Key="boolToVisibility" />
 		<DataTemplate x:Key="progressCell_template">
 			<taskara:ProgressCell Margin="-6,-2" Padding="1" />
 		</DataTemplate>
@@ -65,7 +65,7 @@
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" MinWidth="100" />
-				<ColumnDefinition Width="0.5*" MinWidth="100" />
+				<ColumnDefinition Width="0.3*" MinWidth="100" />
 			</Grid.ColumnDefinitions>
 
 			<Button Margin="0,0,0,20" HorizontalAlignment="Left" Click="btnAdd_Click">Agregar</Button>
@@ -112,46 +112,50 @@
 					</Style>
 				</ListBox.ItemContainerStyle>
 			</ListBox>
+
 			<Grid Grid.Row="1" Grid.RowSpan="2" Margin="0,0,10,0">
-				<ListView>
-					<ListView.ItemsSource>
-						<DoubleCollection>
-							1,2,5,6
-						</DoubleCollection>
-					</ListView.ItemsSource>
-					<ListView.ItemContainerStyle>
-						<Style TargetType="ListViewItem">
-							<Setter Property="HorizontalContentAlignment" Value="Stretch" />
-							<Setter Property="VerticalContentAlignment" Value="Stretch" />
-							<Setter Property="Margin" Value="0" />
-							<Setter Property="Padding" Value="0" />
-							<Style.Triggers>
-								<Trigger Property="IsMouseOver" Value="true">
-									<Setter Property="Background" Value="Transparent" />
-									<Setter Property="BorderBrush" Value="Transparent" />									
-								</Trigger>
-								<Trigger Property="IsSelected" Value="true">
-									<Setter Property="Background" Value="Transparent" />
-									<Setter Property="BorderBrush" Value="Transparent" />
-								</Trigger>
-							</Style.Triggers>
-						</Style>
-					</ListView.ItemContainerStyle>
-					<ListView.View>
-						<GridView AllowsColumnReorder="False">							
-							<GridView.Columns>
-								<GridViewColumn Width="115" Header="LUNES" CellTemplate="{StaticResource progressCell_template}" />
-								<GridViewColumn Width="115" Header="MARTES" CellTemplate="{StaticResource progressCell_template}" />
-								<GridViewColumn Width="115" Header="MIERCOLES" CellTemplate="{StaticResource progressCell_template}" />
-								<GridViewColumn Width="115" Header="JUEVES" CellTemplate="{StaticResource progressCell_template}" />
-								<GridViewColumn Width="115" Header="VIERNES" CellTemplate="{StaticResource progressCell_template}" />
-								<GridViewColumn Width="115" Header="SABADO" CellTemplate="{StaticResource progressCell_template}" />
-								<GridViewColumn Width="115" Header="DOMINGO" CellTemplate="{StaticResource progressCell_template}" />
-							</GridView.Columns>
-						</GridView>
-					</ListView.View>
-				</ListView>
+				<Viewbox>
+					<ListView>
+						<ListView.ItemsSource>
+							<DoubleCollection>
+								1,3,2,0,6
+							</DoubleCollection>
+						</ListView.ItemsSource>
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+								<Setter Property="VerticalContentAlignment" Value="Stretch" />
+								<Setter Property="Margin" Value="0" />
+								<Setter Property="Padding" Value="0" />
+								<Style.Triggers>
+									<Trigger Property="IsMouseOver" Value="true">
+										<Setter Property="Background" Value="Transparent" />
+										<Setter Property="BorderBrush" Value="Transparent" />
+									</Trigger>
+									<Trigger Property="IsSelected" Value="true">
+										<Setter Property="Background" Value="Transparent" />
+										<Setter Property="BorderBrush" Value="Transparent" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.View>
+							<GridView AllowsColumnReorder="False">
+								<GridView.Columns>
+									<GridViewColumn Width="100" Header="LUNES" CellTemplate="{StaticResource progressCell_template}" />
+									<GridViewColumn Width="100" Header="MARTES" CellTemplate="{StaticResource progressCell_template}" />
+									<GridViewColumn Width="100" Header="MIERCOLES" CellTemplate="{StaticResource progressCell_template}" />
+									<GridViewColumn Width="100" Header="JUEVES" CellTemplate="{StaticResource progressCell_template}" />
+									<GridViewColumn Width="100" Header="VIERNES" CellTemplate="{StaticResource progressCell_template}" />
+									<GridViewColumn Width="100" Header="SABADO" CellTemplate="{StaticResource progressCell_template}" />
+									<GridViewColumn Width="100" Header="DOMINGO" CellTemplate="{StaticResource progressCell_template}" />
+								</GridView.Columns>
+							</GridView>
+						</ListView.View>
+					</ListView>
+				</Viewbox>
 			</Grid>
+			<GridSplitter Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Width="10" ShowsPreview="True" VerticalAlignment="Stretch" HorizontalAlignment="Right" />
 			<GridSplitter Grid.Column="1" Grid.Row="2" Height="10" ShowsPreview="True" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
 		</Grid>
 
