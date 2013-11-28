@@ -179,7 +179,7 @@ namespace Taskara.Model
 			return (PrescriptionProgressReportCollection)ser.ReadObject(xml);
 		}
 
-		public void Save(Stream xml)
+		public void SaveXml(Stream xml)
 		{
 			var ser = new DataContractSerializer(typeof(PrescriptionProgressReportCollection));
 			ser.WriteObject(xml, this);
