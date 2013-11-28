@@ -13,9 +13,44 @@ namespace Taskara
 {
 	public static class Util
 	{
-	}
+		/// <summary>
+		/// Convierte el DayOfWeek en numero teniendo en cuenta la cultura de la interfaz grafica actual
+		/// </summary>
+		/// <param name="d"></param>
+		/// <returns></returns>
+		public static int DayOfWeekToNumber(DayOfWeek d)
+		{
+			var fd = (int)GetFirstDayOfWeek();
+			var i = (int)d;
+			if (i < fd) return 7 - fd + i;
+			else return i - fd;
+		}
 
-	
+		public static DayOfWeek GetFirstDayOfWeek()
+		{
+			return DayOfWeek.Monday;
+			//return System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.FirstDayOfWeek;
+		}
+
+		public static DateTime GetBeginOfWeek(DateTime d)
+		{
+			var t = DayOfWeekToNumber(d.DayOfWeek);
+			return d.Date.AddDays(-t);
+		}
+
+		public static DateTime GetEndOfWeek(DateTime d)
+		{
+			var t = DayOfWeekToNumber(d.DayOfWeek);
+			return d.Date.AddDays(7-t);
+		}
+
+		public static bool BelongsTheSameWeek(DateTime d1, DateTime d2)
+		{
+			var bd = GetBeginOfWeek(d1);
+			var ed = GetEndOfWeek(d1);
+			return d2 >= bd && d2 < ed;
+		}
+	}	
 
 	public abstract class ObservableObject : INotifyPropertyChanged
 	{

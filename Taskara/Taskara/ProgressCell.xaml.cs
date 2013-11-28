@@ -15,6 +15,16 @@ using System.Windows.Shapes;
 
 namespace Taskara
 {
+	public class ProgressWeekData
+	{
+		public ProgressWeekData()
+		{
+			Days = new ProgressCellData[7];
+		}
+
+		public ProgressCellData[] Days { get; set; }
+	}
+
 	public class ProgressCellData
 	{
 		public DateTime Date { get; set; }
@@ -29,21 +39,13 @@ namespace Taskara
 			}
 		}
 
-		public bool IsFirstDayOfWeek
+		public Visibility IsFirstBeginOfWeekAndMonth
 		{
 			get
 			{
-				if (Date.DayOfWeek == DayOfWeek.Monday) return false;
-				if (Date.Day > 7) return false;
-				return true;
-			}
-		}
-
-		public string Month
-		{
-			get
-			{
-				return Date.ToString("MMM");
+				if (Date.DayOfWeek != Util.GetFirstDayOfWeek()) return Visibility.Hidden;
+				if (Date.Day > 7) return Visibility.Hidden;
+				return Visibility.Visible;
 			}
 		}
 	}

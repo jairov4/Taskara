@@ -215,8 +215,8 @@ namespace Taskara
 		ObservableCollection<ExcerciseTreeItem> _AvailableExcercises = new ObservableCollection<ExcerciseTreeItem>();
 		public ObservableCollection<ExcerciseTreeItem> AvailableExcercises { get { return _AvailableExcercises; } }
 
-		List<ProgressCellData> _Progress;
-		public List<ProgressCellData> Progress
+		List<ProgressWeekData> _Progress;
+		public List<ProgressWeekData> Progress
 		{
 			get { return _Progress; }
 			set { _Progress = value; NotifyPropertyChanged("Progress"); }
@@ -407,23 +407,54 @@ namespace Taskara
 					Add(treeItem);
 				}
 			}
+
 			var pid = App.Instance.Service.GetId(prescription.Patient);
 			var reps = App.Instance.Service.ListProgressReportsByPatientId(pid);
-			var reportData = new List<ProgressCellData>(reps.Count);
+			// TEST CODE
+			if (reps.Count == 0)
+			{
+				var cdate = DateTime.Now.AddDays(-1000);
+				var random = new Random();
+				for (int i = 0; i < 20; i++)
+				{
+					var dd = new PrescriptionProgressReport();
+					dd.Issued = cdate;
+					dd.Prescription = prescription;
+					dd.Progress = new List<ExcerciseProgressReport>();
+					var pp = new ExcerciseProgressReport();
+					pp.Excercise = prescription.Excercises.First();
+					pp.GoodRepetitions = 10;
+					pp.TotalRepetitions = 20;
+					dd.Progress.Add(pp);
+					reps.Add(dd);
+					cdate = cdate.AddDays(random.Next(1, 8));
+				}
+			} // END TEST CODE
+			var reportWeeksData = new List<ProgressWeekData>();
 			reps.Sort((x, y) => (int)(x.Issued - y.Issued).TotalSeconds);
 			Progress = null;
+
 			if (reps.Count == 0) return;
 
 			var dt = reps.FirstOrDefault().Issued;
+			var cw = new ProgressWeekData();
+			int weekDayIdx = 0;
 			foreach (var item in reps)
 			{
 				if (item.Issued > dt)
 				{
-					var remaining = dt.Date - item.Issued.Date;
-					for (int i = 1; i <= (int)remaining.TotalDays; i++)
+					var remaining = (item.Issued.Date - dt.Date).TotalDays - 1;
+					for (int i = 1; i <= (int)remaining; i++)
 					{
 						var emptyDay = new ProgressCellData();
-						emptyDay.Date = dt.Date.AddDays(i);						
+						emptyDay.Date = dt.Date.AddDays(i);
+						weekDayIdx = Util.DayOfWeekToNumber(emptyDay.Date.DayOfWeek);
+						cw.Days[weekDayIdx] = emptyDay;
+						if (weekDayIdx == 6)
+						{
+							reportWeeksData.Add(cw);
+							cw = new ProgressWeekData();
+						}
 					}
 				}
 
@@ -432,9 +463,20 @@ namespace Taskara
 				dt = item.Issued;
 				dat.Good = item.Progress.Sum(x => x.GoodRepetitions);
 				dat.Total = item.Progress.Sum(x => x.TotalRepetitions);
-				reportData.Add(dat);				
+				weekDayIdx = Util.DayOfWeekToNumber(dt.DayOfWeek);
+				cw.Days[weekDayIdx] = dat;
+				if (weekDayIdx == 6)
+				{
+					reportWeeksData.Add(cw);
+					cw = new ProgressWeekData();
+					weekDayIdx = 0;
+				}
 			}
-			Progress = reportData;
+			if (weekDayIdx > 0)
+			{
+				reportWeeksData.Add(cw);
+			}
+			Progress = reportWeeksData;
 		}
 
 		/// <summary>
@@ -460,7 +502,7 @@ namespace Taskara
 			foreach (var item in prescription.Excercises.ToArray())
 			{
 				if (!list.Contains(item)) prescription.Excercises.Remove(item);
-			}			
+			}
 		}
 	}
 

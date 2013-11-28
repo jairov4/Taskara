@@ -10,10 +10,36 @@
 
 	<taskara:Page.Resources>
 		<taskara:BoolToVisibilityConverter x:Key="boolToVisibility" />
-		<DataTemplate x:Key="progressCell_template">
+
+		<DataTemplate x:Key="progressCell_template0">
 			<!-- El margen de -6,-2 es necesario para compensar el hardcode interno de GridView -->
-			<taskara:ProgressCell Margin="-6,-2" Padding="1" />
+			<taskara:ProgressCell Margin="-6,-2" Padding="1" DataContext="{Binding Days[0]}" />
 		</DataTemplate>
+		<DataTemplate x:Key="progressCell_template1">
+			<!-- El margen de -6,-2 es necesario para compensar el hardcode interno de GridView -->
+			<taskara:ProgressCell Margin="-6,-2" Padding="1" DataContext="{Binding Days[1]}" />
+		</DataTemplate>
+		<DataTemplate x:Key="progressCell_template2">
+			<!-- El margen de -6,-2 es necesario para compensar el hardcode interno de GridView -->
+			<taskara:ProgressCell Margin="-6,-2" Padding="1" DataContext="{Binding Days[2]}" />
+		</DataTemplate>
+		<DataTemplate x:Key="progressCell_template3">
+			<!-- El margen de -6,-2 es necesario para compensar el hardcode interno de GridView -->
+			<taskara:ProgressCell Margin="-6,-2" Padding="1" DataContext="{Binding Days[3]}" />
+		</DataTemplate>
+		<DataTemplate x:Key="progressCell_template4">
+			<!-- El margen de -6,-2 es necesario para compensar el hardcode interno de GridView -->
+			<taskara:ProgressCell Margin="-6,-2" Padding="1" DataContext="{Binding Days[4]}" />
+		</DataTemplate>
+		<DataTemplate x:Key="progressCell_template5">
+			<!-- El margen de -6,-2 es necesario para compensar el hardcode interno de GridView -->
+			<taskara:ProgressCell Margin="-6,-2" Padding="1" DataContext="{Binding Days[5]}" />
+		</DataTemplate>
+		<DataTemplate x:Key="progressCell_template6">
+			<!-- El margen de -6,-2 es necesario para compensar el hardcode interno de GridView -->
+			<taskara:ProgressCell Margin="-6,-2" Padding="1" DataContext="{Binding Days[6]}" />
+		</DataTemplate>
+
 		<HierarchicalDataTemplate x:Key="simple_excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}">
 			<TextBlock Text="{Binding Name}" />
 		</HierarchicalDataTemplate>
@@ -115,41 +141,43 @@
 			</ListBox>
 
 			<Grid Grid.Row="1" Grid.RowSpan="2" Margin="0,0,10,0">
-				<Viewbox>
-					<ListView BorderThickness="0" ItemsSource="{Binding Progress}">						
-						<ListView.ItemContainerStyle>
-							<Style TargetType="ListViewItem">
-								<Setter Property="HorizontalContentAlignment" Value="Stretch" />
-								<Setter Property="VerticalContentAlignment" Value="Stretch" />
-								<Setter Property="Margin" Value="0" />
-								<Setter Property="Padding" Value="0" />
-								<Style.Triggers>
-									<Trigger Property="IsMouseOver" Value="true">
-										<Setter Property="Background" Value="Transparent" />
-										<Setter Property="BorderBrush" Value="Transparent" />
-									</Trigger>
-									<Trigger Property="IsSelected" Value="true">
-										<Setter Property="Background" Value="Transparent" />
-										<Setter Property="BorderBrush" Value="Transparent" />
-									</Trigger>
-								</Style.Triggers>
-							</Style>
-						</ListView.ItemContainerStyle>
-						<ListView.View>
-							<GridView AllowsColumnReorder="False">
-								<GridView.Columns>
-									<GridViewColumn Width="100" Header="LUNES" CellTemplate="{StaticResource progressCell_template}" />
-									<GridViewColumn Width="100" Header="MARTES" CellTemplate="{StaticResource progressCell_template}" />
-									<GridViewColumn Width="100" Header="MIERCOLES" CellTemplate="{StaticResource progressCell_template}" />
-									<GridViewColumn Width="100" Header="JUEVES" CellTemplate="{StaticResource progressCell_template}" />
-									<GridViewColumn Width="100" Header="VIERNES" CellTemplate="{StaticResource progressCell_template}" />
-									<GridViewColumn Width="100" Header="SABADO" CellTemplate="{StaticResource progressCell_template}" />
-									<GridViewColumn Width="100" Header="DOMINGO" CellTemplate="{StaticResource progressCell_template}" />
-								</GridView.Columns>
-							</GridView>
-						</ListView.View>
-					</ListView>
-				</Viewbox>
+				<ScrollViewer>
+					<Viewbox Stretch="Uniform">
+						<ListView BorderThickness="0" ItemsSource="{Binding Progress}">
+							<ListView.ItemContainerStyle>
+								<Style TargetType="ListViewItem">
+									<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+									<Setter Property="VerticalContentAlignment" Value="Stretch" />
+									<Setter Property="Margin" Value="0" />
+									<Setter Property="Padding" Value="0" />
+									<Style.Triggers>
+										<Trigger Property="IsMouseOver" Value="true">
+											<Setter Property="Background" Value="Transparent" />
+											<Setter Property="BorderBrush" Value="Transparent" />
+										</Trigger>
+										<Trigger Property="IsSelected" Value="true">
+											<Setter Property="Background" Value="Transparent" />
+											<Setter Property="BorderBrush" Value="Transparent" />
+										</Trigger>
+									</Style.Triggers>
+								</Style>
+							</ListView.ItemContainerStyle>
+							<ListView.View>
+								<GridView AllowsColumnReorder="False">
+									<GridView.Columns>
+										<GridViewColumn Width="100" Header="LUNES" CellTemplate="{StaticResource progressCell_template0}" />
+										<GridViewColumn Width="100" Header="MARTES" CellTemplate="{StaticResource progressCell_template1}" />
+										<GridViewColumn Width="100" Header="MIERCOLES" CellTemplate="{StaticResource progressCell_template2}" />
+										<GridViewColumn Width="100" Header="JUEVES" CellTemplate="{StaticResource progressCell_template3}" />
+										<GridViewColumn Width="100" Header="VIERNES" CellTemplate="{StaticResource progressCell_template4}" />
+										<GridViewColumn Width="100" Header="SABADO" CellTemplate="{StaticResource progressCell_template5}" />
+										<GridViewColumn Width="100" Header="DOMINGO" CellTemplate="{StaticResource progressCell_template6}" />
+									</GridView.Columns>
+								</GridView>
+							</ListView.View>
+						</ListView>
+					</Viewbox>
+				</ScrollViewer>
 			</Grid>
 			<GridSplitter Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Width="10" ShowsPreview="True" VerticalAlignment="Stretch" HorizontalAlignment="Right" />
 			<GridSplitter Grid.Column="1" Grid.Row="2" Height="10" ShowsPreview="True" VerticalAlignment="Top" HorizontalAlignment="Stretch" />

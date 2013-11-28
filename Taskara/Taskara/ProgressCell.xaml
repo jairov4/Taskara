@@ -15,9 +15,9 @@
 			<RowDefinition Height="*" />
 			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
-		<TextBlock Margin="5,0,3,0" Foreground="#1B676B" TextAlignment="Left" Text="{Binding Day}"></TextBlock>
+		<TextBlock Margin="5,0,3,0" Foreground="#FF81ADB0" TextAlignment="Left" Text="{Binding Date, StringFormat='dd'}"></TextBlock>
 
-		<Rectangle Grid.Column="1" Grid.RowSpan="2" Visibility="{Binding SmileyVisibility}">
+		<Rectangle Grid.Column="1" Grid.RowSpan="2" Visibility="{Binding SmileyVisibility, FallbackValue=Hidden}">
 			<Rectangle.Fill>
 				<DrawingBrush Stretch="Uniform" AlignmentX="Right">
 					<DrawingBrush.Drawing>
@@ -36,19 +36,19 @@
 				</DrawingBrush>
 			</Rectangle.Fill>
 		</Rectangle>
-		
-		<TextBlock Foreground="#001D2D" Grid.Row="1" TextAlignment="Center" Grid.ColumnSpan="1">
+
+		<TextBlock Visibility="{Binding SmileyVisibility, FallbackValue=Hidden}" Foreground="#001D2D" Grid.Row="1" TextAlignment="Center" Grid.ColumnSpan="1">
 			<Run Text="{Binding Good}" /><Run Text="/" /><Run Text="{Binding Total}" />
 		</TextBlock>
 
 		<Canvas ClipToBounds="False">
 			<TextBlock Foreground="#888" 
 					   FontSize="120" 
-					   Canvas.Left="350" 
-					   Canvas.Top="120" 
+					   Canvas.Left="250" 
+					   Canvas.Top="30" 
 					   TextAlignment="Right"
-					   Visibility="{Binding IsFirstDayOfWeek}"
-					   Text="{Binding Month}" />
+					   Visibility="{Binding IsFirstBeginOfWeekAndMonth}"
+					   Text="{Binding Date, StringFormat='MMMM/yy'}" />
 		</Canvas>
 		<Popup x:Name="popup" IsOpen="{Binding IsMouseOver, ElementName=root, Mode=OneWay}" 
 			   AllowsTransparency="True"
