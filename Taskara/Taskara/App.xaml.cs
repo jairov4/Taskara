@@ -34,6 +34,10 @@ namespace Taskara
 			Instance = this;
 			base.OnStartup(e);
 
+#if !DEBUG
+			DispatcherUnhandledException += App_DispatcherUnhandledException;
+#endif
+
 			Debug.WriteLine(System.Globalization.CultureInfo.CurrentUICulture);
 			Debug.WriteLine(System.Globalization.CultureInfo.CurrentCulture);
 
@@ -60,6 +64,13 @@ namespace Taskara
 
 			OpenDatabaseFromAppData();
 		}
+
+#if !DEBUG
+		void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+		{
+			MessageBox.Show("Error inesperado\n" + e.Exception.Message, "Rayos!");
+		}
+#endif
 
 		public string GetDefaultDatabaseFilenameAndSure()
 		{
