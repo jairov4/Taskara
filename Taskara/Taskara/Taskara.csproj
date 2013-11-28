@@ -112,6 +112,9 @@
     </Compile>
     <Compile Include="Service.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="WeekDaysSelector.xaml.cs">
+      <DependentUpon>WeekDaysSelector.xaml</DependentUpon>
+    </Compile>
     <Page Include="AvatarSelectorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WeekDaysSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

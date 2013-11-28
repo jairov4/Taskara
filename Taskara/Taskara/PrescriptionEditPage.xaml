@@ -40,9 +40,6 @@
 			<taskara:ProgressCell Margin="-6,-2" Padding="1" DataContext="{Binding Days[6]}" />
 		</DataTemplate>
 
-		<HierarchicalDataTemplate x:Key="simple_excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}">
-			<TextBlock Text="{Binding Name}" />
-		</HierarchicalDataTemplate>
 	</taskara:Page.Resources>
 
 	<DockPanel>
@@ -75,7 +72,7 @@
 								<Run>Fecha de receta:</Run>
 								<Run>10/25/2013 (Ayer)</Run>
 								<LineBreak />
-								<Run>Ultima Registro de progreso:</Run>
+								<Run>Ultimo Registro de progreso:</Run>
 								<Run>10/25/2013 (Ayer)</Run>
 							</TextBlock>
 						</Border>
@@ -106,10 +103,14 @@
 			<TreeView x:Name="tvSource" Grid.Row="1" Grid.Column="1"
 					  Margin="0,0,0,0"
 					  Background="#aaffffff"
-					  ItemsSource="{Binding AvailableExcercises}" 
-					  ItemTemplate="{StaticResource simple_excerciseTreeItemDataTemplate}"
+					  ItemsSource="{Binding AvailableExcercises}" 					  
 					  MouseDoubleClick="tvSource_DoubleClick"
 					  SelectedItemChanged="tvSource_SelectedItemChanged">
+				<TreeView.ItemTemplate>
+					<HierarchicalDataTemplate DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}">
+						<TextBlock Text="{Binding Name}" />
+					</HierarchicalDataTemplate>
+				</TreeView.ItemTemplate>
 				<TreeView.ItemContainerStyle>
 					<Style TargetType="TreeViewItem">
 						<EventSetter Event="TreeViewItem.MouseMove" Handler="TreeViewItem_MouseMove" />
@@ -123,12 +124,19 @@
 					 Margin="0,10,0,0"
 					 Background="#aaffffff"
 					 ItemsSource="{Binding PrescriptionExcercises}"
-					 SelectedItem="{Binding SelectedPrescriptionExcercise}"
-					 ItemTemplate="{StaticResource simple_excerciseTreeItemDataTemplate}"
+					 SelectedItem="{Binding SelectedPrescriptionExcercise}"					 
 					 DragOver="ListBoxItem_DragEnter" 
 					 DragLeave="ListBoxItem_DragLeave" 
 					 Drop="ListBoxItem_Drop" 
 					 AllowDrop="True">
+				<ListBox.ItemTemplate>
+					<DataTemplate DataType="taskara:ExcerciseTreeItem">
+						<DockPanel>
+							<taskara:WeekDaysSelector DataContext="{Binding WeeklyBasis}" DockPanel.Dock="Right" />
+							<TextBlock Text="{Binding Name}" />							
+						</DockPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
 				<ListBox.ItemContainerStyle>
 					<Style TargetType="ListBoxItem">
 						<EventSetter Event="DragEnter" Handler="ListBoxItem_DragEnter" />

@@ -34,6 +34,13 @@ namespace Taskara
 			set { _Name = value; NotifyPropertyChanged("Name"); }
 		}
 
+		ICollection<DayOfWeek> _WeeklyBasis = new List<DayOfWeek>();
+		public ICollection<DayOfWeek> WeeklyBasis
+		{
+			get { return _WeeklyBasis; }
+			set { _WeeklyBasis = value; NotifyPropertyChanged("WeeklyBasis"); }
+		}
+
 		/// <summary>
 		/// Hijos del nodo
 		/// </summary>
@@ -393,7 +400,9 @@ namespace Taskara
 		}
 
 		/// <summary>
-		/// Ajusta los datos para reflejar la vista de una prescripcion
+		/// Construye la vista en terminos de las clases que representan el estado visual
+		/// a partir del objeto de Prescripcion (que seguramente proviene del servicio de
+		/// almacenamiento)
 		/// </summary>
 		/// <param name="prescription">Prescripcion a desplegar</param>
 		private void BuildView(Prescription prescription)
@@ -404,12 +413,17 @@ namespace Taskara
 				// TODO: Manage unknown
 				if (treeItem != null)
 				{
+					if (item.WeeklyBasis != null)
+						treeItem.WeeklyBasis = item.WeeklyBasis.ToList();
+					else 
+						treeItem.WeeklyBasis = new List<DayOfWeek>();
 					Add(treeItem);
 				}
 			}
 
 			var pid = App.Instance.Service.GetId(prescription.Patient);
 			var reps = App.Instance.Service.ListProgressReportsByPatientId(pid);
+			// TODO: Remove this
 			// TEST CODE
 			if (reps.Count == 0)
 			{
@@ -460,7 +474,7 @@ namespace Taskara
 
 				var dat = new ProgressCellData();
 				dat.Report = item;
-				dt = item.Issued;				
+				dt = item.Issued;
 				weekDayIdx = Util.DayOfWeekToNumber(dt.DayOfWeek);
 				cw.Days[weekDayIdx] = dat;
 				if (weekDayIdx == 6)
@@ -495,6 +509,7 @@ namespace Taskara
 					found.Path = itemPath.ToArray();
 					prescription.Excercises.Add(found);
 				}
+				found.WeeklyBasis = item.WeeklyBasis.ToArray();
 				list.Add(found);
 			}
 			foreach (var item in prescription.Excercises.ToArray())

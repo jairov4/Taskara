@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Taskara.WeekDaysSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             >
+	<UniformGrid Rows="1">
+		<ToggleButton Padding="5,0" Checked="b_Update" x:Name="b0">L</ToggleButton>
+		<ToggleButton Padding="5,0" Checked="b_Update" x:Name="b1">M</ToggleButton>
+		<ToggleButton Padding="5,0" Checked="b_Update" x:Name="b2">M</ToggleButton>
+		<ToggleButton Padding="5,0" Checked="b_Update" x:Name="b3">J</ToggleButton>
+		<ToggleButton Padding="5,0" Checked="b_Update" x:Name="b4">V</ToggleButton>
+		<ToggleButton Padding="5,0" Checked="b_Update" x:Name="b5">S</ToggleButton>
+		<ToggleButton Padding="5,0" Checked="b_Update" x:Name="b6">D</ToggleButton>
+	</UniformGrid>
+</UserControl>
