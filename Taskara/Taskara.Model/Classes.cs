@@ -134,7 +134,7 @@ namespace Taskara.Model
 	public class PrescriptionProgressReport
 	{
 		// Identificador del reporte
-		public long ReportId { get; set; }
+		//public long ReportId { get; set; }
 
 		/// <summary>
 		/// Fecha de expedicion del reporte de progreso
