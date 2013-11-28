@@ -66,7 +66,7 @@
 						   VerticalOffset="-12">
 						<Border Background="#FF144705" Padding="20" TextElement.Foreground="White">
 							<TextBlock>
-								<Run>Direccion:</Run>
+								<Run>Dirección:</Run>
 								<Run Text="{Binding Prescription.Patient.Address}" />
 								<LineBreak/>
 								<Run>Documento:</Run>
@@ -75,13 +75,13 @@
 								<Run>Tipo de documento:</Run>
 								<Run Text="{Binding Prescription.Patient.DocumentType}" />
 								<LineBreak />
-								<Run>Telefono:</Run>
+								<Run>Teléfono:</Run>
 								<Run Text="{Binding Prescription.Patient.Phone}" />
 								<LineBreak />
 								<Run>Fecha de nacimiento:</Run>
 								<Run Text="{Binding Prescription.Patient.Birthdate, StringFormat=D}" />
 								<LineBreak />
-								<Run>Genero:</Run>
+								<Run>Género:</Run>
 								<Run Text="{Binding Prescription.Patient.Genre}" />
 							</TextBlock>
 						</Border>
