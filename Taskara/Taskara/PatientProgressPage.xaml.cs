@@ -33,7 +33,7 @@ namespace Taskara
 		{
 			PlotModel = new PlotModel();
 
-			var serie = new OxyPlot.Series.AreaSeries();
+			var serie = new OxyPlot.Series.BarSeries();
 			var items = new BarItem[]{
 				new BarItem(0.0),
 				new BarItem(0.1),
@@ -45,9 +45,9 @@ namespace Taskara
 			};
 
 			serie.ItemsSource = items;
-			serie.DataFieldY = "Value";
+			serie.ValueField = "Value";
 
-			serie.Fill = OxyColor.FromUInt32(0xFF30394F);
+			serie.FillColor = OxyColor.FromUInt32(0xFF30394F);
 
 			PlotModel.Series.Add(serie);
 			PlotModel.Background = OxyColor.FromUInt32(0xFF30394F);

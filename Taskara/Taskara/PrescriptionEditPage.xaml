@@ -11,6 +11,7 @@
 	<taskara:Page.Resources>
 		<taskara:BoolToVisibilityConverter x:Key="boolToVisibility" />
 		<DataTemplate x:Key="progressCell_template">
+			<!-- El margen de -6,-2 es necesario para compensar el hardcode interno de GridView -->
 			<taskara:ProgressCell Margin="-6,-2" Padding="1" />
 		</DataTemplate>
 		<HierarchicalDataTemplate x:Key="simple_excerciseTreeItemDataTemplate" DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}">
@@ -115,12 +116,7 @@
 
 			<Grid Grid.Row="1" Grid.RowSpan="2" Margin="0,0,10,0">
 				<Viewbox>
-					<ListView BorderThickness="0">
-						<ListView.ItemsSource>
-							<DoubleCollection>
-								1,3,2,0,6
-							</DoubleCollection>
-						</ListView.ItemsSource>
+					<ListView BorderThickness="0" ItemsSource="{Binding Progress}">						
 						<ListView.ItemContainerStyle>
 							<Style TargetType="ListViewItem">
 								<Setter Property="HorizontalContentAlignment" Value="Stretch" />

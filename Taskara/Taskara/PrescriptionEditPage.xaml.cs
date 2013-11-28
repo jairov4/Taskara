@@ -18,22 +18,25 @@ using Taskara.Model;
 
 namespace Taskara
 {
+	/// <summary>
+	/// Nodo de un arbol de ejercicios para ser mostrado en la interfaz grafica o manipulado en el 
+	/// modelo de vista.
+	/// </summary>
 	public class ExcerciseTreeItem : ObservableObject
-	{		
+	{
 		string _Name;
+		/// <summary>
+		/// Nombre del ejercicio
+		/// </summary>
 		public string Name
 		{
 			get { return _Name; }
 			set { _Name = value; NotifyPropertyChanged("Name"); }
 		}
 
-		long _Repetitions;
-		public long Repetitions
-		{
-			get { return _Repetitions; }
-			set { _Repetitions = value; NotifyPropertyChanged("Repetitions"); }
-		}
-
+		/// <summary>
+		/// Hijos del nodo
+		/// </summary>
 		ObservableCollection<ExcerciseTreeItem> _Children;
 		public ObservableCollection<ExcerciseTreeItem> Children
 		{
@@ -41,6 +44,9 @@ namespace Taskara
 		}
 
 		ExcerciseTreeItem _Parent;
+		/// <summary>
+		/// Padre de este nodo
+		/// </summary>
 		public ExcerciseTreeItem Parent
 		{
 			get { return _Parent; }
@@ -48,6 +54,9 @@ namespace Taskara
 		}
 
 		bool _Visible = true;
+		/// <summary>
+		/// Indica si este nodo debe mostrarse en la representacion grafico del arbol
+		/// </summary>
 		public bool Visible
 		{
 			get { return _Visible; }
@@ -60,6 +69,11 @@ namespace Taskara
 			_Children.CollectionChanged += _Children_CollectionChanged;
 		}
 
+		/// <summary>
+		/// Construye un nodo con un nombre y una coleccion de hijos
+		/// </summary>
+		/// <param name="name"></param>
+		/// <param name="children"></param>
 		public ExcerciseTreeItem(string name, IEnumerable<ExcerciseTreeItem> children = null)
 		{
 			Name = name;
@@ -74,6 +88,8 @@ namespace Taskara
 
 		void _Children_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
 		{
+			// Es necesario suscribirse un delegado para monitorear los cambios en los descendientes
+			// para asegurar que un nodo se muestra solo si contiene al menos un hijo visible
 			if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add
 				|| e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Replace)
 			{
@@ -99,22 +115,42 @@ namespace Taskara
 			}
 		}
 
+		/// <summary>
+		/// Si un hijo cambia su propiedad Visible, entonces se reevalua la visibilidad del padre
+		/// </summary>		
 		void child_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			if (e.PropertyName == "Visible") UpdateVisible();
 		}
 
+		/// <summary>
+		/// Hace al nodo visible solo si contiene al menos un hijo visible
+		/// </summary>
 		private void UpdateVisible()
 		{
 			Visible = Children.Any(x => x.Visible);
 		}
 
+		/// <summary>
+		/// Busca un nodo en varios arboles usando una ruta
+		/// </summary>
+		/// <param name="path">Ruta a buscar</param>
+		/// <param name="range">Nodos raices de los arboles</param>
+		/// <returns>Instancia del nodo encontrado o <value>null</value></returns>
 		public static ExcerciseTreeItem Find(IEnumerable<string> path, IEnumerable<ExcerciseTreeItem> range)
 		{
 			var items = GetItemsInPath(path, range);
 			return items.LastOrDefault();
 		}
 
+		/// <summary>
+		/// Devuelve todos los nodos desde el padre hasta el ultimo descendiente en ese orden 
+		/// para una ruta especifica.
+		/// La ruta buscada tiene que existir.
+		/// </summary>
+		/// <param name="path">Ruta que se busca</param>
+		/// <param name="items">Arboles donde buscar</param>
+		/// <returns>Instancias de nodos correspondientes a la rama encontrada</returns>
 		public static IEnumerable<ExcerciseTreeItem> GetItemsInPath(IEnumerable<string> path, IEnumerable<ExcerciseTreeItem> items)
 		{
 			var currentName = path.FirstOrDefault();
@@ -131,6 +167,11 @@ namespace Taskara
 			}
 		}
 
+		/// <summary>
+		/// Retorna los items ancestros del nodo actual hasta el nodo actual
+		/// en ese orden.
+		/// </summary>
+		/// <returns>Instancias de ancestros y nodo actual</returns>
 		public IEnumerable<ExcerciseTreeItem> GetItemsInPath()
 		{
 			if (Parent != null)
@@ -139,6 +180,10 @@ namespace Taskara
 			yield return this;
 		}
 
+		/// <summary>
+		/// Calcula la ruta del nodo actual desde su mas lejano ancestro
+		/// </summary>
+		/// <returns>Nombres en la rama de nodos ancestros hasta el nombre del nodo actual</returns>
 		public IEnumerable<string> GetPath()
 		{
 			if (Parent != null)
@@ -170,6 +215,13 @@ namespace Taskara
 		ObservableCollection<ExcerciseTreeItem> _AvailableExcercises = new ObservableCollection<ExcerciseTreeItem>();
 		public ObservableCollection<ExcerciseTreeItem> AvailableExcercises { get { return _AvailableExcercises; } }
 
+		List<ProgressCellData> _Progress;
+		public List<ProgressCellData> Progress
+		{
+			get { return _Progress; }
+			set { _Progress = value; NotifyPropertyChanged("Progress"); }
+		}
+
 		bool _IsNew;
 		public bool IsNew
 		{
@@ -179,6 +231,7 @@ namespace Taskara
 
 		public PrescriptionViewModel()
 		{
+			// TODO: Programar ejercicios verdaderos
 			AvailableExcercises.Add(new ExcerciseTreeItem("Nivel I", new[]
 				{
 					new ExcerciseTreeItem("an"),
@@ -188,12 +241,20 @@ namespace Taskara
 				}));
 		}
 
+		/// <summary>
+		/// Añade a los ejercicios prescritos los seleccionados en el arbol
+		/// </summary>
 		public void AddSelected()
 		{
 			if (SelectedSourceExcercise == null || !SelectedSourceExcercise.Visible) return;
 			Add(SelectedSourceExcercise);
 		}
 
+		/// <summary>
+		/// Añade un item a los ejercicios prescritos.
+		/// El item debe existir en la lista de items disponibles
+		/// </summary>
+		/// <param name="tryItem">Item que va a añadir</param>
 		private void Add(ExcerciseTreeItem tryItem)
 		{
 			if (tryItem.Children.Count > 0)
@@ -210,6 +271,11 @@ namespace Taskara
 			}
 		}
 
+		/// <summary>
+		/// Inserta un item en la lista de ejercicios prescritos en un indice especificado
+		/// </summary>
+		/// <param name="tryItem">Item que va añadir</param>
+		/// <param name="idx">Indice donde va quedar el nuevo elemento</param>
 		public void Insert(ExcerciseTreeItem tryItem, int idx)
 		{
 			if (tryItem.Children.Count > 0)
@@ -226,6 +292,11 @@ namespace Taskara
 			}
 		}
 
+		/// <summary>
+		/// Inserta el item seleccionado en la lista de ejercicios disponibles en la lista 
+		/// de ejercicios prescritos, el ejercicio queda en el indice especificado.
+		/// </summary>
+		/// <param name="idx">Indice donde va a quedar el nuevo elemento</param>
 		public void InsertSelected(int idx)
 		{
 			if (SelectedSourceExcercise == null || !SelectedSourceExcercise.Visible) return;
@@ -233,6 +304,11 @@ namespace Taskara
 			SelectedSourceExcercise = null;
 		}
 
+		/// <summary>
+		/// Remueve de la lista de ejercicios prescritos el elemento seleccionado.
+		/// Se establece su atributo visible en true, para que sea visible en el arbol
+		/// de ejercicios disponibles.
+		/// </summary>
 		public void RemoveSelected()
 		{
 			var tmp = SelectedPrescriptionExcercise;
@@ -242,6 +318,9 @@ namespace Taskara
 			SelectedPrescriptionExcercise = null;
 		}
 
+		/// <summary>
+		/// Mueve un ejercicio prescrito seleccionado hacia arriba (decrementa su indice)
+		/// </summary>
 		public void MoveUpSelected()
 		{
 			if (SelectedPrescriptionExcercise == null) return;
@@ -252,6 +331,9 @@ namespace Taskara
 			PrescriptionExcercises.Insert(idx - 1, tmp);
 		}
 
+		/// <summary>
+		/// Mueve un ejercicio prescrito seleccionado hacia abajo (decrementa su indice)
+		/// </summary>
 		public void MoveDownSelected()
 		{
 			if (SelectedPrescriptionExcercise == null) return;
@@ -263,11 +345,22 @@ namespace Taskara
 		}
 
 		Prescription prescription;
+		/// <summary>
+		/// Prescripcion siendo editada
+		/// </summary>
 		public Prescription Prescription
 		{
 			get { return prescription; }
 		}
 
+		/// <summary>
+		/// Prepara este modelo de vista para trabajar con una prescripcion existente o 
+		/// crear una nueva.
+		/// </summary>
+		/// <param name="obj">
+		/// si es un entero, indicará el identifiador de la prescripcion a evaluar.
+		/// Si es un paciente, indicará el paciente asociado
+		/// </param>
 		public void OpenView(object obj)
 		{
 			if (obj is long)
@@ -287,6 +380,9 @@ namespace Taskara
 			}
 		}
 
+		/// <summary>
+		/// Guarda los cambios en la prescripcion
+		/// </summary>
 		public void CloseView()
 		{
 			if (!IsNew || PrescriptionExcercises.Count > 0)
@@ -296,6 +392,10 @@ namespace Taskara
 			}
 		}
 
+		/// <summary>
+		/// Ajusta los datos para reflejar la vista de una prescripcion
+		/// </summary>
+		/// <param name="prescription">Prescripcion a desplegar</param>
 		private void BuildView(Prescription prescription)
 		{
 			foreach (var item in prescription.Excercises)
@@ -304,12 +404,43 @@ namespace Taskara
 				// TODO: Manage unknown
 				if (treeItem != null)
 				{
-					//treeItem.Repetitions = item.Repetitions;
 					Add(treeItem);
 				}
 			}
+			var pid = App.Instance.Service.GetId(prescription.Patient);
+			var reps = App.Instance.Service.ListProgressReportsByPatientId(pid);
+			var reportData = new List<ProgressCellData>(reps.Count);
+			reps.Sort((x, y) => (int)(x.Issued - y.Issued).TotalSeconds);
+			Progress = null;
+			if (reps.Count == 0) return;
+
+			var dt = reps.FirstOrDefault().Issued;
+			foreach (var item in reps)
+			{
+				if (item.Issued > dt)
+				{
+					var remaining = dt.Date - item.Issued.Date;
+					for (int i = 1; i <= (int)remaining.TotalDays; i++)
+					{
+						var emptyDay = new ProgressCellData();
+						emptyDay.Date = dt.Date.AddDays(i);						
+					}
+				}
+
+				var dat = new ProgressCellData();
+				dat.Date = item.Issued;
+				dt = item.Issued;
+				dat.Good = item.Progress.Sum(x => x.GoodRepetitions);
+				dat.Total = item.Progress.Sum(x => x.TotalRepetitions);
+				reportData.Add(dat);				
+			}
+			Progress = reportData;
 		}
 
+		/// <summary>
+		/// Convierte los datos en este modelo de vista en una prescripcion del modelo de objetos
+		/// de la aplicacion (que puede ser guardado u exportado)
+		/// </summary>
 		private void BuildPrescription()
 		{
 			var list = new List<Excercise>();
@@ -322,7 +453,6 @@ namespace Taskara
 					found = new Excercise();
 					found.Name = item.Name;
 					found.Path = itemPath.ToArray();
-					//found.Repetitions = item.Repetitions;
 					prescription.Excercises.Add(found);
 				}
 				list.Add(found);
@@ -330,7 +460,7 @@ namespace Taskara
 			foreach (var item in prescription.Excercises.ToArray())
 			{
 				if (!list.Contains(item)) prescription.Excercises.Remove(item);
-			}
+			}			
 		}
 	}
 

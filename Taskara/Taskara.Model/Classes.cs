@@ -24,6 +24,9 @@ namespace Taskara.Model
 		Male, Female
 	}
 
+	/// <summary>
+	/// Paciente
+	/// </summary>
 	public class Patient
 	{
 		public string FirstName { get; set; }
@@ -35,24 +38,61 @@ namespace Taskara.Model
 		public DateTime Birthdate { get; set; }
 		public string Phone { get; set; }
 		public Genre Genre { get; set; }
+
+		/// <summary>
+		/// Datos binarios de la imagen
+		/// </summary>
 		public byte[] PhotoData { get; set; }
+
+		/// <summary>
+		/// Usualmente "image/jpeg"
+		/// </summary>
 		public string PhotoDataMime { get; set; }
+
 		public string Diganosis { get; set; }
 		public string Amplifier { get; set; }
 	}
 
+	/// <summary>
+	/// Ejercicio del juego
+	/// </summary>
 	public class Excercise
 	{
+		/// <summary>
+		/// Nombre del ejercicio
+		/// </summary>
 		public string Name { get; set; }
+
+		/// <summary>
+		/// Secuencia de categorias en orden y nombre del ejercicio
+		/// </summary>
 		public string[] Path { get; set; }
+
+		/// <summary>
+		/// Dias de la semana recomendados para este ejercicio
+		/// </summary>
 		public DayOfWeek[] WeeklyBasis { get; set; }
 	}
 
+	/// <summary>
+	/// Receta prescrita por el profesional de salud encargado
+	/// </summary>
 	public class Prescription
 	{
+		/// <summary>
+		/// Fechad de expedicion de la receta
+		/// </summary>
 		public DateTime Issued { get; set; }
+
+		/// <summary>
+		/// Paciente asociado con esta receta
+		/// </summary>
 		public Patient Patient { get; set; }
-		public IList<Excercise> Excercises { get; set; }
+
+		/// <summary>
+		/// Lista de ejercicios prescritos
+		/// </summary>
+		public List<Excercise> Excercises { get; set; }
 
 		public void SaveXml(Stream str)
 		{
@@ -66,13 +106,26 @@ namespace Taskara.Model
 			return (Prescription)ser.ReadObject(str);
 		}
 	}
-	
+
+	/// <summary>
+	/// Reporte para un solo ejercicio
+	/// </summary>
 	public class ExcerciseProgressReport
 	{
+		/// <summary>
+		/// Ejercicio asociado
+		/// </summary>
 		public Excercise Excercise { get; set; }
-		public string Name { get; set; }
-		public long TotalRepetitions { get; set; }
-		public long GoodRepetitions { get; set; }
+
+		/// <summary>
+		/// Repeticiones totales ejercitadas por el paciente
+		/// </summary>
+		public int TotalRepetitions { get; set; }
+
+		/// <summary>
+		/// Repeticiones acertadas
+		/// </summary>
+		public int GoodRepetitions { get; set; }
 	}
 
 	/// <summary>
@@ -80,11 +133,23 @@ namespace Taskara.Model
 	/// </summary>
 	public class PrescriptionProgressReport
 	{
+		// Identificador del reporte
 		public long ReportId { get; set; }
+
+		/// <summary>
+		/// Fecha de expedicion del reporte de progreso
+		/// </summary>
 		public DateTime Issued { get; set; }
 
+		/// <summary>
+		/// Receta asociada a este reporte de progreso
+		/// </summary>
 		public Prescription Prescription { get; set; }
-		public IList<ExcerciseProgressReport> Progress { get; set; }
+
+		/// <summary>
+		/// Reporte por cada ejercicio realizado
+		/// </summary>
+		public List<ExcerciseProgressReport> Progress { get; set; }
 
 		public void SaveXml(Stream str)
 		{

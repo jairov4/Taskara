@@ -17,7 +17,7 @@
 		</Grid.RowDefinitions>
 		<TextBlock Margin="5,0,3,0" Foreground="#1B676B" TextAlignment="Left" Text="{Binding Day}"></TextBlock>
 
-		<Rectangle Grid.Column="1" Grid.RowSpan="2" Visibility="{Binding Total}">
+		<Rectangle Grid.Column="1" Grid.RowSpan="2" Visibility="{Binding SmileyVisibility}">
 			<Rectangle.Fill>
 				<DrawingBrush Stretch="Uniform" AlignmentX="Right">
 					<DrawingBrush.Drawing>
@@ -47,7 +47,7 @@
 					   Canvas.Left="350" 
 					   Canvas.Top="120" 
 					   TextAlignment="Right"
-					   Visibility="{Binding IsFirstMonday}"
+					   Visibility="{Binding IsFirstDayOfWeek}"
 					   Text="{Binding Month}" />
 		</Canvas>
 		<Popup x:Name="popup" IsOpen="{Binding IsMouseOver, ElementName=root, Mode=OneWay}" 

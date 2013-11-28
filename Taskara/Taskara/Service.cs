@@ -135,5 +135,13 @@ namespace Taskara
 			return p;
 		}
 
+
+		public List<PrescriptionProgressReport> ListProgressReportsByPatientId(long pid)
+		{
+			var p = GetPatientById(pid);
+			var l = ObjectContainer.Query<PrescriptionProgressReport>(x => x.Prescription.Patient == p);
+			//var l = ObjectContainer.Query<PrescriptionProgressReport>(x => x.Prescription.Patient.Document == p.Document && x.Prescription.Patient.DocumentType == p.DocumentType);			
+			return new List<PrescriptionProgressReport>(l);
+		}
 	}
 }
