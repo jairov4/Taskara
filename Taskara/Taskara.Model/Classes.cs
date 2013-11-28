@@ -163,4 +163,26 @@ namespace Taskara.Model
 			return (PrescriptionProgressReport)ser.ReadObject(str);
 		}
 	}
+
+	/// <summary>
+	/// Coleccion de reportes de progreso. 
+	/// Cada reporte contiene el informe de una sola sesion.
+	/// Una sesion esta asociada a una sola fecha.
+	/// </summary>
+	public class PrescriptionProgressReportCollection
+	{
+		public List<PrescriptionProgressReport> Reports { get; set; }
+
+		static public PrescriptionProgressReportCollection LoadXml(Stream xml)
+		{
+			var ser = new DataContractSerializer(typeof(PrescriptionProgressReportCollection));
+			return (PrescriptionProgressReportCollection)ser.ReadObject(xml);
+		}
+
+		public void Save(Stream xml)
+		{
+			var ser = new DataContractSerializer(typeof(PrescriptionProgressReportCollection));
+			ser.WriteObject(xml, this);
+		}
+	}
 }
