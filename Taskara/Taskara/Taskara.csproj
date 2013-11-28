@@ -101,9 +101,6 @@
       <DependentUpon>ImageSelector.xaml</DependentUpon>
     </Compile>
     <Compile Include="NavigationService.cs" />
-    <Compile Include="PatientProgressPage.xaml.cs">
-      <DependentUpon>PatientProgressPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PrescriptionEditPage.xaml.cs">
       <DependentUpon>PrescriptionEditPage.xaml</DependentUpon>
     </Compile>
@@ -122,10 +119,6 @@
     <Page Include="ImageSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PatientProgressPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="ProgressCell.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Taskara.Model;
 
 namespace Taskara
 {
@@ -27,15 +28,18 @@ namespace Taskara
 
 	public class ProgressCellData
 	{
-		public DateTime Date { get; set; }
-		public int Good { get; set; }
-		public int Total { get; set; }
+		public PrescriptionProgressReport Report { get; set; }
+
+		DateTime? _Date = null;
+		public DateTime Date { get { return _Date ?? Report.Issued; } set { _Date = value; } }
+		public int TotalGood { get { return Report == null ? 0 : Report.Progress.Sum(x => x.GoodRepetitions); } }
+		public int Total { get { return Report == null ? 0 : Report.Progress.Sum(x => x.TotalRepetitions); } }
 
 		public Visibility SmileyVisibility
 		{
 			get
 			{
-				return Good > 0 ? Visibility.Visible : Visibility.Hidden;
+				return TotalGood > 0 ? Visibility.Visible : Visibility.Hidden;
 			}
 		}
 

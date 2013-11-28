@@ -459,10 +459,8 @@ namespace Taskara
 				}
 
 				var dat = new ProgressCellData();
-				dat.Date = item.Issued;
-				dt = item.Issued;
-				dat.Good = item.Progress.Sum(x => x.GoodRepetitions);
-				dat.Total = item.Progress.Sum(x => x.TotalRepetitions);
+				dat.Report = item;
+				dt = item.Issued;				
 				weekDayIdx = Util.DayOfWeekToNumber(dt.DayOfWeek);
 				cw.Days[weekDayIdx] = dat;
 				if (weekDayIdx == 6)
@@ -633,14 +631,7 @@ namespace Taskara
 
 		private void btnViewProgress_Click(object sender, RoutedEventArgs e)
 		{
-			if (!ViewModel.IsNew)
-			{
-				Navigate(typeof(PatientProgressPage));
-			}
-			else
-			{
-				MessageBox.Show("Lo siento, no puedes ver el progreso de una prescripcion nueva");
-			}
+
 		}
 	}
 }

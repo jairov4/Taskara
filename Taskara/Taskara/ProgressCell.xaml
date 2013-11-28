@@ -38,7 +38,7 @@
 		</Rectangle>
 
 		<TextBlock Visibility="{Binding SmileyVisibility, FallbackValue=Hidden}" Foreground="#001D2D" Grid.Row="1" TextAlignment="Center" Grid.ColumnSpan="1">
-			<Run Text="{Binding Good}" /><Run Text="/" /><Run Text="{Binding Total}" />
+			<Run Text="{Binding TotalGood, Mode=OneWay}" /><Run Text="/" /><Run Text="{Binding Total, Mode=OneWay}" />
 		</TextBlock>
 
 		<Canvas ClipToBounds="False">
@@ -53,9 +53,24 @@
 		<Popup x:Name="popup" IsOpen="{Binding IsMouseOver, ElementName=root, Mode=OneWay}" 
 			   AllowsTransparency="True"
 			   Placement="Right">
-			<Grid TextElement.Foreground="white" Background="Navy">				
-				<TextBlock Margin="10">El dia tatatata</TextBlock>
-			</Grid>
+			<Border TextElement.Foreground="white" Background="Navy" Padding="10">
+				<StackPanel>
+					<TextBlock>
+					<Run>En</Run> <Run Text="{Binding Date, StringFormat=F}" /><LineBreak />
+					<Run>Ejercicios:</Run>
+					</TextBlock>
+					<ListBox FontFamily="Segoe Print" Background="Transparent" BorderBrush="Transparent" Padding="10,3" ItemsSource="{Binding Report.Progress}">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Foreground="White">
+								<Run Text="{Binding Excercise.Name}" />
+								<Run FontWeight="Bold" Text="{Binding GoodRepetitions}" /><Run>/</Run><Run Text="{Binding TotalRepetitions}" />
+								</TextBlock>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+				</StackPanel>
+			</Border>
 		</Popup>
 	</Grid>
 </UserControl>
