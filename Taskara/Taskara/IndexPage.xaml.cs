@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -119,6 +120,40 @@ namespace Taskara
 		{
 			if (ViewModel.SelectedPrescription != null)
 				Navigate(typeof(PrescriptionEditPage), App.Instance.Service.GetId(ViewModel.SelectedPrescription));
+		}
+
+		private void btnLoadFile_Click(object sender, RoutedEventArgs e)
+		{
+			var dlg = new OpenFileDialog();
+			dlg.Title = "Cargar informacion desde archivo";
+			dlg.CheckFileExists = true;
+			dlg.Multiselect = true;
+			dlg.Filter = "Archivos de progreso (*.pxml)|*.pxml|Todos los archivos (*.*)|*.*";
+			var r = dlg.ShowDialog();
+			if (r != true) return;
+			var errors = new List<Exception>();
+			foreach (var filestream in dlg.OpenFiles())
+			{
+				try
+				{
+					var rr = PrescriptionProgressReport.LoadXml(filestream);
+					App.Instance.Service.SaveProgressReport(rr);
+				}
+				catch (Exception ex)
+				{
+					errors.Add(ex);
+				}
+				finally
+				{
+					filestream.Close();
+				}
+			}
+			if (errors.Count > 0)
+			{
+				var errMsgs = string.Join(Environment.NewLine, errors.Select(x => x.Message));
+				var smsg = string.Format("Hubo {0} errores {1}", errors.Count, errMsgs);
+				MessageBox.Show(smsg);
+			}
 		}
 	}
 }

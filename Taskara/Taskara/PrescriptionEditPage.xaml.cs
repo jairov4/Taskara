@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -415,7 +416,7 @@ namespace Taskara
 				{
 					if (item.WeeklyBasis != null)
 						treeItem.WeeklyBasis = item.WeeklyBasis.ToList();
-					else 
+					else
 						treeItem.WeeklyBasis = new List<DayOfWeek>();
 					Add(treeItem);
 				}
@@ -547,6 +548,19 @@ namespace Taskara
 
 		private void btnFinish_Click(object sender, RoutedEventArgs e)
 		{
+			ViewModel.CloseView();
+			var dlg = new SaveFileDialog();
+			dlg.Title = "Exportar archivo de Prescripcion";
+			dlg.Filter = "Archivos de prescripcion (*.rxml)|*.rxml|Todos los archivos (*.*)|*.*";
+			var r = dlg.ShowDialog();
+			if (r == true)
+			{
+				using (var str = dlg.OpenFile())
+				{
+					ViewModel.Prescription.SaveXml(str);
+					str.Close();
+				}
+			}
 			Navigate(typeof(IndexPage));
 		}
 

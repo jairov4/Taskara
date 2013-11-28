@@ -53,10 +53,11 @@
 				<RowDefinition Height="Auto"/>
 				<RowDefinition/>
 			</Grid.RowDefinitions>
-			<Button HorizontalAlignment="Left" Click="btnViewRecipes_Click" Content="Ver recetas"/>
+			<Button HorizontalAlignment="Left" Click="btnViewRecipes_Click" Content="Ver recetas"/>			
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
+				<Button Click="btnLoadFile_Click" Content="Cargar archivo" />
 				<Button Click="btnCreateRecipe_Click" Content="Nueva receta"/>
-				<Button Margin="-1,0,0,0" Click="btnNewPatient_Click" Content="Nuevo paciente"/>
+				<Button Margin="-1,0,0,0" Click="btnNewPatient_Click" Content="Nuevo paciente"/>				
 			</StackPanel>
 			<ListBox Background="#aaffffff" Margin="0,20,0,0" 
 					 ItemsSource="{Binding Patients}" 

@@ -10,6 +10,18 @@ using Taskara.Model;
 
 namespace Taskara
 {
+	[Serializable]
+	public class AlreadyExistObjectException : InvalidOperationException
+	{
+		public AlreadyExistObjectException() : base("Ya existe un objeto equivalente") { }
+		public AlreadyExistObjectException(string message) : base(message) { }
+		public AlreadyExistObjectException(string message, Exception inner) : base(message, inner) { }
+		protected AlreadyExistObjectException(
+		  System.Runtime.Serialization.SerializationInfo info,
+		  System.Runtime.Serialization.StreamingContext context)
+			: base(info, context) { }
+	}
+
 	public class Service
 	{
 		IExtObjectContainer ObjectContainer;
@@ -74,6 +86,12 @@ namespace Taskara
 			return patient as Patient;
 		}
 
+		public Patient GetPatientByDocumentId(string id, DocumentType type)
+		{
+			var p = ObjectContainer.Query<Patient>(x => x.Document == id && x.DocumentType == type);
+			return p.FirstOrDefault();
+		}
+
 		public void SavePatient(Patient patient)
 		{
 			if (!ObjectContainer.IsStored(patient))
@@ -81,7 +99,7 @@ namespace Taskara
 				if (!string.IsNullOrWhiteSpace(patient.Document))
 				{
 					var contains = ObjectContainer.Query<Patient>(x => x.Document == patient.Document && x.DocumentType == patient.DocumentType).FirstOrDefault();
-					if (contains != null) throw new InvalidOperationException("Ya existe un paciente con la misma identificacion");
+					if (contains != null) throw new AlreadyExistObjectException("Ya existe un paciente con la misma identificacion");
 				}
 			}
 			patient.FirstName = patient.FirstName ?? string.Empty;
@@ -98,14 +116,55 @@ namespace Taskara
 			{
 				throw new InvalidOperationException("Prescripcion sin paciente");
 			}
+			if (!ObjectContainer.IsStored(prescription))
+			{
+				var foundExist = ObjectContainer.Query<Prescription>(x =>
+					x.Patient.DocumentType == prescription.Patient.DocumentType
+					&& x.Patient.Document == prescription.Patient.Document
+					&& x.Issued == prescription.Issued
+				).FirstOrDefault();
+				if (foundExist != null) throw new AlreadyExistObjectException("Ya existe una prescripcion para este paciente y en esta fecha");
+			}
 			ObjectContainer.Store(prescription, 2);
 			ObjectContainer.Commit();
 		}
 
 		public void SaveProgressReport(PrescriptionProgressReport report)
 		{
-			ObjectContainer.Store(report, 2);
+			if (!ObjectContainer.IsStored(report))
+			{
+				var foundExist = ObjectContainer.Query<PrescriptionProgressReport>(x =>
+					x.Issued == report.Issued
+					&& x.Prescription.Patient.Document == report.Prescription.Patient.Document
+					&& x.Prescription.Patient.DocumentType == report.Prescription.Patient.DocumentType
+					&& x.Prescription.Issued == report.Prescription.Issued
+				).FirstOrDefault();
+				if (foundExist != null) throw new AlreadyExistObjectException("Ya existe registro de este reporte de progreso");
+			}
+
+			// Asegura la prescripcion asociada, para no duplicarla
+			var rp = GetPrescriptionByDateAndPatient(report.Prescription.Issued, report.Prescription.Patient.Document, report.Prescription.Patient.DocumentType);
+			if (rp != null)
+			{
+				report.Prescription = rp;
+			}
+			else
+			{
+				// Si la prescripcion no se encuentra asegura el paciente, para crear la prescripcion con todo y paciente
+				var pt = GetPatientByDocumentId(report.Prescription.Patient.Document, report.Prescription.Patient.DocumentType);
+				if (pt != null)
+				{
+					report.Prescription.Patient = pt;
+				}
+			}
+			ObjectContainer.Store(report, 3);
 			ObjectContainer.Commit();
+		}
+
+		private Prescription GetPrescriptionByDateAndPatient(DateTime dateTime, string p, DocumentType documentType)
+		{
+			var r = ObjectContainer.Query<Prescription>(x => x.Issued == dateTime && x.Patient.Document == p && x.Patient.DocumentType == documentType).FirstOrDefault();
+			return r;
 		}
 
 		public IList<Patient> ListPatients()
@@ -115,6 +174,7 @@ namespace Taskara
 
 		public IList<Prescription> ListPrescriptionsByPatient(Patient p)
 		{
+			if (!ObjectContainer.IsStored(p)) throw new InvalidOperationException("No se puede buscar prescripciones usando un paciente no almacenado");
 			return ObjectContainer.Query<Prescription>(x => x.Patient == p);
 		}
 

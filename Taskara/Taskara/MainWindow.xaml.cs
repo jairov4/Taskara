@@ -24,6 +24,9 @@ namespace Taskara
 		public MainWindow()
 		{
 			InitializeComponent();
+			new IndexPage();
+			new PatientEditPage();
+			new PrescriptionEditPage();
 			//navigationSurface.Navigate(typeof(LoginPage), null, true);
 			navigationSurface.Navigate(typeof(IndexPage));
 		}
