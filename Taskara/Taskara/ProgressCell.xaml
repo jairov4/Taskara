@@ -56,7 +56,7 @@
 			<Border TextElement.Foreground="white" Background="Navy" Padding="10">
 				<StackPanel>
 					<TextBlock>
-					<Run>En</Run> <Run Text="{Binding Date, StringFormat=F}" /><LineBreak />
+					<Run>En</Run> <Run Text="{Binding Date, StringFormat=D}" /><LineBreak />
 					<Run>Ejercicios:</Run>
 					</TextBlock>
 					<ListBox FontFamily="Segoe Print" Background="Transparent" BorderBrush="Transparent" Padding="10,3" ItemsSource="{Binding Report.Progress}">
