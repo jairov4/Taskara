@@ -66,14 +66,23 @@
 						   VerticalOffset="-12">
 						<Border Background="#FF144705" Padding="20" TextElement.Foreground="White">
 							<TextBlock>
-								<Run>Fonoaudilogo:</Run>
-								<Run>Pepita Mendez</Run>
+								<Run>Direccion:</Run>
+								<Run Text="{Binding Prescription.Patient.Address}" />
 								<LineBreak/>
-								<Run>Fecha de receta:</Run>
-								<Run>10/25/2013 (Ayer)</Run>
+								<Run>Documento:</Run>
+								<Run Text="{Binding Prescription.Patient.Document}" />
 								<LineBreak />
-								<Run>Ultimo Registro de progreso:</Run>
-								<Run>10/25/2013 (Ayer)</Run>
+								<Run>Tipo de documento:</Run>
+								<Run Text="{Binding Prescription.Patient.DocumentType}" />
+								<LineBreak />
+								<Run>Telefono:</Run>
+								<Run Text="{Binding Prescription.Patient.Phone}" />
+								<LineBreak />
+								<Run>Fecha de nacimiento:</Run>
+								<Run Text="{Binding Prescription.Patient.Birthdate, StringFormat=D}" />
+								<LineBreak />
+								<Run>Genero:</Run>
+								<Run Text="{Binding Prescription.Patient.Genre}" />
 							</TextBlock>
 						</Border>
 					</Popup>
