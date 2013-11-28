@@ -34,11 +34,22 @@ namespace Taskara
 			Instance = this;
 			base.OnStartup(e);
 
+			Debug.WriteLine(System.Globalization.CultureInfo.CurrentUICulture);
+			Debug.WriteLine(System.Globalization.CultureInfo.CurrentCulture);
+
+			FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement),
+				new FrameworkPropertyMetadata(
+					System.Windows.Markup.XmlLanguage.GetLanguage(
+						System.Globalization.CultureInfo.CurrentCulture.IetfLanguageTag
+					)
+				)
+			);
+
 			if (Keyboard.IsKeyDown(Key.F11))
 			{
 				var dlg = new Microsoft.Win32.OpenFileDialog();
 				dlg.Title = "Reemplazar base de datos";
-				dlg.Filter = "Base de datos (*.yap)|*.yap|Todos los archivos (*.*)|*.*";				
+				dlg.Filter = "Base de datos (*.yap)|*.yap|Todos los archivos (*.*)|*.*";
 				var r = dlg.ShowDialog();
 				if (r == true)
 				{
@@ -57,7 +68,7 @@ namespace Taskara
 			if (!Directory.Exists(folder))
 			{
 				Directory.CreateDirectory(folder);
-			} 
+			}
 			return fn;
 		}
 
