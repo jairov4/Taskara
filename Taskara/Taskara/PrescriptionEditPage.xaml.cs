@@ -245,13 +245,14 @@ namespace Taskara
 
 			var r = from c in items.ExerciseDefinitions
 					group c by c.Group into g1
-					select new ExerciseTreeItem(g1.Key, 
-						from d in g1 group d by d.Skill into g2
-						select new ExerciseTreeItem("Subhabilidad "+g2.Key,
+					select new ExerciseTreeItem(g1.Key,
+						from d in g1
+						group d by d.Skill into g2
+						select new ExerciseTreeItem("Subhabilidad " + g2.Key,
 							from e in g2 select new ExerciseTreeItem(e.Exercise)
 							)
 						);
-						
+
 
 			//var r = from c in items.ExerciseDefinitions
 			//		group c by c.Level into g1
