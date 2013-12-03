@@ -56,7 +56,7 @@ namespace Taskara.Model
 	/// <summary>
 	/// Ejercicio del juego
 	/// </summary>
-	public class Excercise
+	public class Exercise
 	{
 		/// <summary>
 		/// Nombre del ejercicio
@@ -92,7 +92,7 @@ namespace Taskara.Model
 		/// <summary>
 		/// Lista de ejercicios prescritos
 		/// </summary>
-		public List<Excercise> Excercises { get; set; }
+		public List<Exercise> Exercises { get; set; }
 
 		public void SaveXml(Stream str)
 		{
@@ -110,12 +110,12 @@ namespace Taskara.Model
 	/// <summary>
 	/// Reporte para un solo ejercicio
 	/// </summary>
-	public class ExcerciseProgressReport
+	public class ExerciseProgressReport
 	{
 		/// <summary>
 		/// Ejercicio asociado
 		/// </summary>
-		public Excercise Excercise { get; set; }
+		public Exercise Exercise { get; set; }
 
 		/// <summary>
 		/// Repeticiones totales ejercitadas por el paciente
@@ -149,7 +149,7 @@ namespace Taskara.Model
 		/// <summary>
 		/// Reporte por cada ejercicio realizado
 		/// </summary>
-		public List<ExcerciseProgressReport> Progress { get; set; }
+		public List<ExerciseProgressReport> Progress { get; set; }
 
 		public void SaveXml(Stream str)
 		{

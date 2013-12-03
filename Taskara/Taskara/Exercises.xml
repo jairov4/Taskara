@@ -1,0 +1,1661 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExerciseExchangeDefinitionCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ExerciseDefinitions>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>di</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>du</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>da</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>de</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>do</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dada</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>didi</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dudu</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dede</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dodo</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dadada</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dididi</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dududu</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dedede</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dododo</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>diduda</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dudida</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dadudi</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dadidu</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dideda</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dadedi</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dudoda</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dadodu</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dama</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>deme</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dimi</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>domo</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dumu</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>daba</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>debe</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dibi</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dobo</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>dubu</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>adá</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>áda</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>idí</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ídi</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>udú</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>údu</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>edé</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>éde</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>odó</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>d</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ódo</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ta</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>te</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ti</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>to</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>tu</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ititit</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>atatat</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ututut</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>etetet</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ototot</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>tada</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>tede</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>tidi</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>todo</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>tudu</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>bata</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>bete</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>biti</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>boto</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>t</Group>
+      <Order xsi:nil="true" />
+      <Exercise>butu</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>in</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>un</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>an</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nanana</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ninini</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nununu</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nenene</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nonono</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ninuna</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nunina</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nanuni</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>naninu</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ninena</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>naneni</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nunona</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nanonu</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nana</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nene</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nini</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nono</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nunu</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nani</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nanu</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nina</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ninu</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nuna</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nuni</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nada</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nede</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nidi</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nodo</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nudu</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>napa</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nepe</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nipi</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nopo</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>n</Group>
+      <Order xsi:nil="true" />
+      <Exercise>nupu</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>alalal</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ululul</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ililil</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>elelel</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ololol</Exercise>
+      <Skill>1</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ala</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>alu</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ali</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ila</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ili</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ilu</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ula</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>uli</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ulu</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ela</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>elu</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>eli</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ola</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>olu</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>oli</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>la</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>lu</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>lo</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>li</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>le</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>al</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>el</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>il</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ol</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ul</Exercise>
+      <Skill>4</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>alalalananan</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>olololononon</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ilililininin</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>elelelenenen</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ulululununun</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>lalaladadada</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>lililitititi</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>lululunununu</Exercise>
+      <Skill>6</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>falafala</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>filifili</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>folofolo</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>felefele</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>fulufulu</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>fotofoto</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>linilini</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>lunulunu</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>lenelene</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>lonolono</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>l</Group>
+      <Order xsi:nil="true" />
+      <Exercise>lanalana</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>us</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>as</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>is</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>es</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>os</Exercise>
+      <Skill>2</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>asasas</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>isisis</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ususus</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>eseses</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ososos</Exercise>
+      <Skill>3</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>asi</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>asu</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>isa</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>isu</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>usa</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>usi</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>uso</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>osa</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>ise</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>esa</Exercise>
+      <Skill>5</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>sa</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>so</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>si</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>su</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>se</Exercise>
+      <Skill>7</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>pasa</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>pese</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>pisi</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>poso</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>pusu</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>sada</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>sede</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>sidi</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>sodo</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+    <ExerciseExchangeDefinition>
+      <Level>Nivel II</Level>
+      <ShortDescription>Consonantes D,T,N,L,S</ShortDescription>
+      <Description>Enseñanza de las consonantes /d/ /t/ /n/ /l/ /s/</Description>
+      <Group>s</Group>
+      <Order xsi:nil="true" />
+      <Exercise>sudu</Exercise>
+      <Skill>8</Skill>
+    </ExerciseExchangeDefinition>
+  </ExerciseDefinitions>
+</ExerciseExchangeDefinitionCollection>

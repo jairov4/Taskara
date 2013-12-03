@@ -112,11 +112,11 @@
 			<TreeView x:Name="tvSource" Grid.Row="1" Grid.Column="1"
 					  Margin="0,0,0,0"
 					  Background="#aaffffff"
-					  ItemsSource="{Binding AvailableExcercises}" 					  
+					  ItemsSource="{Binding AvailableExercises}" 					  
 					  MouseDoubleClick="tvSource_DoubleClick"
 					  SelectedItemChanged="tvSource_SelectedItemChanged">
 				<TreeView.ItemTemplate>
-					<HierarchicalDataTemplate DataType="taskara:ExcerciseTreeItem" ItemsSource="{Binding Children}">
+					<HierarchicalDataTemplate DataType="taskara:ExerciseTreeItem" ItemsSource="{Binding Children}">
 						<TextBlock Text="{Binding Name}" />
 					</HierarchicalDataTemplate>
 				</TreeView.ItemTemplate>
@@ -132,14 +132,14 @@
 			<ListBox x:Name="lbTarget" Grid.Row="2" Grid.Column="1" 
 					 Margin="0,10,0,0"
 					 Background="#aaffffff"
-					 ItemsSource="{Binding PrescriptionExcercises}"
-					 SelectedItem="{Binding SelectedPrescriptionExcercise}"					 
+					 ItemsSource="{Binding PrescriptionExercises}"
+					 SelectedItem="{Binding SelectedPrescriptionExercise}"					 
 					 DragOver="ListBoxItem_DragEnter" 
 					 DragLeave="ListBoxItem_DragLeave" 
 					 Drop="ListBoxItem_Drop" 
 					 AllowDrop="True">
 				<ListBox.ItemTemplate>
-					<DataTemplate DataType="taskara:ExcerciseTreeItem">
+					<DataTemplate DataType="taskara:ExerciseTreeItem">
 						<DockPanel>
 							<taskara:WeekDaysSelector DataContext="{Binding WeeklyBasis}" DockPanel.Dock="Right" />
 							<TextBlock Text="{Binding Name}" />							
