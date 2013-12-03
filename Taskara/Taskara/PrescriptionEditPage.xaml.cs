@@ -529,9 +529,11 @@ namespace Taskara
 		private void BuildPrescription()
 		{
 			var list = new List<Exercise>();
+			if (prescription.Exercises == null)
+				prescription.Exercises = new List<Exercise>();
 			foreach (var item in PrescriptionExercises)
 			{
-				var itemPath = item.GetPath();
+				var itemPath = item.GetPath();				
 				var found = prescription.Exercises.FirstOrDefault(x => x.Path.SequenceEqual(itemPath));
 				if (found == null)
 				{
