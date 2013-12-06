@@ -72,6 +72,11 @@ namespace Taskara.Model
 		/// Dias de la semana recomendados para este ejercicio
 		/// </summary>
 		public DayOfWeek[] WeeklyBasis { get; set; }
+
+		/// <summary>
+		/// Expresiones regulares para el ejercicio
+		/// </summary>
+		public string[] Syllables { get; set; }
 	}
 
 	/// <summary>
