@@ -136,8 +136,11 @@ namespace Taskara
 			{
 				try
 				{
-					var rr = PrescriptionProgressReport.LoadXml(filestream);
-					App.Instance.Service.SaveProgressReport(rr);
+					var rr = PrescriptionProgressReportCollection.LoadXml(filestream);
+					foreach (var item in rr.Reports)
+					{
+						App.Instance.Service.SaveProgressReport(item);	
+					}					
 				}
 				catch (Exception ex)
 				{
