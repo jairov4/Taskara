@@ -39,7 +39,7 @@ namespace Taskara
 		{
 			get
 			{
-				return TotalGood > 0 ? Visibility.Visible : Visibility.Hidden;
+				return Total > 0 ? Visibility.Visible : Visibility.Hidden;
 			}
 		}
 

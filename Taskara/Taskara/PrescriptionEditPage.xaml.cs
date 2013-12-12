@@ -488,13 +488,17 @@ namespace Taskara
 			{
 				if (item.Issued > dt)
 				{
+					// dias que faltan para el proximo reporte
 					var remaining = (item.Issued.Date - dt.Date).TotalDays - 1;
+					// creamos todos los dias vacios
 					for (int i = 1; i <= (int)remaining; i++)
 					{
 						var emptyDay = new ProgressCellData();
 						emptyDay.Date = dt.Date.AddDays(i);
 						weekDayIdx = Util.DayOfWeekToNumber(emptyDay.Date.DayOfWeek);
 						cw.Days[weekDayIdx] = emptyDay;
+						// si detectamos que termina una semana, la añadimos a la lista de semanas y
+						// empezamos una nueva
 						if (weekDayIdx == 6)
 						{
 							reportWeeksData.Add(cw);
@@ -502,7 +506,7 @@ namespace Taskara
 						}
 					}
 				}
-
+				// creamos una celda para el evento genuino
 				var dat = new ProgressCellData();
 				dat.Report = item;
 				dt = item.Issued;

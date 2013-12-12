@@ -63,7 +63,7 @@
 						<ListBox.ItemTemplate>
 							<DataTemplate>
 								<TextBlock Foreground="White">
-								<Run Text="{Binding Excercise.Name}" />
+								<Run Text="{Binding Exercise.Name}" />
 								<Run FontWeight="Bold" Text="{Binding GoodRepetitions}" /><Run>/</Run><Run Text="{Binding TotalRepetitions}" />
 								</TextBlock>
 							</DataTemplate>
