@@ -455,7 +455,7 @@ namespace Taskara
 			var pid = App.Instance.Service.GetId(prescription.Patient);
 			var reps = App.Instance.Service.ListProgressReportsByPatientId(pid);
 			// TODO: Remove this
-			// TEST CODE
+			/* TEST CODE 
 			if (reps.Count == 0 && prescription.Exercises != null && prescription.Exercises.Count > 0)
 			{
 				var cdate = DateTime.Now.AddDays(-1000);
@@ -474,7 +474,7 @@ namespace Taskara
 					reps.Add(dd);
 					cdate = cdate.AddDays(random.Next(1, 8));
 				}
-			} // END TEST CODE
+			} // END TEST CODE*/
 			var reportWeeksData = new List<ProgressWeekData>();
 			reps.Sort((x, y) => (int)(x.Issued - y.Issued).TotalSeconds);
 			Progress = null;
