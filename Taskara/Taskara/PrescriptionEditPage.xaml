@@ -56,7 +56,7 @@
 						<ColumnDefinition Width="Auto" />
 					</Grid.ColumnDefinitions>
 					<Image Grid.Column="1" Margin="0,0,20,0" Width="120" Source="{Binding Prescription.Patient.PhotoData}" />
-					<TextBlock Grid.Column="0" Margin="20" Foreground="Green" FontSize="30" FontFamily="Segoe Print">
+					<TextBlock Grid.Column="0" Margin="20" Foreground="Green" FontSize="30" FontFamily="./#Segoe Print">
 						<Run Text="{Binding Prescription.Patient.FirstName}" />
 						<Run Text="{Binding Prescription.Patient.LastName}" />
 					</TextBlock>
