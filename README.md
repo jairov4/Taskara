@@ -5,7 +5,7 @@ WPF Application for speech therapist in the Colciencias project of Pontificia Un
 
 ## Screenshots
 
-[![Screenshot1](Screenshots/Taskara1.png "Screenshot1")]
-[![Screenshot2](Screenshots/Taskara2.png "Screenshot2")]
-[![Screenshot3](Screenshots/Taskara3.png "Screenshot3")]
-[![Screenshot4](Screenshots/Taskara4.png "Screenshot4")]
+![Screenshot1](Screenshots/Taskara1.png "Screenshot1")
+![Screenshot2](Screenshots/Taskara2.png "Screenshot2")
+![Screenshot3](Screenshots/Taskara3.png "Screenshot3")
+![Screenshot4](Screenshots/Taskara4.png "Screenshot4")
