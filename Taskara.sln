@@ -1,17 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taskara", "Taskara\Taskara.csproj", "{F4F25D6A-1AFD-45A8-8A37-E8A4C218F2DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taskara.Model", "Taskara.Model\Taskara.Model.csproj", "{4BA8DEC4-919E-463B-89F3-141F6FE01CDF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taskara.Test", "Taskara.Test\Taskara.Test.csproj", "{4C31EF38-C56B-445D-A182-6634B993542E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{EFB2BA1D-E0A2-4695-8781-04635D05343A}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\Taskara1.png = Screenshots\Taskara1.png
+		Screenshots\Taskara2.png = Screenshots\Taskara2.png
+		Screenshots\Taskara3.png = Screenshots\Taskara3.png
+		Screenshots\Taskara4.png = Screenshots\Taskara4.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80C553C5-F7A5-4AA5-8355-6571AECB9A5F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
@@ -40,5 +51,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal
